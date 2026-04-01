@@ -16,6 +16,15 @@ h1{font-size:2rem;margin-bottom:2rem;color:#38bdf8}
 </style>
 </head>
 <body>
+<div id="overlay" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:999">
+<div style="background:#1e293b;padding:2rem;border-radius:14px;text-align:center;border:1px solid #334155;min-width:300px">
+<h2 style="color:#38bdf8;margin-bottom:1rem">🔒 Enter Password</h2>
+<input id="pw" type="password" placeholder="Password" autofocus style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#e2e8f0;font-size:1rem;margin-bottom:1rem;outline:none" onkeydown="if(event.key==='Enter')check()">
+<button onclick="check()" style="width:100%;padding:10px;border-radius:8px;border:none;background:#38bdf8;color:#0f172a;font-weight:700;font-size:1rem;cursor:pointer">Login</button>
+<p id="err" style="color:#f87171;font-size:.85rem;margin-top:.75rem;display:none">Wrong password</p>
+</div>
+</div>
+<script>function check(){if(document.getElementById('pw').value==='exo'){document.getElementById('overlay').style.display='none';sessionStorage.setItem('auth','1')}else{document.getElementById('err').style.display='block'}}if(sessionStorage.getItem('auth')==='1')document.getElementById('overlay').style.display='none'</script>
 <h1>🚀 EXO-Lovers Dashboard</h1>
 <div class="cards">
   <a class="card" href="skenario pengosongan traffic 3rd odc/index.html">
