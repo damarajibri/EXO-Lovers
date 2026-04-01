@@ -2,81 +2,26 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dashboard Report Traffic ODC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXO-Lovers</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;padding:40px 20px}
-.container{max-width:900px;margin:0 auto}
-h1{text-align:center;font-size:1.8em;margin-bottom:6px;color:#fff}
-.sub{text-align:center;color:#94a3b8;font-size:.9em;margin-bottom:36px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:24px}
-.card{background:#1e293b;border-radius:14px;padding:24px;text-decoration:none;color:#e2e8f0;transition:all .2s;border:1px solid #334155;position:relative;overflow:hidden}
-.card:hover{transform:translateY(-4px);border-color:#3b82f6;box-shadow:0 8px 30px rgba(59,130,246,.2)}
-.card .icon{font-size:2em;margin-bottom:10px}
-.card .title{font-size:1.1em;font-weight:700;margin-bottom:4px}
-.card .desc{font-size:.82em;color:#94a3b8;line-height:1.5}
-.card .badge{position:absolute;top:16px;right:16px;padding:3px 10px;border-radius:20px;font-size:.7em;font-weight:600}
-.b-red{background:#7f1d1d;color:#fca5a5}.b-orange{background:#78350f;color:#fcd34d}
-.b-yellow{background:#713f12;color:#fde68a}.b-green{background:#14532d;color:#86efac}
-.b-blue{background:#1e3a5f;color:#93c5fd}
-.full{grid-column:1/-1}
-.card.migration{background:linear-gradient(135deg,#1e3a5f,#312e81);border-color:#4f46e5}
-.card.migration:hover{border-color:#818cf8;box-shadow:0 8px 30px rgba(99,102,241,.3)}
-.footer{text-align:center;color:#475569;font-size:.76em;margin-top:32px}
-@media(max-width:600px){.grid{grid-template-columns:1fr}}
+body{font-family:system-ui,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem}
+h1{font-size:2rem;margin-bottom:2rem;color:#38bdf8}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;width:100%;max-width:900px}
+.card{background:#1e293b;border-radius:12px;padding:1.5rem;text-decoration:none;color:#e2e8f0;border:1px solid #334155;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:#38bdf8}
+.card h2{font-size:1.1rem;margin-bottom:.5rem;color:#38bdf8}
+.card p{font-size:.9rem;color:#94a3b8}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>📊 Dashboard Report Traffic ODC</h1>
-<p class="sub">Palo Alto Firewall Log Analysis — Perencanaan Migrasi DC</p>
-
-<div class="grid">
-<a href="laporan_traffic_odc_lintas.html" class="card">
-<span class="badge b-red">KRITIKAL</span>
-<div class="icon">🔴</div>
-<div class="title">ODC Lintas</div>
-<div class="desc">12,421 sessions · 6.45 GB<br>Partners: Mitrakom, Duitku, Shopee, iSaku, Nicepay<br>82.5% denied · Mitrakom = 90% BW</div>
-</a>
-
-<a href="laporan_traffic_odc_telkom.html" class="card">
-<span class="badge b-orange">TINGGI</span>
-<div class="icon">🟠</div>
-<div class="title">ODC Telkom</div>
-<div class="desc">65,534 sessions · 1.87 GB<br>Partners: PLN Trunojoyo, Finnet, SYB<br>100% allowed · Finnet = 57.9% BW</div>
-</a>
-
-<a href="laporan_traffic_odc_icon.html" class="card">
-<span class="badge b-yellow">SEDANG</span>
-<div class="icon">🟡</div>
-<div class="title">ODC Icon</div>
-<div class="desc">65,534 sessions · 13.86 MB<br>Partners: Pertamina, Pertamina Patraniaga<br>94.3% allowed · Mostly ping & HTTP</div>
-</a>
-
-<a href="laporan_traffic_odc_indosat.html" class="card">
-<span class="badge b-yellow">SEDANG</span>
-<div class="icon">🟡</div>
-<div class="title">ODC Indosat</div>
-<div class="desc">65,534 sessions · 21.74 MB<br>Partners: Duitku, Monitoring Duitku<br>100% allowed · Ping + web-browsing</div>
-</a>
-
-<a href="laporan_traffic_odc_fiberstar.html" class="card">
-<span class="badge b-green">RENDAH</span>
-<div class="icon">🟢</div>
-<div class="title">ODC Fiberstar</div>
-<div class="desc">65,534 sessions · 8.62 MB<br>Monitoring only (ICMP ping)<br>100% allowed · No application traffic</div>
-</a>
-
-<a href="panduan_migrasi_dc.html" class="card migration full">
-<span class="badge b-blue">PANDUAN</span>
-<div class="icon">🔄</div>
-<div class="title">Panduan Migrasi DC</div>
-<div class="desc">Langkah-langkah migrasi lengkap · IP & Port mapping · Risk matrix · 7 fase eksekusi dari Fiberstar (rendah) → Lintas (kritikal)</div>
-</a>
-</div>
-
-<div class="footer">Generated 31 Maret 2026 — Data dari 5 Palo Alto Traffic Logs</div>
+<h1>🚀 EXO-Lovers Dashboard</h1>
+<div class="cards">
+  <a class="card" href="skenario pengosongan traffic 3rd odc/index.html">
+    <h2>📊 Skenario Pengosongan Traffic 3rd Party ODC</h2>
+    <p>Laporan traffic dan panduan migrasi ODC per provider (Telkom, Indosat, ICON+, Lintas, Fiberstar)</p>
+  </a>
 </div>
 </body>
 </html>
