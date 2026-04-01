@@ -7,7 +7,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/Users/damaraji/Downloads/report traffic odc"
+publish = "/Users/damaraji/Downloads/EXO-Lovers"
 publishOrigin = "default"
 
 [build.environment]
