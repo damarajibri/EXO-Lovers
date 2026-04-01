@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Analisis Traffic Log ODC Lintas (Updated)</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#1a1a2e;line-height:1.6;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+h1{text-align:center;font-size:1.6em;color:#1a1a2e;margin-bottom:4px}
+.subtitle{text-align:center;color:#666;font-size:.9em;margin-bottom:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:28px}
+.card{background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card .value{font-size:1.7em;font-weight:700;color:#2563eb}
+.card .label{font-size:.78em;color:#666;margin-top:2px}
+.card.warn .value{color:#dc2626}.card.green .value{color:#16a34a}.card.orange .value{color:#ea580c}
+.section{background:#fff;border-radius:12px;padding:22px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.1em;color:#1e3a5f;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e5e7eb}
+table{width:100%;border-collapse:collapse;font-size:.85em}
+th{background:#f0f4ff;color:#1e3a5f;padding:10px 12px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid #f0f0f0}
+tr:hover td{background:#f8faff}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.76em;font-weight:600}
+.tag-allow{background:#dcfce7;color:#166534}.tag-deny{background:#fee2e2;color:#991b1b}
+.tag-tcp{background:#e0e7ff;color:#3730a3}.tag-udp{background:#fce7f3;color:#9d174d}
+.tag-icmp{background:#fef3c7;color:#92400e}.tag-new{background:#fef3c7;color:#92400e}
+.tag-high{background:#fee2e2;color:#991b1b}.tag-med{background:#fef3c7;color:#92400e}.tag-low{background:#dcfce7;color:#166534}
+.highlight{padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:16px;font-size:.9em}
+.highlight.warn{background:#fffbeb;border-left:4px solid #f59e0b}.highlight.warn strong{color:#b45309}
+.highlight.info{background:#eff6ff;border-left:4px solid #2563eb}.highlight.info strong{color:#1d4ed8}
+.highlight.new{background:#fdf4ff;border-left:4px solid #a855f7}.highlight.new strong{color:#7e22ce}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.grid2{grid-template-columns:1fr}}
+.bw-bar{height:20px;border-radius:4px;display:inline-block;vertical-align:middle}
+.footer{text-align:center;color:#999;font-size:.78em;margin-top:30px;padding-top:16px;border-top:1px solid #e5e7eb}
+code{background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:.88em}</style></head><body><div style="max-width:1200px;margin:0 auto;padding:10px 20px 0"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#1e3a5f;font-size:.88em;font-weight:600;background:#e0e7ff;padding:8px 18px;border-radius:8px;transition:all .2s" onmouseover="this.style.background='#c7d2fe'" onmouseout="this.style.background='#e0e7ff'">&larr; Dashboard</a></div><div class="container">
+<h1>📊 Analisis Traffic Log ODC Lintas</h1>
+<p class="subtitle">Palo Alto Firewall — Data Terbaru untuk Perencanaan Migrasi DC — 30 Maret 2026</p>
+
+<div class="cards">
+<div class="card"><div class="value">12,421</div><div class="label">Total Sessions</div></div>
+<div class="card"><div class="value">6.46 GB</div><div class="label">Total Bandwidth</div></div>
+<div class="card"><div class="value">3.15 GB</div><div class="label">Bytes Sent</div></div>
+<div class="card"><div class="value">3.30 GB</div><div class="label">Bytes Received</div></div>
+<div class="card green"><div class="value">2,172</div><div class="label">Allowed</div></div>
+<div class="card warn"><div class="value">10,249</div><div class="label">Denied</div></div>
+<div class="card"><div class="value">30</div><div class="label">Source IPs</div></div>
+<div class="card"><div class="value">15</div><div class="label">Dest IPs</div></div>
+<div class="card orange"><div class="value">11</div><div class="label">Rules/Partners</div></div>
+</div>
+
+<div class="highlight new">
+🆕 <strong>Data Terbaru — 3 Rule Baru Terdeteksi:</strong> <code>test_failover</code> (87 sessions, 60.71 MB — testing migrasi sedang berjalan), 
+<code>BACKHAUL-LINTAS-ODC-1_OUT-IN</code> (1 session, 11.07 MB — BGP return path), 
+<code>Nicepay-BRI-Ping</code> (1 session — ICMP monitoring). Juga muncul protocol <strong>UDP</strong> (218 sessions) yang sebelumnya tidak ada.
+</div>
+<div class="highlight warn">
+⚠️ <strong>82.5% traffic DENIED</strong> oleh interzone-default. Partner <strong>BRI-MITRAKOM</strong> menyumbang <strong>90% total bandwidth (5.81 GB)</strong> meskipun hanya 169 sessions.
+</div>
+<div class="section"><h2>🏢 Traffic per Rule / Partner</h2><table>
+<tr><th>Rule (Partner)</th><th>Sessions</th><th>%</th><th>Bandwidth</th><th>% BW</th><th>Status</th></tr>
+<tr><td><strong>BRI-MITRAKOM</strong></td><td>169</td><td>1.4%</td><td>5.81 GB</td><td>90.0%</td><td>ALLOW</td></tr>
+<tr><td><strong>tsoot-ISAKU</strong></td><td>7</td><td>0.1%</td><td>343.84 MB</td><td>5.2%</td><td>ALLOW</td></tr>
+<tr><td><strong>BACKHAUL-LINTAS-ODC</strong></td><td>23</td><td>0.2%</td><td>238.36 MB</td><td>3.6%</td><td>ALLOW</td></tr>
+<tr><td><strong>test_failover</strong> <span class="tag tag-new">BARU</span></td><td>87</td><td>0.7%</td><td>60.71 MB</td><td>0.9%</td><td>ALLOW</td></tr>
+<tr><td><strong>BACKHAUL-LINTAS-ODC-1_OUT-IN</strong> <span class="tag tag-new">BARU</span></td><td>1</td><td>0.0%</td><td>11.07 MB</td><td>0.2%</td><td>ALLOW</td></tr>
+<tr><td><strong>BRI-DUITKU</strong></td><td>1,774</td><td>14.3%</td><td>3.67 MB</td><td>0.1%</td><td>ALLOW</td></tr>
+<tr><td><strong>interzone-default</strong></td><td>10,248</td><td>82.5%</td><td>749.79 KB</td><td>0.0%</td><td>DENY</td></tr>
+<tr><td><strong>Allowed Apps Default</strong></td><td>68</td><td>0.5%</td><td>78.77 KB</td><td>0.0%</td><td>ALLOW</td></tr>
+<tr><td><strong>BRI-SHOPEE</strong></td><td>42</td><td>0.3%</td><td>38.39 KB</td><td>0.0%</td><td>ALLOW</td></tr>
+<tr><td><strong>Nicepay-BRI-Ping</strong> <span class="tag tag-new">BARU</span></td><td>1</td><td>0.0%</td><td>128 B</td><td>0.0%</td><td>ALLOW</td></tr>
+<tr><td><strong>Default Rule-Deny</strong></td><td>1</td><td>0.0%</td><td>70 B</td><td>0.0%</td><td>DENY</td></tr>
+</table></div>
+<div class="section"><h2>📊 Bandwidth per Partner</h2><table>
+<tr><th>Partner</th><th>Bandwidth</th><th style="width:50%">Proporsi</th></tr>
+<tr><td><strong>BRI-MITRAKOM</strong></td><td>5.81 GB</td><td><div class="bw-bar" style="width:100.0%;background:#2563eb">&nbsp;</div> 90.0%</td></tr>
+<tr><td><strong>tsoot-ISAKU</strong></td><td>343.84 MB</td><td><div class="bw-bar" style="width:5.8%;background:#7c3aed">&nbsp;</div> 5.2%</td></tr>
+<tr><td><strong>BACKHAUL-LINTAS-ODC</strong></td><td>238.36 MB</td><td><div class="bw-bar" style="width:4.0%;background:#06b6d4">&nbsp;</div> 3.6%</td></tr>
+<tr><td><strong>test_failover</strong></td><td>60.71 MB</td><td><div class="bw-bar" style="width:1.0%;background:#f59e0b">&nbsp;</div> 0.9%</td></tr>
+<tr><td><strong>BACKHAUL-LINTAS-ODC-1_OUT-IN</strong></td><td>11.07 MB</td><td><div class="bw-bar" style="width:1.0%;background:#8b5cf6">&nbsp;</div> 0.2%</td></tr>
+<tr><td><strong>BRI-DUITKU</strong></td><td>3.67 MB</td><td><div class="bw-bar" style="width:1.0%;background:#10b981">&nbsp;</div> 0.1%</td></tr>
+<tr><td><strong>interzone-default</strong></td><td>749.79 KB</td><td><div class="bw-bar" style="width:1.0%;background:#64748b">&nbsp;</div> 0.0%</td></tr>
+<tr><td><strong>Allowed Apps Default</strong></td><td>78.77 KB</td><td><div class="bw-bar" style="width:1.0%;background:#64748b">&nbsp;</div> 0.0%</td></tr>
+<tr><td><strong>BRI-SHOPEE</strong></td><td>38.39 KB</td><td><div class="bw-bar" style="width:1.0%;background:#64748b">&nbsp;</div> 0.0%</td></tr>
+<tr><td><strong>Nicepay-BRI-Ping</strong></td><td>128 B</td><td><div class="bw-bar" style="width:1.0%;background:#64748b">&nbsp;</div> 0.0%</td></tr>
+<tr><td><strong>Default Rule-Deny</strong></td><td>70 B</td><td><div class="bw-bar" style="width:1.0%;background:#64748b">&nbsp;</div> 0.0%</td></tr>
+</table></div>
+<div class="grid2"><div class="section"><h2>📱 Aplikasi</h2><table><tr><th>Application</th><th>Sessions</th><th>Bandwidth</th></tr>
+<tr><td>unknown-tcp</td><td>169</td><td>5.81 GB</td></tr>
+<tr><td>bgp</td><td>38</td><td>653.96 MB</td></tr>
+<tr><td>web-browsing</td><td>1,815</td><td>3.71 MB</td></tr>
+<tr><td>not-applicable</td><td>10,248</td><td>749.72 KB</td></tr>
+<tr><td>traceroute</td><td>68</td><td>78.77 KB</td></tr>
+<tr><td>insufficient-data</td><td>80</td><td>6.54 KB</td></tr>
+<tr><td>icmp</td><td>3</td><td>2.80 KB</td></tr>
+</table></div>
+<div class="section"><h2>🔌 Top Destination Ports</h2><table><tr><th>Port</th><th>Sessions</th><th>Service</th></tr>
+<tr><td><strong>7777</strong></td><td>11,724</td><td>Custom App (Duitku)</td></tr>
+<tr><td><strong>57183</strong></td><td>169</td><td>Custom (Mitrakom)</td></tr>
+<tr><td><strong>10022</strong></td><td>105</td><td>SSH Non-Standard</td></tr>
+<tr><td><strong>179</strong></td><td>99</td><td>BGP</td></tr>
+<tr><td><strong>0</strong></td><td>71</td><td>ICMP/Traceroute</td></tr>
+<tr><td><strong>30179</strong></td><td>63</td><td>BGP (non-std)</td></tr>
+<tr><td><strong>10008</strong></td><td>14</td><td>Custom App</td></tr>
+<tr><td><strong>443</strong></td><td>12</td><td>HTTPS</td></tr>
+<tr><td><strong>8600</strong></td><td>8</td><td>Custom App</td></tr>
+<tr><td><strong>33450</strong></td><td>3</td><td>Test Failover</td></tr>
+<tr><td><strong>33449</strong></td><td>3</td><td>Test Failover</td></tr>
+<tr><td><strong>33507</strong></td><td>2</td><td>Custom/Test</td></tr>
+<tr><td><strong>33506</strong></td><td>2</td><td>Custom/Test</td></tr>
+<tr><td><strong>33504</strong></td><td>2</td><td>Custom/Test</td></tr>
+<tr><td><strong>33505</strong></td><td>2</td><td>Custom/Test</td></tr>
+</table></div></div>
+<div class="grid2"><div class="section"><h2>📤 Source IPs</h2><table><tr><th>IP</th><th>Sessions</th><th>%</th></tr>
+<tr><td><code>172.28.73.254</code></td><td>11,742</td><td>94.5%</td></tr>
+<tr><td><code>172.28.67.51</code></td><td>169</td><td>1.4%</td></tr>
+<tr><td><code>10.219.3.178</code></td><td>124</td><td>1.0%</td></tr>
+<tr><td><code>10.219.41.162</code></td><td>75</td><td>0.6%</td></tr>
+<tr><td><code>131.100.55.58</code></td><td>68</td><td>0.5%</td></tr>
+<tr><td><code>10.219.2.214</code></td><td>65</td><td>0.5%</td></tr>
+<tr><td><code>172.18.48.2</code></td><td>42</td><td>0.3%</td></tr>
+<tr><td><code>10.219.3.177</code></td><td>23</td><td>0.2%</td></tr>
+<tr><td><code>172.28.73.41</code></td><td>20</td><td>0.2%</td></tr>
+<tr><td><code>172.18.8.232</code></td><td>15</td><td>0.1%</td></tr>
+<tr><td><code>10.219.3.182</code></td><td>13</td><td>0.1%</td></tr>
+<tr><td><code>10.219.2.246</code></td><td>11</td><td>0.1%</td></tr>
+<tr><td><code>172.28.73.37</code></td><td>8</td><td>0.1%</td></tr>
+<tr><td><code>172.18.48.4</code></td><td>7</td><td>0.1%</td></tr>
+<tr><td><code>10.219.3.181</code></td><td>7</td><td>0.1%</td></tr>
+<tr><td><code>172.28.73.56</code></td><td>4</td><td>0.0%</td></tr>
+<tr><td><code>172.28.73.70</code></td><td>4</td><td>0.0%</td></tr>
+<tr><td><code>172.28.73.51</code></td><td>4</td><td>0.0%</td></tr>
+<tr><td><code>172.28.73.39</code></td><td>4</td><td>0.0%</td></tr>
+<tr><td><code>172.28.73.38</code></td><td>4</td><td>0.0%</td></tr>
+</table></div>
+<div class="section"><h2>📥 Destination IPs</h2><table><tr><th>IP</th><th>Sessions</th><th>%</th></tr>
+<tr><td><code>172.28.108.47</code></td><td>11,724</td><td>94.4%</td></tr>
+<tr><td><code>172.28.108.13</code></td><td>169</td><td>1.4%</td></tr>
+<tr><td><code>10.219.3.177</code></td><td>124</td><td>1.0%</td></tr>
+<tr><td><code>172.28.108.52</code></td><td>120</td><td>1.0%</td></tr>
+<tr><td><code>172.28.109.18</code></td><td>77</td><td>0.6%</td></tr>
+<tr><td><code>172.28.108.43</code></td><td>67</td><td>0.5%</td></tr>
+<tr><td><code>172.28.109.13</code></td><td>65</td><td>0.5%</td></tr>
+<tr><td><code>10.219.3.178</code></td><td>23</td><td>0.2%</td></tr>
+<tr><td><code>172.28.108.27</code></td><td>12</td><td>0.1%</td></tr>
+<tr><td><code>10.219.3.181</code></td><td>12</td><td>0.1%</td></tr>
+<tr><td><code>172.28.109.17</code></td><td>11</td><td>0.1%</td></tr>
+<tr><td><code>172.28.108.42</code></td><td>8</td><td>0.1%</td></tr>
+<tr><td><code>10.219.3.182</code></td><td>7</td><td>0.1%</td></tr>
+<tr><td><code>172.28.108.30</code></td><td>1</td><td>0.0%</td></tr>
+<tr><td><code>103.20.51.33</code></td><td>1</td><td>0.0%</td></tr>
+</table></div></div>
+<div class="section"><h2>🔗 Kombinasi Rule + Aplikasi (by Bandwidth)</h2><table><tr><th>Rule</th><th>Application</th><th>Sessions</th><th>Bandwidth</th><th>%</th></tr>
+<tr><td>BRI-MITRAKOM</td><td>unknown-tcp</td><td>169</td><td>5.81 GB</td><td>90.0%</td></tr>
+<tr><td>tsoot-ISAKU</td><td>bgp</td><td>7</td><td>343.84 MB</td><td>5.2%</td></tr>
+<tr><td>BACKHAUL-LINTAS-ODC</td><td>bgp</td><td>23</td><td>238.36 MB</td><td>3.6%</td></tr>
+<tr><td>test_failover</td><td>bgp</td><td>7</td><td>60.70 MB</td><td>0.9%</td></tr>
+<tr><td>BACKHAUL-LINTAS-ODC-1_OUT-IN</td><td>bgp</td><td>1</td><td>11.07 MB</td><td>0.2%</td></tr>
+<tr><td>BRI-DUITKU</td><td>web-browsing</td><td>1,774</td><td>3.67 MB</td><td>0.1%</td></tr>
+<tr><td>interzone-default</td><td>not-applicable</td><td>10,247</td><td>749.65 KB</td><td>0.0%</td></tr>
+<tr><td>Allowed Apps Default</td><td>traceroute</td><td>68</td><td>78.77 KB</td><td>0.0%</td></tr>
+<tr><td>BRI-SHOPEE</td><td>web-browsing</td><td>41</td><td>37.83 KB</td><td>0.0%</td></tr>
+<tr><td>test_failover</td><td>insufficient-data</td><td>79</td><td>5.98 KB</td><td>0.0%</td></tr>
+<tr><td>test_failover</td><td>icmp</td><td>1</td><td>2.54 KB</td><td>0.0%</td></tr>
+<tr><td>BRI-SHOPEE</td><td>insufficient-data</td><td>1</td><td>580 B</td><td>0.0%</td></tr>
+<tr><td>interzone-default</td><td>icmp</td><td>1</td><td>138 B</td><td>0.0%</td></tr>
+<tr><td>Nicepay-BRI-Ping</td><td>icmp</td><td>1</td><td>128 B</td><td>0.0%</td></tr>
+<tr><td>Default Rule-Deny</td><td>not-applicable</td><td>1</td><td>70 B</td><td>0.0%</td></tr>
+</table></div>
+<div class="grid2"><div class="section"><h2>🔄 Session End Reasons</h2><table><tr><th>Reason</th><th>Count</th><th>%</th></tr>
+<tr><td>policy-deny</td><td>10,249</td><td>82.5%</td></tr>
+<tr><td>tcp-fin</td><td>1,794</td><td>14.4%</td></tr>
+<tr><td>tcp-rst-from-client</td><td>199</td><td>1.6%</td></tr>
+<tr><td>aged-out</td><td>157</td><td>1.3%</td></tr>
+<tr><td>tcp-rst-from-server</td><td>22</td><td>0.2%</td></tr>
+</table></div>
+<div class="section"><h2>🌐 Protocol & Action</h2><table><tr><th>Metrik</th><th>Detail</th></tr>
+<tr><td>Protocol</td><td><span class="tag tag-tcp">TCP</span> — 12,132 sessions (97.7%)</td></tr>
+<tr><td>Protocol</td><td><span class="tag tag-udp">UDP</span> — 218 sessions (1.8%)</td></tr>
+<tr><td>Protocol</td><td><span class="tag tag-icmp">ICMP</span> — 71 sessions (0.6%)</td></tr>
+<tr><td>Action</td><td><span class="tag tag-allow">ALLOW</span> — 2,172 sessions (17.5%)</td></tr>
+<tr><td>Action</td><td><span class="tag tag-deny">DENY</span> — 10,249 sessions (82.5%)</td></tr>
+</table></div></div>
+<div class="section"><h2>📋 Rekomendasi Migrasi DC</h2><table>
+<tr><th>#</th><th>Item</th><th>Detail</th><th>Prioritas</th></tr>
+<tr><td>1</td><td><strong>BRI-MITRAKOM</strong></td><td>172.28.67.51 → 172.28.108.13 port 57183. Bandwidth terbesar: 5.81 GB (90%). Koneksi persistent.</td><td><span class="tag tag-high">TINGGI</span></td></tr>
+<tr><td>2</td><td><strong>BGP Peering</strong></td><td>BACKHAUL-LINTAS-ODC + tsoot-ISAKU + BACKHAUL-1_OUT-IN. Total ~654 MB. Backbone routing — cutover BGP.</td><td><span class="tag tag-high">TINGGI</span></td></tr>
+<tr><td>3</td><td><strong>test_failover</strong></td><td>87 sessions baru — testing migrasi sudah berjalan. Monitor hasilnya sebelum full cutover.</td><td><span class="tag tag-high">TINGGI</span></td></tr>
+<tr><td>4</td><td><strong>BRI-DUITKU</strong></td><td>1.774 sessions ke port 7777. Bandwidth kecil tapi session terbanyak yang allowed.</td><td><span class="tag tag-med">SEDANG</span></td></tr>
+<tr><td>5</td><td><strong>BRI-SHOPEE</strong></td><td>42 sessions, bandwidth minimal. Pastikan rule ada di DC baru.</td><td><span class="tag tag-low">RENDAH</span></td></tr>
+<tr><td>6</td><td><strong>Nicepay-BRI-Ping</strong></td><td>ICMP monitoring baru. Pastikan ICMP policy tersedia di DC baru.</td><td><span class="tag tag-low">RENDAH</span></td></tr>
+<tr><td>7</td><td><strong>Denied Traffic Review</strong></td><td>10.249 sessions denied (82.5%). Investigasi apakah ada legitimate traffic yang butuh rule baru.</td><td><span class="tag tag-med">REVIEW</span></td></tr>
+<tr><td>8</td><td><strong>IP & Port Mapping</strong></td><td>30 source IPs, 15 dest IPs, 98 dest ports. Siapkan mapping lengkap ke DC baru.</td><td><span class="tag tag-med">SEDANG</span></td></tr>
+</table></div>
+<div class="footer">Generated from: log odc lintas.csv — 12,421 sessions — Report Date: 30 Maret 2026 (Updated)</div>
+</div></body></html>

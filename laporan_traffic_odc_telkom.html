@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analisis Traffic Log ODC Telkom - Palo Alto</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#f5f7fa;color:#1a1a2e;line-height:1.6;padding:20px}
+.container{max-width:1200px;margin:0 auto}
+h1{text-align:center;font-size:1.6em;color:#1a1a2e;margin-bottom:4px}
+.subtitle{text-align:center;color:#666;font-size:.9em;margin-bottom:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px}
+.card{background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card .value{font-size:1.8em;font-weight:700;color:#2563eb}
+.card .label{font-size:.8em;color:#666;margin-top:2px}
+.card.green .value{color:#16a34a}
+.section{background:#fff;border-radius:12px;padding:22px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15em;color:#1e3a5f;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #e5e7eb}
+table{width:100%;border-collapse:collapse;font-size:.88em}
+th{background:#f0f4ff;color:#1e3a5f;padding:10px 12px;text-align:left;font-weight:600;position:sticky;top:0}
+td{padding:9px 12px;border-bottom:1px solid #f0f0f0}
+tr:hover td{background:#f8faff}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.78em;font-weight:600}
+.tag-allow{background:#dcfce7;color:#166534}
+.tag-deny{background:#fee2e2;color:#991b1b}
+.tag-tcp{background:#e0e7ff;color:#3730a3}
+.tag-med{background:#fef3c7;color:#92400e}
+.tag-low{background:#dcfce7;color:#166534}
+.highlight{background:#ecfdf5;border-left:4px solid #16a34a;padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:20px;font-size:.92em}
+.highlight strong{color:#166534}
+.highlight.warn{background:#fffbeb;border-left-color:#f59e0b}
+.highlight.warn strong{color:#b45309}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.grid2{grid-template-columns:1fr}}
+.footer{text-align:center;color:#999;font-size:.78em;margin-top:30px;padding-top:16px;border-top:1px solid #e5e7eb}
+.bw-bar{height:22px;border-radius:4px;display:inline-block;vertical-align:middle}
+</style>
+</head>
+<body><div style="max-width:1200px;margin:0 auto;padding:10px 20px 0"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#1e3a5f;font-size:.88em;font-weight:600;background:#e0e7ff;padding:8px 18px;border-radius:8px;transition:all .2s" onmouseover="this.style.background='#c7d2fe'" onmouseout="this.style.background='#e0e7ff'">&larr; Dashboard</a></div>
+<div class="container">
+<h1>📊 Analisis Traffic Log ODC Telkom</h1>
+<p class="subtitle">Palo Alto Firewall — Data Export untuk Perencanaan Migrasi DC</p>
+
+<div class="cards">
+<div class="card"><div class="value">65,534</div><div class="label">Total Sessions</div></div>
+<div class="card"><div class="value">1.87 GB</div><div class="label">Total Bandwidth</div></div>
+<div class="card"><div class="value">962.45 MB</div><div class="label">Bytes Sent</div></div>
+<div class="card"><div class="value">955.92 MB</div><div class="label">Bytes Received</div></div>
+<div class="card green"><div class="value">65,534</div><div class="label">Sessions Allowed</div></div>
+<div class="card"><div class="value">6</div><div class="label">Unique Source IPs</div></div>
+<div class="card"><div class="value">3</div><div class="label">Unique Dest IPs</div></div>
+<div class="card"><div class="value">3</div><div class="label">Partners</div></div>
+</div>
+
+<div class="highlight">
+✅ <strong>Semua traffic ALLOWED</strong> — 100% sessions (65.534) di-allow. Tidak ada denied traffic di link Telkom ini.
+</div>
+<div class="highlight warn">
+⚠️ <strong>Distribusi bandwidth tidak merata:</strong> BRI-FINNET hanya 22 sessions tapi menyumbang <strong>57.9% bandwidth (1.08 GB)</strong>. 
+BRI-PLN-TRUNOJOYO mendominasi session count (99.9%) tapi hanya 5.5% bandwidth.
+</div>
+
+<div class="section">
+<h2>🏢 Traffic per Rule / Partner</h2>
+<table>
+<tr><th>Rule (Partner)</th><th>Sessions</th><th>% Sessions</th><th>Bandwidth</th><th>% BW</th><th>Aplikasi</th></tr>
+<tr><td><strong>BRI-FINNET</strong></td><td>22</td><td>0.0%</td><td>1.08 GB</td><td>57.9%</td><td>unknown-tcp</td></tr>
+<tr><td><strong>BRI-SYB</strong></td><td>21</td><td>0.0%</td><td>702.39 MB</td><td>36.6%</td><td>unknown-tcp</td></tr>
+<tr><td><strong>BRI-PLN-TRUNOJOYO</strong></td><td>65,491</td><td>99.9%</td><td>105.63 MB</td><td>5.5%</td><td>web-browsing</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>📊 Visualisasi Bandwidth per Partner</h2>
+<table>
+<tr><th>Partner</th><th>Bandwidth</th><th style="width:50%">Proporsi</th></tr>
+<tr><td><strong>BRI-FINNET</strong></td><td>1.08 GB</td><td><div class="bw-bar" style="width:100.0%;background:#2563eb">&nbsp;</div> 57.9%</td></tr>
+<tr><td><strong>BRI-SYB</strong></td><td>702.39 MB</td><td><div class="bw-bar" style="width:63.3%;background:#7c3aed">&nbsp;</div> 36.6%</td></tr>
+<tr><td><strong>BRI-PLN-TRUNOJOYO</strong></td><td>105.63 MB</td><td><div class="bw-bar" style="width:9.5%;background:#f59e0b">&nbsp;</div> 5.5%</td></tr>
+</table>
+</div>
+
+<div class="grid2">
+<div class="section">
+<h2>📱 Aplikasi</h2>
+<table>
+<tr><th>Application</th><th>Sessions</th><th>Bandwidth</th><th>% BW</th></tr>
+<tr><td>unknown-tcp</td><td>43</td><td>1.77 GB</td><td>94.5%</td></tr>
+<tr><td>web-browsing</td><td>65,491</td><td>105.63 MB</td><td>5.5%</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🔌 Destination Ports</h2>
+<table>
+<tr><th>Port</th><th>Sessions</th><th>Kemungkinan Service</th></tr>
+<tr><td><strong>7077</strong></td><td>65,491</td><td>Custom App (PLN Trunojoyo)</td></tr>
+<tr><td><strong>10031</strong></td><td>21</td><td>Custom (SYB)</td></tr>
+<tr><td><strong>12004</strong></td><td>11</td><td>Custom (Finnet)</td></tr>
+<tr><td><strong>12003</strong></td><td>11</td><td>Custom (Finnet)</td></tr>
+</table>
+</div>
+</div>
+
+<div class="grid2">
+<div class="section">
+<h2>📤 Source IPs</h2>
+<table>
+<tr><th>Source IP</th><th>Sessions</th><th>%</th></tr>
+<tr><td><code>172.28.67.41</code></td><td>14,890</td><td>22.7%</td></tr>
+<tr><td><code>172.28.67.42</code></td><td>14,779</td><td>22.6%</td></tr>
+<tr><td><code>172.28.67.44</code></td><td>14,744</td><td>22.5%</td></tr>
+<tr><td><code>172.28.67.43</code></td><td>14,701</td><td>22.4%</td></tr>
+<tr><td><code>172.28.73.254</code></td><td>6,377</td><td>9.7%</td></tr>
+<tr><td><code>172.28.67.51</code></td><td>43</td><td>0.1%</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>📥 Destination IPs</h2>
+<table>
+<tr><th>Destination IP</th><th>Sessions</th><th>%</th><th>Partner</th></tr>
+<tr><td><code>172.28.108.39</code></td><td>65,491</td><td>99.9%</td><td>BRI-PLN-TRUNOJOYO</td></tr>
+<tr><td><code>172.28.108.12</code></td><td>22</td><td>0.0%</td><td>BRI-FINNET</td></tr>
+<tr><td><code>172.28.108.14</code></td><td>21</td><td>0.0%</td><td>BRI-SYB</td></tr>
+</table>
+</div>
+</div>
+
+<div class="section">
+<h2>🔗 Kombinasi Rule + Aplikasi</h2>
+<table>
+<tr><th>Rule</th><th>Application</th><th>Sessions</th><th>Bandwidth</th><th>% BW</th></tr>
+<tr><td>BRI-FINNET</td><td>unknown-tcp</td><td>22</td><td>1.08 GB</td><td>57.9%</td></tr>
+<tr><td>BRI-SYB</td><td>unknown-tcp</td><td>21</td><td>702.39 MB</td><td>36.6%</td></tr>
+<tr><td>BRI-PLN-TRUNOJOYO</td><td>web-browsing</td><td>65,491</td><td>105.63 MB</td><td>5.5%</td></tr>
+</table>
+</div>
+
+<div class="grid2">
+<div class="section">
+<h2>🔄 Session End Reasons</h2>
+<table>
+<tr><th>Reason</th><th>Count</th><th>%</th></tr>
+<tr><td>tcp-fin</td><td>65,463</td><td>99.9%</td></tr>
+<tr><td>tcp-rst-from-client</td><td>49</td><td>0.1%</td></tr>
+<tr><td>tcp-rst-from-server</td><td>17</td><td>0.0%</td></tr>
+<tr><td>aged-out</td><td>5</td><td>0.0%</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🌐 Protocol, Action & Zone</h2>
+<table>
+<tr><th>Metrik</th><th>Detail</th></tr>
+<tr><td>Protocol</td><td><span class="tag tag-tcp">TCP</span> — 65,534 sessions (100%)</td></tr>
+<tr><td>Action</td><td><span class="tag tag-allow">ALLOW</span> — 65,534 sessions (100%)</td></tr>
+<tr><td>Zone Flow</td><td>vwire_Trust_Telkom → vwire_Untrust_Telkom</td></tr>
+</table>
+</div>
+</div>
+
+<div class="section">
+<h2>📋 Rekomendasi Migrasi DC</h2>
+<table>
+<tr><th>#</th><th>Item</th><th>Detail</th><th>Prioritas</th></tr>
+<tr><td>1</td><td><strong>BRI-FINNET</strong></td><td>172.28.67.51 → 172.28.108.12 (port 12003, 12004). Bandwidth terbesar: 1.08 GB (57.9%). Koneksi persistent/bulk — hanya 22 sessions.</td><td><span class="tag tag-deny">TINGGI</span></td></tr>
+<tr><td>2</td><td><strong>BRI-SYB</strong></td><td>172.28.67.51 → 172.28.108.14 (port 10031). Bandwidth: 702 MB (36.6%). Juga koneksi persistent — 21 sessions.</td><td><span class="tag tag-deny">TINGGI</span></td></tr>
+<tr><td>3</td><td><strong>BRI-PLN-TRUNOJOYO</strong></td><td>4 source IPs (172.28.67.41-44) + 172.28.73.254 → 172.28.108.39 (port 7077). Session terbanyak: 65.491. Bandwidth kecil tapi mission-critical.</td><td><span class="tag tag-deny">TINGGI</span></td></tr>
+<tr><td>4</td><td><strong>IP Mapping</strong></td><td>Siapkan mapping 6 source IPs dan 3 destination IPs. Semua traffic via link Telkom.</td><td><span class="tag tag-med">SEDANG</span></td></tr>
+<tr><td>5</td><td><strong>Port Mapping</strong></td><td>Pastikan port 7077, 10031, 12003, 12004 dibuka di DC baru dengan rule yang sesuai.</td><td><span class="tag tag-med">SEDANG</span></td></tr>
+</table>
+</div>
+
+<div class="footer">
+Generated from: log odc telkom.csv — {total:,} sessions — Report Date: 30 Maret 2026
+</div>
+</div>
+</body>
+</html>

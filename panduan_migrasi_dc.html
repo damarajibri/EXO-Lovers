@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Panduan Migrasi DC - Traffic ODC</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',system-ui,sans-serif;background:#f5f7fa;color:#1a1a2e;line-height:1.6;padding:20px}
+.container{max-width:1300px;margin:0 auto}h1{text-align:center;font-size:1.5em;margin-bottom:4px}
+.sub{text-align:center;color:#666;font-size:.88em;margin-bottom:24px}
+.section{background:#fff;border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.05em;color:#1e3a5f;margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid #e5e7eb}
+table{width:100%;border-collapse:collapse;font-size:.82em}th{background:#f0f4ff;color:#1e3a5f;padding:8px 10px;text-align:left;font-weight:600}
+td{padding:7px 10px;border-bottom:1px solid #f0f0f0}tr:hover td{background:#f8faff}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.75em;font-weight:600}
+.t-high{background:#fee2e2;color:#991b1b}.t-med{background:#fef3c7;color:#92400e}.t-low{background:#dcfce7;color:#166534}
+.t-crit{background:#7f1d1d;color:#fff}
+.alert{padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:14px;font-size:.88em}
+.alert.red{background:#fef2f2;border-left:4px solid #dc2626}.alert.red strong{color:#991b1b}
+.alert.blue{background:#eff6ff;border-left:4px solid #2563eb}.alert.blue strong{color:#1d4ed8}
+.alert.green{background:#ecfdf5;border-left:4px solid #16a34a}.alert.green strong{color:#166534}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}@media(max-width:768px){.grid2{grid-template-columns:1fr}}
+code{background:#f1f5f9;padding:1px 5px;border-radius:4px;font-size:.86em}
+.step{counter-increment:s;padding:16px 20px;border-left:3px solid #2563eb;margin-bottom:12px;background:#fafbff;border-radius:0 8px 8px 0}
+.step::before{content:"Step " counter(s);font-weight:700;color:#2563eb;display:block;margin-bottom:4px;font-size:.85em}
+.steps{counter-reset:s}
+.footer{text-align:center;color:#999;font-size:.76em;margin-top:24px;padding-top:12px;border-top:1px solid #e5e7eb}
+</style></head><body><div style="max-width:1200px;margin:0 auto;padding:10px 20px 0"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:#1e3a5f;font-size:.88em;font-weight:600;background:#e0e7ff;padding:8px 18px;border-radius:8px;transition:all .2s" onmouseover="this.style.background='#c7d2fe'" onmouseout="this.style.background='#e0e7ff'">&larr; Dashboard</a></div><div class="container">
+<h1>🔄 Panduan Migrasi DC — Traffic ODC</h1>
+<p class="sub">Dokumen Perencanaan Migrasi Backhaul dari DC Eksisting ke DC Baru — 30 Maret 2026</p>
+
+<div class="section"><h2>📊 Ringkasan 5 Backhaul</h2>
+<table>
+<tr><th>Backhaul</th><th>Sessions</th><th>Allowed</th><th>Denied</th><th>Bandwidth</th><th>Partners</th><th>Risiko</th></tr>
+<tr><td><strong>Lintas</strong></td><td>12,421</td><td>2,172</td><td>10,249</td><td>6.45 GB</td><td>Mitrakom, Duitku, Shopee, iSaku, Nicepay</td><td><span class="tag t-crit">KRITIKAL</span></td></tr>
+<tr><td><strong>Telkom</strong></td><td>65,534</td><td>65,534</td><td>0</td><td>1.87 GB</td><td>PLN Trunojoyo, Finnet, SYB</td><td><span class="tag t-high">TINGGI</span></td></tr>
+<tr><td><strong>Icon</strong></td><td>65,534</td><td>61,827</td><td>3,707</td><td>13.86 MB</td><td>Pertamina, Pertamina Patraniaga</td><td><span class="tag t-med">SEDANG</span></td></tr>
+<tr><td><strong>Indosat</strong></td><td>65,534</td><td>65,534</td><td>0</td><td>21.74 MB</td><td>Duitku, Monitoring Duitku</td><td><span class="tag t-med">SEDANG</span></td></tr>
+<tr><td><strong>Fiberstar</strong></td><td>65,534</td><td>65,534</td><td>0</td><td>8.62 MB</td><td>(monitoring only)</td><td><span class="tag t-low">RENDAH</span></td></tr>
+</table></div>
+
+<div class="alert red">🚨 <strong>Backhaul LINTAS paling riskan!</strong> Bandwidth 6.45 GB (97% dari total), koneksi persistent BRI-MITRAKOM (5.81 GB), BGP peering aktif, dan 82.5% traffic denied yang perlu di-review.</div>
+<div class="alert blue">📡 <strong>Backhaul TELKOM kedua terbesar</strong> — 1.87 GB dengan 3 partner mission-critical (PLN, Finnet, SYB). Session count tertinggi (65K).</div>
+<div class="alert green">✅ <strong>Fiberstar paling aman</strong> — hanya ICMP ping monitoring, tidak ada traffic aplikasi.</div>
+
+<!-- ============ LINTAS ============ -->
+<div class="section"><h2>🔴 Backhaul LINTAS — Detail Traffic Flows</h2>
+<table>
+<tr><th>Source IP</th><th>Dest IP</th><th>Port</th><th>Proto</th><th>Sessions</th><th>Bandwidth</th><th>Rule/Partner</th><th>App</th></tr>
+<tr style="background:#fef2f2"><td><code>172.28.67.51</code></td><td><code>172.28.108.13</code></td><td>57183</td><td>TCP</td><td>169</td><td><strong>5.81 GB</strong></td><td>BRI-MITRAKOM</td><td>unknown-tcp</td></tr>
+<tr><td><code>10.219.3.181</code></td><td><code>10.219.3.182</code></td><td>179</td><td>TCP</td><td>7</td><td>343.84 MB</td><td>tsoot-ISAKU</td><td>bgp</td></tr>
+<tr><td><code>10.219.3.177</code></td><td><code>10.219.3.178</code></td><td>179</td><td>TCP</td><td>23</td><td>238.36 MB</td><td>BACKHAUL-LINTAS-ODC</td><td>bgp</td></tr>
+<tr><td><code>10.219.3.182</code></td><td><code>10.219.3.181</code></td><td>179</td><td>TCP</td><td>5</td><td>71.08 MB</td><td>test_failover / BACKHAUL-1_OUT-IN</td><td>bgp</td></tr>
+<tr><td><code>172.28.73.254</code></td><td><code>172.28.108.47</code></td><td>7777</td><td>TCP</td><td>1,768</td><td>3.66 MB</td><td>BRI-DUITKU</td><td>web-browsing</td></tr>
+<tr><td><code>172.28.73.254</code></td><td><code>172.28.108.52</code></td><td>10022</td><td>TCP</td><td>42</td><td>38.4 KB</td><td>BRI-SHOPEE</td><td>web-browsing</td></tr>
+<tr><td><code>103.20.51.33</code></td><td><code>172.28.109.18</code></td><td>ICMP</td><td>ICMP</td><td>1</td><td>128 B</td><td>Nicepay-BRI-Ping</td><td>icmp</td></tr>
+<tr><td><code>10.219.3.178</code></td><td><code>10.219.3.177</code></td><td>30179</td><td>UDP</td><td>7</td><td>980 B</td><td>test_failover</td><td>insufficient-data</td></tr>
+</table></div>
+
+<!-- ============ TELKOM ============ -->
+<div class="section"><h2>🟠 Backhaul TELKOM — Detail Traffic Flows</h2>
+<table>
+<tr><th>Source IP</th><th>Dest IP</th><th>Port</th><th>Proto</th><th>Sessions</th><th>Bandwidth</th><th>Rule/Partner</th><th>App</th></tr>
+<tr style="background:#fef2f2"><td><code>172.28.67.51</code></td><td><code>172.28.108.12</code></td><td>12004</td><td>TCP</td><td>11</td><td><strong>1.08 GB</strong></td><td>BRI-FINNET</td><td>unknown-tcp</td></tr>
+<tr><td><code>172.28.67.51</code></td><td><code>172.28.108.14</code></td><td>10031</td><td>TCP</td><td>21</td><td>702.39 MB</td><td>BRI-SYB</td><td>unknown-tcp</td></tr>
+<tr><td><code>172.28.67.51</code></td><td><code>172.28.108.12</code></td><td>12003</td><td>TCP</td><td>11</td><td>30.99 MB</td><td>BRI-FINNET</td><td>unknown-tcp</td></tr>
+<tr><td><code>172.28.67.41</code></td><td><code>172.28.108.39</code></td><td>7077</td><td>TCP</td><td>14,890</td><td>24.05 MB</td><td>BRI-PLN-TRUNOJOYO</td><td>web-browsing</td></tr>
+<tr><td><code>172.28.67.42</code></td><td><code>172.28.108.39</code></td><td>7077</td><td>TCP</td><td>14,779</td><td>23.87 MB</td><td>BRI-PLN-TRUNOJOYO</td><td>web-browsing</td></tr>
+<tr><td><code>172.28.67.44</code></td><td><code>172.28.108.39</code></td><td>7077</td><td>TCP</td><td>14,744</td><td>23.82 MB</td><td>BRI-PLN-TRUNOJOYO</td><td>web-browsing</td></tr>
+<tr><td><code>172.28.67.43</code></td><td><code>172.28.108.39</code></td><td>7077</td><td>TCP</td><td>14,701</td><td>23.74 MB</td><td>BRI-PLN-TRUNOJOYO</td><td>web-browsing</td></tr>
+<tr><td><code>172.28.73.254</code></td><td><code>172.28.108.39</code></td><td>7077</td><td>TCP</td><td>6,377</td><td>10.15 MB</td><td>BRI-PLN-TRUNOJOYO</td><td>web-browsing</td></tr>
+</table></div>
+
+<!-- ============ ICON ============ -->
+<div class="section"><h2>🟡 Backhaul ICON — Detail Traffic Flows</h2>
+<table>
+<tr><th>Source IP</th><th>Dest IP</th><th>Port</th><th>Proto</th><th>Sessions</th><th>Bandwidth</th><th>Rule/Partner</th><th>App</th></tr>
+<tr><td><code>172.19.91.31</code></td><td><code>10.219.4.42</code></td><td>ICMP</td><td>ICMP</td><td>20,189</td><td>4.62 MB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+<tr><td><code>172.19.91.31</code></td><td><code>10.219.3.194</code></td><td>ICMP</td><td>ICMP</td><td>20,188</td><td>4.62 MB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+<tr><td><code>172.28.94.3</code></td><td><code>172.28.108.49</code></td><td>80</td><td>TCP</td><td>4,385</td><td>1.51 MB</td><td>BRI-PERTAMINA</td><td>incomplete</td></tr>
+<tr><td><code>172.28.94.4</code></td><td><code>172.28.108.49</code></td><td>80</td><td>TCP</td><td>4,257</td><td>1.46 MB</td><td>BRI-PERTAMINA</td><td>incomplete</td></tr>
+<tr><td><code>172.18.65.229</code></td><td><code>10.219.4.42</code></td><td>ICMP</td><td>ICMP</td><td>3,851</td><td>472 KB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+<tr><td><code>172.18.104.137</code></td><td><code>172.28.108.77</code></td><td>80</td><td>TCP</td><td>306</td><td>46.6 KB</td><td>BRI-PERTAMINA-PATRANIAGA</td><td>incomplete</td></tr>
+</table></div>
+
+<!-- ============ INDOSAT ============ -->
+<div class="section"><h2>🟡 Backhaul INDOSAT — Detail Traffic Flows</h2>
+<table>
+<tr><th>Source IP</th><th>Dest IP</th><th>Port</th><th>Proto</th><th>Sessions</th><th>Bandwidth</th><th>Rule/Partner</th><th>App</th></tr>
+<tr><td><code>172.19.91.31</code></td><td><code>10.219.3.174</code></td><td>ICMP</td><td>ICMP</td><td>23,278</td><td>5.45 MB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+<tr><td><code>172.18.61.241</code></td><td><code>10.219.3.170</code></td><td>ICMP</td><td>ICMP</td><td>13,101</td><td>5.45 MB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+<tr><td><code>10.219.41.162</code></td><td><code>172.28.109.18</code></td><td>ICMP</td><td>ICMP</td><td>5,092</td><td>2.97 MB</td><td>Monitoring_DUITKU_BRI</td><td>ping</td></tr>
+<tr><td><code>172.28.94.4</code></td><td><code>172.28.108.47</code></td><td>7777</td><td>TCP</td><td>5,152</td><td>2.19 MB</td><td>BRI-DUITKU</td><td>incomplete</td></tr>
+<tr><td><code>172.28.94.3</code></td><td><code>172.28.108.47</code></td><td>7777</td><td>TCP</td><td>5,031</td><td>2.14 MB</td><td>BRI-DUITKU</td><td>incomplete</td></tr>
+<tr><td><code>172.28.73.254</code></td><td><code>172.28.108.47</code></td><td>7777</td><td>TCP</td><td>1,149</td><td>1.86 MB</td><td>BRI-DUITKU</td><td>web-browsing</td></tr>
+</table></div>
+
+<!-- ============ FIBERSTAR ============ -->
+<div class="section"><h2>🟢 Backhaul FIBERSTAR — Detail Traffic Flows</h2>
+<table>
+<tr><th>Source IP</th><th>Dest IP</th><th>Port</th><th>Proto</th><th>Sessions</th><th>Bandwidth</th><th>Rule/Partner</th><th>App</th></tr>
+<tr><td><code>172.28.145.13</code></td><td><code>10.219.3.186</code></td><td>ICMP</td><td>ICMP</td><td>32,763</td><td>4.31 MB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+<tr><td><code>172.28.145.13</code></td><td><code>10.219.3.190</code></td><td>ICMP</td><td>ICMP</td><td>32,762</td><td>4.31 MB</td><td>Allowed Apps Default</td><td>ping</td></tr>
+</table></div>
+
+<!-- ============ PORT SUMMARY ============ -->
+<div class="section"><h2>🔌 Daftar Port yang Harus Dibuka di DC Baru</h2>
+<table>
+<tr><th>Port</th><th>Proto</th><th>Backhaul</th><th>Partner</th><th>Keterangan</th></tr>
+<tr><td><strong>57183</strong></td><td>TCP</td><td>Lintas</td><td>BRI-MITRAKOM</td><td>Bulk transfer — bandwidth terbesar</td></tr>
+<tr><td><strong>179</strong></td><td>TCP</td><td>Lintas</td><td>BGP Peering</td><td>Routing backbone (BACKHAUL, iSaku)</td></tr>
+<tr><td><strong>30179</strong></td><td>UDP</td><td>Lintas</td><td>BGP Test</td><td>BFD/test failover</td></tr>
+<tr><td><strong>7777</strong></td><td>TCP</td><td>Lintas, Indosat</td><td>BRI-DUITKU</td><td>Aplikasi Duitku</td></tr>
+<tr><td><strong>7077</strong></td><td>TCP</td><td>Telkom</td><td>BRI-PLN-TRUNOJOYO</td><td>Aplikasi PLN — session terbanyak</td></tr>
+<tr><td><strong>12003</strong></td><td>TCP</td><td>Telkom</td><td>BRI-FINNET</td><td>Finnet channel 1</td></tr>
+<tr><td><strong>12004</strong></td><td>TCP</td><td>Telkom</td><td>BRI-FINNET</td><td>Finnet channel 2 — bandwidth besar</td></tr>
+<tr><td><strong>10031</strong></td><td>TCP</td><td>Telkom</td><td>BRI-SYB</td><td>SYB persistent connection</td></tr>
+<tr><td><strong>10022</strong></td><td>TCP</td><td>Lintas</td><td>BRI-SHOPEE</td><td>SSH non-standard</td></tr>
+<tr><td><strong>80</strong></td><td>TCP</td><td>Icon</td><td>BRI-PERTAMINA</td><td>HTTP Pertamina + Patraniaga</td></tr>
+<tr><td><strong>ICMP</strong></td><td>ICMP</td><td>Semua</td><td>Monitoring</td><td>Ping monitoring dari berbagai source</td></tr>
+</table></div>
+
+<!-- ============ LANGKAH MIGRASI ============ -->
+<div class="section"><h2>📋 Langkah-Langkah Migrasi (Urutan Eksekusi)</h2>
+<div class="steps">
+
+<div class="step"><strong>Pre-Migration: Inventory & Validasi</strong><br>
+• Dokumentasikan semua IP mapping (lama → baru) untuk 30+ source IPs dan 15+ dest IPs<br>
+• Validasi semua port (57183, 179, 7777, 7077, 12003, 12004, 10031, 10022, 80, ICMP) sudah dibuka di firewall DC baru<br>
+• Siapkan rule Palo Alto di DC baru yang mirror dari DC eksisting<br>
+• Koordinasi dengan semua partner (Mitrakom, Duitku, Shopee, PLN, Finnet, SYB, Pertamina, Nicepay, iSaku)</div>
+
+<div class="step"><strong>Fase 1: Migrasi FIBERSTAR (Risiko RENDAH)</strong><br>
+• Hanya ICMP monitoring — <code>172.28.145.13</code> → <code>10.219.3.186</code> & <code>10.219.3.190</code><br>
+• Pindahkan monitoring ping, validasi reachability<br>
+• Rollback mudah jika gagal — tidak ada traffic aplikasi</div>
+
+<div class="step"><strong>Fase 2: Migrasi ICON (Risiko SEDANG)</strong><br>
+• Pindahkan monitoring ping (172.19.91.31, 172.18.65.229, 172.28.145.13)<br>
+• Pindahkan BRI-PERTAMINA: <code>172.28.94.3/4</code> → <code>172.28.108.49</code> port 80<br>
+• Pindahkan BRI-PERTAMINA-PATRANIAGA: <code>172.18.104.137</code> → <code>172.28.108.77</code> port 80<br>
+• Catatan: banyak session "incomplete" — validasi koneksi end-to-end</div>
+
+<div class="step"><strong>Fase 3: Migrasi INDOSAT (Risiko SEDANG)</strong><br>
+• Pindahkan monitoring ping (3 flow)<br>
+• Pindahkan BRI-DUITKU via Indosat: <code>172.28.94.3/4</code> + <code>172.28.73.254</code> → <code>172.28.108.47</code> port 7777<br>
+• Koordinasi dengan tim Duitku — traffic juga ada di backhaul Lintas</div>
+
+<div class="step"><strong>Fase 4: Migrasi TELKOM (Risiko TINGGI)</strong><br>
+• <strong>BRI-PLN-TRUNOJOYO dulu:</strong> 4 source IPs (<code>172.28.67.41-44</code>) + <code>172.28.73.254</code> → <code>172.28.108.39</code> port 7077<br>
+• <strong>BRI-SYB:</strong> <code>172.28.67.51</code> → <code>172.28.108.14</code> port 10031 (702 MB persistent)<br>
+• <strong>BRI-FINNET terakhir:</strong> <code>172.28.67.51</code> → <code>172.28.108.12</code> port 12003/12004 (1.08 GB persistent)<br>
+• Lakukan di maintenance window — PLN punya 65K sessions/hari</div>
+
+<div class="step"><strong>Fase 5: Migrasi LINTAS (Risiko KRITIKAL)</strong><br>
+• <strong>5a — BGP Peering:</strong> Setup BGP di DC baru terlebih dahulu<br>
+  &nbsp;&nbsp;- BACKHAUL: <code>10.219.3.177</code> ↔ <code>10.219.3.178</code> port 179<br>
+  &nbsp;&nbsp;- iSaku: <code>10.219.3.181</code> ↔ <code>10.219.3.182</code> port 179<br>
+  &nbsp;&nbsp;- Pastikan routing table converge sebelum lanjut<br>
+• <strong>5b — Partner kecil dulu:</strong><br>
+  &nbsp;&nbsp;- BRI-SHOPEE: <code>172.28.73.254</code> → <code>172.28.108.52</code> port 10022<br>
+  &nbsp;&nbsp;- BRI-DUITKU: <code>172.28.73.254</code> → <code>172.28.108.47</code> port 7777<br>
+  &nbsp;&nbsp;- Nicepay: <code>103.20.51.33</code> → <code>172.28.109.18</code> ICMP<br>
+• <strong>5c — BRI-MITRAKOM terakhir (PALING RISKAN):</strong><br>
+  &nbsp;&nbsp;- <code>172.28.67.51</code> → <code>172.28.108.13</code> port 57183<br>
+  &nbsp;&nbsp;- 5.81 GB persistent connection — <strong>WAJIB maintenance window</strong><br>
+  &nbsp;&nbsp;- Siapkan rollback plan, monitor selama 24 jam</div>
+
+<div class="step"><strong>Post-Migration: Validasi & Monitoring</strong><br>
+• Monitor semua flow di Palo Alto DC baru selama 7 hari<br>
+• Bandingkan session count & bandwidth dengan baseline DC lama<br>
+• Pastikan tidak ada traffic yang masih lewat DC lama<br>
+• Review denied traffic — buat rule baru jika ada legitimate traffic<br>
+• Decommission rule di DC lama setelah stabil 30 hari</div>
+
+</div></div>
+
+<div class="section"><h2>⚠️ Risk Matrix</h2>
+<table>
+<tr><th>Backhaul</th><th>Partner</th><th>Risiko</th><th>Alasan</th><th>Mitigasi</th></tr>
+<tr style="background:#fef2f2"><td>Lintas</td><td>BRI-MITRAKOM</td><td><span class="tag t-crit">KRITIKAL</span></td><td>5.81 GB persistent, single connection, downtime = data loss</td><td>Maintenance window, parallel run, rollback plan</td></tr>
+<tr style="background:#fef2f2"><td>Lintas</td><td>BGP Peering</td><td><span class="tag t-crit">KRITIKAL</span></td><td>Routing backbone — jika gagal, semua traffic terdampak</td><td>Setup BGP baru dulu, graceful migration, BFD monitoring</td></tr>
+<tr><td>Telkom</td><td>BRI-FINNET</td><td><span class="tag t-high">TINGGI</span></td><td>1.08 GB persistent, financial transaction</td><td>Maintenance window, koordinasi Finnet</td></tr>
+<tr><td>Telkom</td><td>BRI-SYB</td><td><span class="tag t-high">TINGGI</span></td><td>702 MB persistent connection</td><td>Maintenance window</td></tr>
+<tr><td>Telkom</td><td>BRI-PLN-TRUNOJOYO</td><td><span class="tag t-high">TINGGI</span></td><td>65K sessions/hari, high frequency</td><td>Gradual migration, load test dulu</td></tr>
+<tr><td>Icon</td><td>BRI-PERTAMINA</td><td><span class="tag t-med">SEDANG</span></td><td>Banyak "incomplete" session — koneksi tidak stabil</td><td>Fix koneksi sebelum migrasi</td></tr>
+<tr><td>Indosat</td><td>BRI-DUITKU</td><td><span class="tag t-med">SEDANG</span></td><td>Multi-backhaul (juga di Lintas) — perlu sinkronisasi</td><td>Migrasi bersamaan dengan Lintas</td></tr>
+<tr><td>Fiberstar</td><td>Monitoring</td><td><span class="tag t-low">RENDAH</span></td><td>Hanya ICMP ping</td><td>Migrasi pertama sebagai pilot</td></tr>
+</table></div>
+
+<div class="footer">Panduan Migrasi DC — Generated 30 Maret 2026 — Data dari 5 Palo Alto Traffic Logs</div>
+</div></body></html>
