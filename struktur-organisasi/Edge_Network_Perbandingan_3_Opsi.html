@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perbandingan 3 Opsi — Struktur Department Edge Network Operation (Revisi)</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;line-height:1.6;padding:24px}
+  .container{max-width:1200px;margin:0 auto}
+  h1{font-size:1.6rem;color:#0a1628;margin-bottom:4px}
+  .subtitle{color:#555;font-size:.95rem;margin-bottom:28px}
+  h2{font-size:1.2rem;color:#0a1628;margin-bottom:14px}
+  h3{font-size:1.05rem;color:#333;margin:18px 0 10px}
+  .revision-box{background:#fff3cd;border-left:4px solid #e6a800;padding:14px 18px;border-radius:6px;margin-bottom:28px;font-size:.9rem}
+  .revision-box strong{color:#7a5800}
+  .card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:20px;margin-bottom:22px}
+  .card-header{font-size:1.15rem;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #e0e0e0}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:14px}
+  th{text-align:left;padding:10px;font-weight:600;border-bottom:2px solid #e0e0e0}
+  td{padding:10px;border-bottom:1px solid #eee;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .badge{display:inline-block;padding:3px 10px;border-radius:14px;font-size:.8rem;font-weight:600}
+  .b-blue{background:#e8f0fe;color:#1a56db}
+  .b-green{background:#e6f4ea;color:#1b7a2e}
+  .b-yellow{background:#fef3cd;color:#7a5800}
+  .b-red{background:#fde8e8;color:#c62828}
+  .b-gray{background:#f0f0f0;color:#555}
+  .opsi-label{display:inline-block;color:#fff;padding:4px 14px;border-radius:20px;font-size:.85rem;font-weight:600;margin-right:8px}
+  .ol1{background:#0856c2} .ol2{background:#6d28d9} .ol3{background:#2e7d32}
+  .highlight-row td{background:#f9fafb}
+  .total-row td{font-weight:700;background:#e8f0fe;border-top:2px solid #0856c2}
+  .pro-con{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pro,.con{padding:14px;border-radius:8px;font-size:.88rem}
+  .pro{background:#e6f4ea;border-left:4px solid #2e7d32}
+  .con{background:#fde8e8;border-left:4px solid #c62828}
+  .pro h4{color:#1b7a2e;margin-bottom:8px}
+  .con h4{color:#c62828;margin-bottom:8px}
+  .pro li,.con li{margin-bottom:4px;margin-left:16px}
+  .verdict{background:#0a1628;color:#fff;border-radius:10px;padding:20px;margin-top:22px}
+  .verdict h2{color:#fff;margin-bottom:14px}
+  .verdict table th{background:#1a2d4a;color:#fff}
+  .verdict table td{color:#e0e0e0;border-bottom:1px solid #2a3d5a}
+  .footer{text-align:center;color:#999;font-size:.8rem;margin-top:36px;padding-top:16px;border-top:1px solid #ddd}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>⚖️ Perbandingan 3 Opsi — Struktur Department Edge Network Operation</h1>
+<p class="subtitle">Analisis detail Opsi 1 (Concern-driven), Opsi 2 (Pragmatis), dan Opsi 3 (ITIL/eTOM) | 32–35 personel</p>
+
+<div class="revision-box">
+  <strong>📝 Revisi 1 April 2026:</strong> Opsi 2 dan Opsi 3 direvisi dari 5 team menjadi 4 team. Penyesuaian: (1) Service Management &amp; Quality dihapus sebagai team terpisah — sudah ada di department lain, diganti 1 PIC liaison. (2) Network Engineering diubah menjadi Ops Automation &amp; Improvement — architecture/design sudah ada di department Dev. Ketiga opsi sekarang sama-sama 4 team.
+</div>
+
+<!-- SECTION 1: OVERVIEW -->
+<div class="card">
+  <div class="card-header">1. Overview Ketiga Opsi</div>
+  <table>
+    <tr>
+      <th style="width:20%">Aspek</th>
+      <th style="width:26%"><span class="opsi-label ol1">Opsi 1</span> Concern-driven</th>
+      <th style="width:27%"><span class="opsi-label ol2">Opsi 2</span> Pragmatis</th>
+      <th style="width:27%"><span class="opsi-label ol3">Opsi 3</span> ITIL/eTOM</th>
+    </tr>
+    <tr><td><strong>Dasar penyusunan</strong></td><td>Concern spesifik: ops tidak boleh dicampur proyek &amp; admin</td><td>Logika natural pemisahan fungsi + konteks organisasi</td><td>Framework industri ITIL 4 &amp; eTOM, diadaptasi ke konteks organisasi</td></tr>
+    <tr><td><strong>Jumlah team</strong></td><td>4 team + leadership</td><td>4 team + leadership</td><td>4 team + leadership</td></tr>
+    <tr><td><strong>Total personel</strong></td><td>32–35</td><td>32–35</td><td>32–35</td></tr>
+    <tr><td><strong>Pendekatan</strong></td><td>Bottom-up (dari masalah yang ada)</td><td>Top-down (dari logika organisasi)</td><td>Top-down (dari framework global)</td></tr>
+    <tr><td><strong>Team 4 (pembeda utama)</strong></td><td>Engineering &amp; Quality (gabungan)</td><td>Ops Automation &amp; Improvement</td><td>Ops Automation &amp; Improvement (ITIL-mapped)</td></tr>
+    <tr><td><strong>Kompleksitas implementasi</strong></td><td><span class="badge b-green">Rendah</span></td><td><span class="badge b-yellow">Sedang</span></td><td><span class="badge b-yellow">Sedang</span></td></tr>
+    <tr><td><strong>Maturity yang dibutuhkan</strong></td><td><span class="badge b-green">Low–Medium</span></td><td><span class="badge b-yellow">Medium</span></td><td><span class="badge b-yellow">Medium</span></td></tr>
+  </table>
+</div>
+
+<!-- SECTION 2: STRUKTUR TEAM -->
+<div class="card">
+  <div class="card-header">2. Perbandingan Struktur Team</div>
+  <table>
+    <tr>
+      <th>Fungsi</th>
+      <th><span class="opsi-label ol1">Opsi 1</span></th>
+      <th><span class="opsi-label ol2">Opsi 2</span></th>
+      <th><span class="opsi-label ol3">Opsi 3</span></th>
+    </tr>
+    <tr>
+      <td><strong>Operations / NOC</strong></td>
+      <td>Team 1: Network Operations<br><span class="badge b-blue">12–14 orang</span><br>3 sub-fungsi by domain</td>
+      <td>Team 1: NOC<br><span class="badge b-blue">12–14 orang</span><br>3 sub-fungsi by domain</td>
+      <td>Team 1: Network Operations<br><span class="badge b-blue">12–14 orang</span><br>3 sub-fungsi by domain + ITIL mapping</td>
+    </tr>
+    <tr>
+      <td><strong>Project Delivery</strong></td>
+      <td>Team 2: Project Delivery<br><span class="badge b-blue">8–9 orang</span></td>
+      <td>Team 2: Project Delivery<br><span class="badge b-blue">8–9 orang</span></td>
+      <td>Team 2: Project Delivery (Build &amp; Transition)<br><span class="badge b-blue">8–9 orang</span></td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Contract / Vendor</strong></td>
+      <td>Team 3: Contract &amp; Vendor Mgmt<br><span class="badge b-yellow">6–7 orang</span></td>
+      <td>Team 3: Vendor &amp; Contract Mgmt<br><span class="badge b-yellow">6–7 orang</span></td>
+      <td>Team 3: Vendor &amp; Contract Mgmt (Supplier Mgmt)<br><span class="badge b-yellow">6–7 orang</span></td>
+    </tr>
+    <tr>
+      <td><strong>Team 4 (pembeda)</strong></td>
+      <td>Engineering &amp; Quality<br><span class="badge b-green">4–5 orang</span><br>Design, automation, quality, capacity — gabungan</td>
+      <td>Ops Automation &amp; Improvement<br><span class="badge b-green">3–4 orang</span><br>Automation, runbook, L3, liaison — tanpa design/quality</td>
+      <td>Ops Automation &amp; Improvement<br><span class="badge b-green">3–4 orang</span><br>Sama + ITIL/eTOM mapping</td>
+    </tr>
+    <tr class="highlight-row">
+      <td><strong>Service Mgmt / Quality</strong></td>
+      <td>Digabung di Team 4</td>
+      <td>Tidak ada (1 PIC liaison ke dept lain)</td>
+      <td>Tidak ada (1 PIC liaison ke dept lain)</td>
+    </tr>
+    <tr>
+      <td><strong>Architecture / Design</strong></td>
+      <td>Digabung di Team 4</td>
+      <td>Tidak ada (di dept Dev/Architecture)</td>
+      <td>Tidak ada (di dept Dev/Architecture)</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 3: ALOKASI PERSONEL -->
+<div class="card">
+  <div class="card-header">3. Perbandingan Alokasi Personel</div>
+  <table>
+    <tr>
+      <th>Team / Fungsi</th>
+      <th><span class="opsi-label ol1">Opsi 1</span></th>
+      <th><span class="opsi-label ol2">Opsi 2</span></th>
+      <th><span class="opsi-label ol3">Opsi 3</span></th>
+    </tr>
+    <tr><td>Operations / NOC</td><td>12–14 (~38%)</td><td>12–14 (~38%)</td><td>12–14 (~38%)</td></tr>
+    <tr><td>Project Delivery</td><td>8–9 (~25%)</td><td>8–9 (~25%)</td><td>8–9 (~25%)</td></tr>
+    <tr class="highlight-row"><td>Contract / Vendor</td><td>6–7 (~19%)</td><td>6–7 (~19%)</td><td>6–7 (~19%)</td></tr>
+    <tr><td>Team 4 (pembeda)</td><td>4–5 (~13%)</td><td>3–4 (~10%)</td><td>3–4 (~10%)</td></tr>
+    <tr><td>Leadership</td><td>1–2 (~5%)</td><td>1–2 (~5%)</td><td>1–2 (~5%)</td></tr>
+    <tr class="total-row"><td><strong>TOTAL</strong></td><td><strong>32–35</strong></td><td><strong>32–35</strong></td><td><strong>32–35</strong></td></tr>
+  </table>
+</div>
+
+<!-- SECTION 4: PERBEDAAN KUNCI -->
+<div class="card">
+  <div class="card-header">4. Perbedaan Kunci: Team 4</div>
+  <p style="font-size:.9rem;color:#555;margin-bottom:14px">Karena Team 1–3 sekarang identik di ketiga opsi, perbedaan utama terletak pada Team 4:</p>
+  <table>
+    <tr>
+      <th>Aspek</th>
+      <th><span class="opsi-label ol1">Opsi 1</span> Engineering &amp; Quality</th>
+      <th><span class="opsi-label ol2">Opsi 2</span> &amp; <span class="opsi-label ol3">Opsi 3</span> Ops Automation &amp; Improvement</th>
+    </tr>
+    <tr><td><strong>Jumlah</strong></td><td>4–5 orang</td><td>3–4 orang</td></tr>
+    <tr><td><strong>Scope</strong></td><td>Luas: design, automation, quality, capacity planning</td><td>Fokus: automation ops, runbook, L3, liaison</td></tr>
+    <tr><td><strong>Termasuk design?</strong></td><td>Ya — template standar, network design</td><td>Tidak — sudah di dept Dev/Architecture</td></tr>
+    <tr><td><strong>Termasuk quality/governance?</strong></td><td>Ya — post-incident review, change mgmt, documentation</td><td>Hanya eksekusi teknis (post-incident review). Governance di dept Service Mgmt via liaison</td></tr>
+    <tr><td><strong>Risiko</strong></td><td>Scope terlalu luas, salah satu fungsi bisa terabaikan. Potensi overlap dengan dept lain</td><td>Scope sempit tapi jelas. Tidak ada overlap</td></tr>
+    <tr><td><strong>Kelebihan</strong></td><td>Self-contained — semua ada di internal</td><td>Tidak duplikasi fungsi lintas department</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 5: OPERATION MODEL -->
+<div class="card">
+  <div class="card-header">5. Perbandingan Operation Model</div>
+  <table>
+    <tr>
+      <th>Aspek</th>
+      <th><span class="opsi-label ol1">Opsi 1</span></th>
+      <th><span class="opsi-label ol2">Opsi 2</span></th>
+      <th><span class="opsi-label ol3">Opsi 3</span></th>
+    </tr>
+    <tr><td><strong>NOC Model</strong></td><td>Sub-fungsi by domain (WAN, Branch, Platform)</td><td>Sub-fungsi by domain</td><td>Sub-fungsi by domain + ITIL swarming</td></tr>
+    <tr><td><strong>Team 4 Model</strong></td><td>Konsultatif, support semua team, termasuk design &amp; quality</td><td>Sprint-based automation, L3 escalation, liaison</td><td>Sama + ITIL Continual Improvement mapping</td></tr>
+    <tr><td><strong>Project Handover</strong></td><td>Handover formal + knowledge transfer</td><td>Mandatory deliverable (runbook, topology, known issues)</td><td>ITIL Service Transition checklist</td></tr>
+    <tr><td><strong>Change Management</strong></td><td>Di-handle Team 4 (Engineering &amp; Quality)</td><td>Di dept Service Mgmt, liaison dari Team 4</td><td>Di dept Service Mgmt, liaison dari Team 4 (ITIL-mapped)</td></tr>
+    <tr><td><strong>Anti-Silo</strong></td><td>6 mekanisme eksplisit</td><td>Prinsip kunci + liaison role</td><td>ITIL value chain + liaison role</td></tr>
+    <tr><td><strong>Framework rujukan</strong></td><td>Tidak ada (experience-based)</td><td>Tidak ada (logic-based)</td><td>ITIL 4 &amp; TM Forum eTOM</td></tr>
+  </table>
+</div>
+
+<!-- SECTION 6: PRO & CON -->
+<div class="card">
+  <div class="card-header">6. Kelebihan &amp; Kekurangan</div>
+
+  <h3><span class="opsi-label ol1">Opsi 1</span> Concern-driven</h3>
+  <div class="pro-con">
+    <div class="pro"><h4>✅ Kelebihan</h4><ul>
+      <li>Paling simpel — mudah diimplementasi</li>
+      <li>Langsung menjawab concern utama: ops tidak dicampur proyek &amp; admin</li>
+      <li>Anti-silo mechanism sudah didefinisikan detail (6 mekanisme)</li>
+      <li>Self-contained — design &amp; quality ada di internal</li>
+      <li>Cocok untuk maturity rendah–sedang</li>
+    </ul></div>
+    <div class="con"><h4>❌ Kekurangan</h4><ul>
+      <li>Team 4 scope terlalu luas (engineering + quality) — risiko salah satu terabaikan</li>
+      <li>Potensi overlap dengan dept Dev/Architecture dan dept Service Management</li>
+      <li>Tidak ada pembedaan jelas antara operational automation vs architecture design</li>
+    </ul></div>
+  </div>
+
+  <h3 style="margin-top:18px"><span class="opsi-label ol2">Opsi 2</span> Pragmatis</h3>
+  <div class="pro-con">
+    <div class="pro"><h4>✅ Kelebihan</h4><ul>
+      <li>Tidak ada overlap dengan department lain</li>
+      <li>Team 4 fokus tajam: automation ops + L3 + liaison</li>
+      <li>Lean — 1 orang lebih sedikit di Team 4 bisa dialokasikan ke NOC/Project</li>
+      <li>Setiap team punya fokus tunggal yang jelas</li>
+      <li>Practical — tidak butuh framework knowledge</li>
+    </ul></div>
+    <div class="con"><h4>❌ Kekurangan</h4><ul>
+      <li>Bergantung pada dept lain untuk design &amp; governance — jika dept lain lambat, bisa jadi bottleneck</li>
+      <li>Liaison role harus dijalankan dengan disiplin</li>
+      <li>Tidak ada framework formal sebagai rujukan ke management</li>
+    </ul></div>
+  </div>
+
+  <h3 style="margin-top:18px"><span class="opsi-label ol3">Opsi 3</span> ITIL/eTOM</h3>
+  <div class="pro-con">
+    <div class="pro"><h4>✅ Kelebihan</h4><ul>
+      <li>Semua kelebihan Opsi 2 + backing framework global</li>
+      <li>Mudah di-justify ke management (ada rujukan standar ITIL/eTOM)</li>
+      <li>Mapping jelas ke value chain — setiap team tau posisinya</li>
+      <li>"Adopt and adapt" — ITIL sendiri mendukung adaptasi ke konteks organisasi</li>
+    </ul></div>
+    <div class="con"><h4>❌ Kekurangan</h4><ul>
+      <li>Butuh pemahaman ITIL/eTOM minimal di level team lead</li>
+      <li>Bisa terasa "over-engineered" untuk team 32–35 orang</li>
+      <li>Sama seperti Opsi 2 — bergantung pada dept lain untuk design &amp; governance</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- SECTION 7: KAPAN MEMILIH -->
+<div class="card">
+  <div class="card-header">7. Kapan Memilih Opsi Mana?</div>
+  <table>
+    <tr><th>Kondisi Organisasi</th><th>Rekomendasi</th><th>Alasan</th></tr>
+    <tr>
+      <td>Ingin self-contained, tidak mau bergantung dept lain untuk design &amp; quality</td>
+      <td><span class="opsi-label ol1">Opsi 1</span></td>
+      <td>Team 4 mencakup engineering &amp; quality secara internal, meski ada risiko overlap</td>
+    </tr>
+    <tr>
+      <td>Dept Dev/Architecture dan dept Service Mgmt sudah mature &amp; responsif</td>
+      <td><span class="opsi-label ol2">Opsi 2</span></td>
+      <td>Tidak perlu duplikasi, fokus pada core ops, practical tanpa framework overhead</td>
+    </tr>
+    <tr>
+      <td>Sama seperti Opsi 2, tapi perlu justify ke board/management dengan framework</td>
+      <td><span class="opsi-label ol3">Opsi 3</span></td>
+      <td>Substansi sama dengan Opsi 2, tapi dengan ITIL/eTOM backing untuk presentasi</td>
+    </tr>
+  </table>
+</div>
+
+<!-- VERDICT -->
+<div class="verdict">
+  <h2>🎯 Ringkasan Eksekutif</h2>
+  <table>
+    <tr>
+      <th style="width:22%">Dimensi</th>
+      <th style="width:26%"><span class="opsi-label ol1">Opsi 1</span></th>
+      <th style="width:26%"><span class="opsi-label ol2">Opsi 2</span></th>
+      <th style="width:26%"><span class="opsi-label ol3">Opsi 3</span></th>
+    </tr>
+    <tr><td>Kemudahan implementasi</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+    <tr><td>Kejelasan fokus per team</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+    <tr><td>Tidak overlap dept lain</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+    <tr><td>Self-contained</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+    <tr><td>Justifikasi ke management</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+    <tr><td>Anti-silo mechanism</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+    <tr><td>Maturity requirement</td><td>⭐⭐ (rendah)</td><td>⭐⭐⭐ (sedang)</td><td>⭐⭐⭐ (sedang)</td></tr>
+  </table>
+  <p style="margin-top:14px;font-size:.9rem;color:#aaa">Ketiga opsi sekarang sama-sama 4 team dengan alokasi personel yang hampir identik. Perbedaan utama terletak pada scope Team 4 dan pendekatan terhadap fungsi yang sudah ada di department lain. Pilihan tergantung pada seberapa mature dan responsif department lain (Dev/Architecture dan Service Management).</p>
+</div>
+
+<div class="footer">Department Edge Network Operation — Perbandingan 3 Opsi Struktur Organisasi (Revisi 1 April 2026)</div>
+
+</div>
+</body>
+</html>

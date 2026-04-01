@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Struktur Team - Department Edge Network</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f2f5; color: #1a1a2e; line-height: 1.6; padding: 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; color: #0a1628; margin-bottom: 4px; }
+  .subtitle { color: #555; font-size: 0.95rem; margin-bottom: 28px; }
+  .principle-box { background: #fff3cd; border-left: 4px solid #e6a800; padding: 14px 18px; border-radius: 6px; margin-bottom: 28px; font-size: 0.9rem; }
+  .principle-box strong { color: #7a5800; }
+
+  .team-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 22px; overflow: hidden; }
+  .team-header { padding: 16px 20px; color: #fff; display: flex; justify-content: space-between; align-items: center; }
+  .team-header h2 { font-size: 1.15rem; font-weight: 600; }
+  .team-header .badge { background: rgba(255,255,255,0.25); padding: 3px 12px; border-radius: 20px; font-size: 0.85rem; }
+  .team-body { padding: 18px 20px; }
+  .team-focus { font-style: italic; color: #555; margin-bottom: 14px; font-size: 0.9rem; }
+
+  .t1 .team-header { background: #0856c2; }
+  .t2 .team-header { background: #0099cc; }
+  .t3 .team-header { background: #d4920b; }
+  .t4 .team-header { background: #2e7d32; }
+
+  table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 0.88rem; }
+  th { background: #f5f7fa; text-align: left; padding: 8px 10px; font-weight: 600; border-bottom: 2px solid #e0e0e0; }
+  td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+
+  .section-label { font-weight: 600; font-size: 0.88rem; color: #333; margin: 14px 0 6px; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tag { background: #e8f0fe; color: #1a56db; padding: 3px 10px; border-radius: 14px; font-size: 0.8rem; }
+  .tag.yellow { background: #fef3cd; color: #7a5800; }
+  .tag.green { background: #e6f4ea; color: #1b7a2e; }
+  .tag.cyan { background: #e0f7fa; color: #00796b; }
+
+  .opmodel { background: #f9fafb; border-radius: 6px; padding: 10px 14px; font-size: 0.85rem; }
+  .opmodel li { margin-bottom: 4px; margin-left: 16px; }
+
+  .summary-section { margin-top: 32px; }
+  .summary-section h2 { font-size: 1.2rem; margin-bottom: 14px; color: #0a1628; }
+  .summary-table { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
+  .summary-table table { margin: 0; }
+  .summary-table th { background: #0a1628; color: #fff; }
+  .summary-table tr:nth-child(even) td { background: #f9fafb; }
+  .summary-table tr.total td { font-weight: 700; background: #e8f0fe; }
+
+  .antisilo { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); padding: 20px; margin-top: 22px; }
+  .antisilo h2 { font-size: 1.1rem; margin-bottom: 12px; color: #0a1628; }
+  .antisilo ol { padding-left: 20px; font-size: 0.9rem; }
+  .antisilo li { margin-bottom: 8px; }
+  .antisilo li strong { color: #0856c2; }
+
+  .footer { text-align: center; color: #999; font-size: 0.8rem; margin-top: 36px; padding-top: 16px; border-top: 1px solid #ddd; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>📋 Struktur Team — Department Edge Network</h1>
+<p class="subtitle">Rekomendasi pembagian team berdasarkan dokumen Usulan Organisasi | 32–35 personel</p>
+
+<div class="principle-box">
+  <strong>⚠️ Prinsip Utama:</strong> Operations harus murni operasional — tidak dicampur dengan proyek maupun urusan administratif/kontrak. Pemisahan ini mencegah ops kewalahan dan memastikan setiap fungsi punya fokus serta akuntabilitas sendiri.
+</div>
+
+<!-- TEAM 1 -->
+<div class="team-card t1">
+  <div class="team-header">
+    <h2>Team 1: Network Operations</h2>
+    <span class="badge">12–14 orang</span>
+  </div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Day-to-day operations, monitoring, troubleshooting, incident management</p>
+    <table>
+      <tr><th>Sub-fungsi</th><th>Cakupan</th><th>Orang</th></tr>
+      <tr><td>WAN / Backhaul Ops</td><td>NAT, Link VOA, Link H2H, B/H Intra, B/H SD-WAN, B/H Extra, B/H FO, Inter SDWAN Module, Extra Module</td><td>5–6</td></tr>
+      <tr><td>Branch / Remote Ops</td><td>Remote UKO, Remote UKLN, Remote Campus, Remote Non Office (ATM), Remote Mobile (Ebuz/Terling/Terpal), SDWAN-SASE</td><td>4–5</td></tr>
+      <tr><td>Platform & Access Ops</td><td>LAN Campus Module (CO-LN), Intra Module, Platform (Neo/inmsRekon/inmsBranch), OLT/ONT, EDC (simcard), HUB Jupiter, Temp. Outlet</td><td>3</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag">Routing & Switching</span><span class="tag">SD-WAN</span><span class="tag">VSAT</span>
+      <span class="tag">Monitoring (Zabbix/SolarWinds/nGenius)</span><span class="tag">Incident Management</span><span class="tag">Troubleshooting</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Shift-based / on-call rotation</li>
+      <li>Tiered escalation: L1 → L2 → L3</li>
+      <li>SLA-driven response & resolution time</li>
+      <li>Daily standup, weekly ops review</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- TEAM 2 -->
+<div class="team-card t2">
+  <div class="team-header">
+    <h2>Team 2: Project Delivery</h2>
+    <span class="badge">8–9 orang</span>
+  </div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Implementasi link baru, migrasi, deployment, retender</p>
+    <table>
+      <tr><th>Sub-fungsi</th><th>Cakupan</th><th>Orang</th></tr>
+      <tr><td>WAN Project</td><td>Link baru H2H non VSAT, Link baru UKO non VSAT, Link baru VSAT, Link 4000 CRM</td><td>4–5</td></tr>
+      <tr><td>Infrastructure Project</td><td>Backhaul Colo ODC, Relokasi Partner Device, Retender Link LAN Campus, Retender VSAT</td><td>4</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag cyan">Project Management</span><span class="tag cyan">Site Survey</span><span class="tag cyan">Vendor Coordination</span>
+      <span class="tag cyan">Commissioning</span><span class="tag cyan">Cutover Planning</span><span class="tag cyan">Network Design</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Sprint / milestone-based delivery</li>
+      <li>Weekly project tracking & status report</li>
+      <li><strong>Handover formal ke Operations</strong> setelah Go-Live (dokumentasi + knowledge transfer wajib)</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- TEAM 3 -->
+<div class="team-card t3">
+  <div class="team-header">
+    <h2>Team 3: Contract & Vendor Management</h2>
+    <span class="badge">6–7 orang</span>
+  </div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Perpanjangan kontrak, sewa, SLA management, asset lifecycle — murni administratif</p>
+    <table>
+      <tr><th>Sub-fungsi</th><th>Cakupan</th><th>Orang</th></tr>
+      <tr><td>Contract Lifecycle</td><td>P'panjang Sewa/Relok Link H2H Non VSAT & B/H, Link UKO Non VSAT, VSAT, Sewa Simcard, FO</td><td>3–4</td></tr>
+      <tr><td>Asset & SLA Mgmt</td><td>M/S Router/Sw, M/S Jupiter, SLA Rekon</td><td>3</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag yellow">Contract Management</span><span class="tag yellow">Vendor Negotiation</span><span class="tag yellow">Procurement</span>
+      <span class="tag yellow">Asset Lifecycle</span><span class="tag yellow">SLA Tracking</span><span class="tag yellow">Budgeting</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Calendar-driven (tracking expiry dates, renewal timeline)</li>
+      <li>Monthly contract review dashboard</li>
+      <li>Vendor performance scorecard</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- TEAM 4 -->
+<div class="team-card t4">
+  <div class="team-header">
+    <h2>Team 4: Engineering & Quality</h2>
+    <span class="badge">4–5 orang</span>
+  </div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Perekat antar team — design, standarisasi, automation, continuous improvement</p>
+    <table>
+      <tr><th>Fungsi</th><th>Detail</th></tr>
+      <tr><td>Network Design</td><td>Template standar untuk setiap tipe link/remote</td></tr>
+      <tr><td>Automation</td><td>Scripting, config management, monitoring enhancement</td></tr>
+      <tr><td>Quality & Compliance</td><td>Post-incident review, change management, documentation</td></tr>
+      <tr><td>Capacity Planning</td><td>Trend analysis, upgrade recommendation</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag green">Network Design</span><span class="tag green">Python / Ansible</span><span class="tag green">Documentation</span>
+      <span class="tag green">Performance Analysis</span><span class="tag green">Change Management</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Konsultatif — support ketiga team lain</li>
+      <li>Maintain knowledge base & runbook</li>
+      <li>Lead post-mortem & improvement initiatives</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-section">
+  <h2>📊 Ringkasan Alokasi Personel</h2>
+  <div class="summary-table">
+    <table>
+      <tr><th>Team</th><th>Jumlah</th><th>%</th><th>Peran Utama</th></tr>
+      <tr><td>Network Operations</td><td>12–14</td><td>~38%</td><td>Day-to-day, incident, monitoring</td></tr>
+      <tr><td>Project Delivery</td><td>8–9</td><td>~25%</td><td>Implementasi baru, migrasi</td></tr>
+      <tr><td>Contract & Vendor Mgmt</td><td>6–7</td><td>~19%</td><td>Kontrak, sewa, SLA, asset</td></tr>
+      <tr><td>Engineering & Quality</td><td>4–5</td><td>~13%</td><td>Design, automation, standarisasi</td></tr>
+      <tr class="total"><td>Dept Head + Deputy</td><td>1–2</td><td>~5%</td><td>Leadership</td></tr>
+      <tr class="total"><td><strong>TOTAL</strong></td><td><strong>32–35</strong></td><td><strong>100%</strong></td><td></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ANTI-SILO -->
+<div class="antisilo">
+  <h2>🔗 Anti-Silo Mechanism</h2>
+  <ol>
+    <li><strong>Handover Protocol</strong> — Project → Ops wajib formal checklist: runbook, topology, contact vendor, known issues</li>
+    <li><strong>Cross-Team Weekly Sync</strong> — 30 menit/minggu, 1 wakil per team, bahas dependency & blocker</li>
+    <li><strong>RACI Matrix</strong> — Definisi jelas per tipe pekerjaan: siapa Responsible, Accountable, Consulted, Informed</li>
+    <li><strong>Shared Dashboard</strong> — Satu view terintegrasi: status incident (Ops), milestone (Project), expiry kontrak (Contract)</li>
+    <li><strong>Rotation Program</strong> — Tiap 6–12 bulan, rotasi 1–2 orang antar team untuk cross-skill</li>
+    <li><strong>Engineering sebagai Bridge</strong> — Team ini berinteraksi dengan semua team secara natural, menjadi penghubung knowledge</li>
+  </ol>
+</div>
+
+<div class="footer">Department Edge Network — Rekomendasi Struktur Organisasi | Generated 28 Maret 2026</div>
+
+</div>
+</body>
+</html>

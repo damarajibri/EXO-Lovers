@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opsi 2 — Struktur Pragmatis 4 Team (Revisi)</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;line-height:1.6;padding:24px}
+  .container{max-width:1100px;margin:0 auto}
+  h1{font-size:1.6rem;color:#0a1628;margin-bottom:4px}
+  .subtitle{color:#555;font-size:.95rem;margin-bottom:28px}
+  .label-opsi{display:inline-block;background:#0856c2;color:#fff;padding:4px 14px;border-radius:20px;font-size:.85rem;margin-bottom:18px}
+  .revision-box{background:#fff3cd;border-left:4px solid #e6a800;padding:14px 18px;border-radius:6px;margin-bottom:16px;font-size:.9rem}
+  .revision-box strong{color:#7a5800}
+  .principle-box{background:#e8f0fe;border-left:4px solid #0856c2;padding:14px 18px;border-radius:6px;margin-bottom:28px;font-size:.9rem}
+  .principle-box strong{color:#0856c2}
+  .team-card{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:22px;overflow:hidden}
+  .team-header{padding:16px 20px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+  .team-header h2{font-size:1.15rem;font-weight:600}
+  .team-header .badge{background:rgba(255,255,255,.25);padding:3px 12px;border-radius:20px;font-size:.85rem}
+  .team-body{padding:18px 20px}
+  .team-focus{font-style:italic;color:#555;margin-bottom:14px;font-size:.9rem}
+  .t1 .team-header{background:#0856c2} .t2 .team-header{background:#0099cc} .t3 .team-header{background:#d4920b} .t4 .team-header{background:#2e7d32}
+  table{width:100%;border-collapse:collapse;margin-bottom:14px;font-size:.88rem}
+  th{background:#f5f7fa;text-align:left;padding:8px 10px;font-weight:600;border-bottom:2px solid #e0e0e0}
+  td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .section-label{font-weight:600;font-size:.88rem;color:#333;margin:14px 0 6px}
+  .tag-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .tag{padding:3px 10px;border-radius:14px;font-size:.8rem}
+  .tag.blue{background:#e8f0fe;color:#1a56db} .tag.cyan{background:#e0f7fa;color:#00796b} .tag.yellow{background:#fef3cd;color:#7a5800} .tag.green{background:#e6f4ea;color:#1b7a2e}
+  .opmodel{background:#f9fafb;border-radius:6px;padding:10px 14px;font-size:.85rem}
+  .opmodel li{margin-bottom:4px;margin-left:16px}
+  .summary-section{margin-top:32px}
+  .summary-section h2{font-size:1.2rem;margin-bottom:14px;color:#0a1628}
+  .summary-table{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden}
+  .summary-table table{margin:0}
+  .summary-table th{background:#0a1628;color:#fff}
+  .summary-table tr:nth-child(even) td{background:#f9fafb}
+  .summary-table tr.total td{font-weight:700;background:#e8f0fe}
+  .info-box{background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:20px;margin-top:22px}
+  .info-box h2{font-size:1.1rem;margin-bottom:12px;color:#0a1628}
+  .info-box ul{padding-left:20px;font-size:.9rem}
+  .info-box li{margin-bottom:8px}
+  .info-box li strong{color:#0856c2}
+  .footer{text-align:center;color:#999;font-size:.8rem;margin-top:36px;padding-top:16px;border-top:1px solid #ddd}
+</style>
+</head>
+<body>
+<div class="container">
+
+<span class="label-opsi">OPSI 2 — REVISI</span>
+<h1>📋 Struktur Pragmatis — Department Edge Network Operation</h1>
+<p class="subtitle">Rekomendasi 4 team berdasarkan pandangan pragmatis dengan mempertimbangkan konteks organisasi | 32–35 personel</p>
+
+<div class="revision-box">
+  <strong>📝 Revisi 1 April 2026:</strong> Disesuaikan dari 5 team menjadi 4 team. Service Management &amp; Quality dihapus sebagai team terpisah (sudah ada di department lain, diganti 1 PIC liaison). Network Engineering diubah menjadi Ops Automation &amp; Improvement (architecture/design sudah ada di department Dev).
+</div>
+
+<div class="principle-box">
+  <strong>💡 Dasar Pemikiran:</strong> Struktur ini disusun berdasarkan logika pemisahan fungsi yang natural, dengan mempertimbangkan bahwa fungsi Service Management/Quality dan Network Architecture/Design sudah ditangani department lain. Setiap team punya fokus tunggal tanpa overlap lintas department.
+</div>
+
+<!-- TEAM 1 -->
+<div class="team-card t1">
+  <div class="team-header"><h2>Team 1: Network Operations Center (NOC)</h2><span class="badge">12–14 orang</span></div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Monitoring, incident response, troubleshooting — murni reactive operations</p>
+    <table>
+      <tr><th>Sub-fungsi</th><th>Cakupan</th><th>Orang</th></tr>
+      <tr><td>WAN / Backhaul Ops</td><td>NAT, Link VOA, Link H2H, B/H Intra, B/H SD-WAN, B/H Extra, B/H FO, Inter SDWAN Module, Extra Module</td><td>5–6</td></tr>
+      <tr><td>Branch / Remote Ops</td><td>Remote UKO, Remote UKLN, Remote Campus, Remote Non Office (ATM), Remote Mobile (Ebuz/Terling/Terpal), SDWAN-SASE</td><td>4–5</td></tr>
+      <tr><td>Platform &amp; Access Ops</td><td>LAN Campus Module (CO-LN), Intra Module, Platform (Neo/inmsRekon/inmsBranch), OLT/ONT, EDC (simcard), HUB Jupiter, Temp. Outlet</td><td>3</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag blue">Routing &amp; Switching</span><span class="tag blue">SD-WAN</span><span class="tag blue">VSAT</span>
+      <span class="tag blue">Monitoring (Zabbix/SolarWinds/nGenius)</span><span class="tag blue">Incident Management</span><span class="tag blue">Troubleshooting</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Shift-based / on-call rotation</li>
+      <li>Tiered escalation: L1 → L2 → L3</li>
+      <li>SLA-driven response &amp; resolution time</li>
+      <li>KPI: MTTR, SLA compliance, incident volume trend</li>
+      <li>Daily standup, weekly ops review</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- TEAM 2 -->
+<div class="team-card t2">
+  <div class="team-header"><h2>Team 2: Project Delivery</h2><span class="badge">8–9 orang</span></div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Implementasi link baru, migrasi, deployment, cutover</p>
+    <table>
+      <tr><th>Sub-fungsi</th><th>Cakupan</th><th>Orang</th></tr>
+      <tr><td>WAN &amp; Link Deployment</td><td>Link baru H2H non VSAT, Link baru UKO non VSAT, Link baru VSAT, Link 4000 CRM</td><td>4–5</td></tr>
+      <tr><td>Infrastructure Project</td><td>Backhaul Colo ODC, Relokasi Partner Device, Retender Link LAN Campus, Retender VSAT</td><td>4</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag cyan">Project Management</span><span class="tag cyan">Site Survey</span><span class="tag cyan">Vendor Coordination</span>
+      <span class="tag cyan">Commissioning</span><span class="tag cyan">Cutover Planning</span><span class="tag cyan">Network Design</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Sprint / milestone-based delivery</li>
+      <li>Weekly project tracking &amp; status report</li>
+      <li><strong>Handover formal ke NOC</strong> setelah Go-Live (runbook, topology, known issues — mandatory)</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- TEAM 3 -->
+<div class="team-card t3">
+  <div class="team-header"><h2>Team 3: Vendor &amp; Contract Management</h2><span class="badge">6–7 orang</span></div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Contract lifecycle, vendor performance, asset management — murni administratif</p>
+    <table>
+      <tr><th>Sub-fungsi</th><th>Cakupan</th><th>Orang</th></tr>
+      <tr><td>Contract Lifecycle</td><td>P'panjang Sewa/Relok Link H2H Non VSAT &amp; B/H, Link UKO Non VSAT, VSAT, Sewa Simcard, FO</td><td>3–4</td></tr>
+      <tr><td>Asset &amp; SLA Mgmt</td><td>M/S Router/Sw, M/S Jupiter, SLA Rekon</td><td>3</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag yellow">Contract Management</span><span class="tag yellow">Vendor Negotiation</span><span class="tag yellow">Procurement</span>
+      <span class="tag yellow">Asset Lifecycle</span><span class="tag yellow">SLA Tracking</span><span class="tag yellow">Budgeting</span>
+    </div>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Calendar-driven (tracking expiry dates, renewal timeline)</li>
+      <li>Monthly contract review dashboard</li>
+      <li>Vendor performance scorecard</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- TEAM 4 -->
+<div class="team-card t4">
+  <div class="team-header"><h2>Team 4: Ops Automation &amp; Improvement</h2><span class="badge">3–4 orang</span></div>
+  <div class="team-body">
+    <p class="team-focus">Fokus: Automation operasional, runbook, L3 escalation, liaison ke department lain — bukan architecture/design (sudah ada di dept Dev)</p>
+    <table>
+      <tr><th>Fungsi</th><th>Detail</th></tr>
+      <tr><td>Ops Automation</td><td>Scripting config push, bulk change, monitoring enhancement, alerting tuning</td></tr>
+      <tr><td>Runbook &amp; Knowledge Base</td><td>Maintain dokumentasi prosedur operasional, troubleshooting guide</td></tr>
+      <tr><td>L3 Technical Escalation</td><td>Deep-dive analysis untuk incident kompleks, orang paling senior secara teknis</td></tr>
+      <tr><td>Liaison</td><td>Jembatan ke dept Service Management (change/problem mgmt) dan dept Dev/Architecture (design/standarisasi)</td></tr>
+      <tr><td>Post-Incident Review</td><td>Lead eksekusi review pasca incident (analisis teknis, bukan governance)</td></tr>
+    </table>
+    <p class="section-label">Keahlian yang dibutuhkan:</p>
+    <div class="tag-list">
+      <span class="tag green">Python / Ansible</span><span class="tag green">Config Management</span><span class="tag green">Documentation</span>
+      <span class="tag green">Performance Analysis</span><span class="tag green">Deep Troubleshooting</span>
+    </div>
+    <p class="section-label">Perbedaan dengan Dept Dev/Architecture:</p>
+    <table>
+      <tr><th>Aspek</th><th>Dept Dev/Architecture</th><th>Ops Automation (Team ini)</th></tr>
+      <tr><td>Scope</td><td>Design solusi baru, standar arsitektur</td><td>Automasi pekerjaan operasional harian</td></tr>
+      <tr><td>Output</td><td>HLD/LLD, template, PoC result</td><td>Script, runbook, monitoring dashboard</td></tr>
+      <tr><td>Trigger</td><td>Project baru, technology refresh</td><td>Repetitive task, incident pattern</td></tr>
+      <tr><td>Horizon</td><td>Medium-long term</td><td>Short term, immediate ops improvement</td></tr>
+    </table>
+    <p class="section-label">Operation Model:</p>
+    <div class="opmodel"><ul>
+      <li>Sprint-based untuk automation projects</li>
+      <li>Konsultatif — support NOC, Project, dan Contract team</li>
+      <li>Maintain knowledge base &amp; runbook</li>
+      <li>Lead post-incident review (eksekusi teknis)</li>
+    </ul></div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary-section">
+  <h2>📊 Ringkasan Alokasi Personel</h2>
+  <div class="summary-table">
+    <table>
+      <tr><th>Team</th><th>Jumlah</th><th>%</th><th>Peran Utama</th></tr>
+      <tr><td>Network Operations Center</td><td>12–14</td><td>~38%</td><td>Monitoring, incident, troubleshooting</td></tr>
+      <tr><td>Project Delivery</td><td>8–9</td><td>~25%</td><td>Implementasi baru, migrasi</td></tr>
+      <tr><td>Vendor &amp; Contract Mgmt</td><td>6–7</td><td>~19%</td><td>Kontrak, vendor, asset</td></tr>
+      <tr><td>Ops Automation &amp; Improvement</td><td>3–4</td><td>~10%</td><td>Automation, runbook, L3, liaison</td></tr>
+      <tr class="total"><td>Dept Head + Deputy</td><td>1–2</td><td>~5%</td><td>Leadership</td></tr>
+      <tr class="total"><td><strong>TOTAL</strong></td><td><strong>32–35</strong></td><td><strong>100%</strong></td><td></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- CONTEXT -->
+<div class="info-box">
+  <h2>🏢 Konteks Organisasi</h2>
+  <ul>
+    <li><strong>Service Management &amp; Quality</strong> — Sudah ada di department lain. Cukup 1 PIC liaison yang menjembatani proses change management, problem management, dan reporting.</li>
+    <li><strong>Network Architecture &amp; Design</strong> — Sudah ada di department Dev. Team Ops Automation &amp; Improvement fokus pada automasi operasional harian, bukan design arsitektur baru.</li>
+  </ul>
+</div>
+
+<!-- KEY PRINCIPLES -->
+<div class="info-box">
+  <h2>🔑 Prinsip Kunci</h2>
+  <ul>
+    <li><strong>Operations harus murni operasional</strong> — Tidak dicampur dengan proyek maupun urusan administratif/kontrak.</li>
+    <li><strong>Tidak duplikasi fungsi lintas department</strong> — Service Management dan Architecture sudah ada di department lain, cukup liaison.</li>
+    <li><strong>Ops Automation sebagai force multiplier</strong> — Team kecil tapi high-impact, mengurangi beban repetitif NOC lewat automation.</li>
+    <li><strong>Handover formal wajib</strong> — Project → Ops harus ada checklist: runbook, topology, contact vendor, known issues.</li>
+  </ul>
+</div>
+
+<div class="footer">Department Edge Network Operation — Opsi 2: Struktur Pragmatis (Revisi 1 April 2026)</div>
+
+</div>
+</body>
+</html>
