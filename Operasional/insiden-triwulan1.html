@@ -37,6 +37,11 @@ tr:hover{background:#f8f9fa}
 .legend{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0;font-size:.82em}.legend-item{display:flex;align-items:center;gap:5px}
 @media(max-width:768px){.two-col,.three-col{grid-template-columns:1fr}.bar-label{width:140px}}
 .footer{text-align:center;color:#999;font-size:.75em;margin-top:20px}
+
+.export-bar{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.export-btn{padding:4px 10px;border:1px solid #ccc;border-radius:5px;background:#fff;cursor:pointer;font-size:.72em;font-weight:600;color:#555;transition:all .2s}
+.export-btn:hover{background:#1a3a5c;color:#fff;border-color:#1a3a5c}
+.export-btn svg{width:12px;height:12px;vertical-align:-1px;margin-right:3px}
 </style>
 </head>
 <body>
@@ -57,7 +62,13 @@ tr:hover{background:#f8f9fa}
 
 <div class="section">
 <h2>📅 Ringkasan Per Bulan</h2>
-<table>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-1')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-1')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-1')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-1')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-1')">📎 Copy</button>
+</div><table id="tbl-1">
 <tr><th>Bulan</th><th>Total</th><th>Impact</th><th>No Impact</th><th>🔴 High</th><th>🟡 Medium</th><th>🟢 Low</th><th>Internal BRI</th><th>Provider</th><th>Pihak Ketiga</th><th>Closed</th><th>Resolved</th><th>On Hold</th></tr><tr><td><strong>Januari</strong></td><td>80</td><td>61</td><td>19</td>
 <td>13</td><td>35</td><td>13</td>
 <td>7</td><td>20</td><td>34</td>
@@ -122,13 +133,25 @@ tr:hover{background:#f8f9fa}
 </div>
 <div class="section">
 <h2>📊 Impact Level per Bulan</h2>
-<table>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-2')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-2')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-2')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-2')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-2')">📎 Copy</button>
+</div><table id="tbl-2">
 <tr><th>Bulan</th><th>🔴 High</th><th>🟡 Medium</th><th>🟢 Low</th><th>Total</th></tr><tr><td>Januari</td><td>13</td><td>35</td><td>13</td><td>61</td></tr><tr><td>Februari</td><td>16</td><td>14</td><td>5</td><td>35</td></tr><tr><td>Maret</td><td>10</td><td>14</td><td>10</td><td>34</td></tr></table>
 </div>
 </div>
 <div class="section">
 <h2>📋 Januari 2026 — Insiden Berdampak Layanan (61 tiket)</h2>
-<table><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26013049231</td><td>Link H2H EToll Kayu Agung - Palembang Termonitor Offline pada dashboard Nominal</td>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-3')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-3')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-3')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-3')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-3')">📎 Copy</button>
+</div><table id="tbl-3"><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26013049231</td><td>Link H2H EToll Kayu Agung - Palembang Termonitor Offline pada dashboard Nominal</td>
 <td style="white-space:nowrap">30/01/26 07.05</td>
 <td style="white-space:nowrap">02/02/26 22.23</td>
 <td style="white-space:nowrap">87j 18m</td>
@@ -686,7 +709,13 @@ Note :Tidak ada informasi kegiatan sebelumnya dari  Angkasa Pura 1 BRIVA.</td>
 </div>
 <div class="section">
 <h2>📋 Februari 2026 — Insiden Berdampak Layanan (35 tiket)</h2>
-<table><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26022899132</td><td>Link  H2H IPsec IMIP Termonitor Down</td>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-4')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-4')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-4')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-4')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-4')">📎 Copy</button>
+</div><table id="tbl-4"><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26022899132</td><td>Link  H2H IPsec IMIP Termonitor Down</td>
 <td style="white-space:nowrap">28/02/26 21.18</td>
 <td style="white-space:nowrap"></td>
 <td style="white-space:nowrap">-</td>
@@ -1016,7 +1045,13 @@ Namun  kembali online dan pengecekan Summary  Link VSAT tidak sesuai s</td>
 </div>
 <div class="section">
 <h2>📋 Maret 2026 — Insiden Berdampak Layanan (34 tiket)</h2>
-<table><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26030199218</td><td>Link H2H PDAM PALEMBANG termonitor offline via Nominal</td>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-5')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-5')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-5')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-5')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-5')">📎 Copy</button>
+</div><table id="tbl-5"><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26030199218</td><td>Link H2H PDAM PALEMBANG termonitor offline via Nominal</td>
 <td style="white-space:nowrap">01/03/26 03.11</td>
 <td style="white-space:nowrap">03/03/26 13.19</td>
 <td style="white-space:nowrap">58j 8m</td>
@@ -1341,7 +1376,13 @@ RP/0/RSP0/CPU0:PE2-D1-MDC-VPN#ping v Mpls_BRI 10.55.250.6  c</td>
 </div>
 <div class="section">
 <h2>📄 Insiden Tanpa Dampak Layanan — 45 Tiket</h2>
-<table><tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr><td>1</td><td style="white-space:nowrap">INC26012949133</td><td>Januari</td><td>BH UKER &amp; H2H FIBERSTAR Backup via site BSCF termonitor DOWN</td>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-6')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-6')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-6')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-6')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-6')">📎 Copy</button>
+</div><table id="tbl-6"><tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr><td>1</td><td style="white-space:nowrap">INC26012949133</td><td>Januari</td><td>BH UKER &amp; H2H FIBERSTAR Backup via site BSCF termonitor DOWN</td>
 <td style="white-space:nowrap">29/01/26 20.33</td>
 <td style="white-space:nowrap">29/01/26 20.34</td>
 <td style="white-space:nowrap">1m</td>
@@ -1766,7 +1807,13 @@ Informasi Tim XL :  terdapat  issue di sisi crt &lt;&gt; r</td>
 
 <div class="section">
 <h2>⚠️ Insiden On Hold (3 tiket)</h2>
-<table>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-7')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-7')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-7')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-7')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-7')">📎 Copy</button>
+</div><table id="tbl-7">
 <tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Impact Level</th><th>Provider</th><th>Kategori</th><th>Root Cause</th></tr><tr>
 <td>1</td><td style="white-space:nowrap">INC26022899132</td><td>Februari</td>
 <td>Link  H2H IPsec IMIP Termonitor Down</td><td style="white-space:nowrap">28/02/26 21.18</td>
@@ -1786,7 +1833,13 @@ Informasi Tim XL :  terdapat  issue di sisi crt &lt;&gt; r</td>
 <div class="section">
 <h2>🔴 Seluruh Insiden High Impact — 39 Tiket</h2>
 <p style="font-size:.82em;color:#666;margin-bottom:12px">Kriteria: Durasi &gt;12 jam / multi-link / backhaul main+backup. Diurutkan dari durasi terlama.</p>
-<table>
+<div class="export-bar">
+<button class="export-btn" onclick="exportCSV('tbl-8')">📄 CSV</button>
+<button class="export-btn" onclick="exportXLS('tbl-8')">📊 XLS</button>
+<button class="export-btn" onclick="exportJSON('tbl-8')">🔧 JSON</button>
+<button class="export-btn" onclick="exportTSV('tbl-8')">📋 TSV</button>
+<button class="export-btn" onclick="copyTable('tbl-8')">📎 Copy</button>
+</div><table id="tbl-8">
 <tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high">
 <td>1</td>
 <td style="white-space:nowrap">INC26022899132</td>
@@ -2322,5 +2375,55 @@ Total: 175 tiket | Impact: 130 (High: 39, Medium: 63, Low: 28) | No Impact: 45 |
 <br>Kriteria Impact Level: <strong>High</strong> = durasi &gt;12 jam / multi-link / backhaul main+backup &nbsp;|&nbsp; <strong>Medium</strong> = durasi 1–12 jam &nbsp;|&nbsp; <strong>Low</strong> = durasi &lt;1 jam
 </div>
 </div>
+
+<script>
+function getTableData(tableEl){
+  const rows=[];
+  tableEl.querySelectorAll('tr').forEach(tr=>{
+    const cells=[];
+    tr.querySelectorAll('th,td').forEach(c=>cells.push(c.innerText.replace(/\n/g,' ').trim()));
+    rows.push(cells);
+  });
+  return rows;
+}
+function exportCSV(id){
+  const t=document.getElementById(id);if(!t)return;
+  const data=getTableData(t);
+  const csv=data.map(r=>r.map(c=>'"'+c.replace(/"/g,'""')+'"').join(',')).join('\n');
+  download(csv,'text/csv',id+'.csv');
+}
+function exportTSV(id){
+  const t=document.getElementById(id);if(!t)return;
+  const data=getTableData(t);
+  const tsv=data.map(r=>r.join('\t')).join('\n');
+  download(tsv,'text/tab-separated-values',id+'.tsv');
+}
+function exportJSON(id){
+  const t=document.getElementById(id);if(!t)return;
+  const data=getTableData(t);
+  const headers=data[0];
+  const json=data.slice(1).map(r=>{const o={};headers.forEach((h,i)=>o[h]=r[i]||'');return o;});
+  download(JSON.stringify(json,null,2),'application/json',id+'.json');
+}
+function exportXLS(id){
+  const t=document.getElementById(id);if(!t)return;
+  const html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:spreadsheet" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset=utf-8></head><body>'+t.outerHTML+'</body></html>';
+  download(html,'application/vnd.ms-excel',id+'.xls');
+}
+function download(content,mime,filename){
+  const blob=new Blob(['\uFEFF'+content],{type:mime+';charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href);
+}
+function copyTable(id){
+  const t=document.getElementById(id);if(!t)return;
+  const data=getTableData(t);
+  const tsv=data.map(r=>r.join('\t')).join('\n');
+  navigator.clipboard.writeText(tsv).then(()=>{
+    const btn=event.target.closest('.export-btn');
+    const orig=btn.innerHTML;btn.innerHTML='✓ Copied!';btn.style.background='#0d904f';btn.style.color='#fff';
+    setTimeout(()=>{btn.innerHTML=orig;btn.style.background='';btn.style.color='';},1500);
+  });
+}
+</script>
 </body>
 </html>
