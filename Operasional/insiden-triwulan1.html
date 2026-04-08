@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rekap Insiden EXO (Buku1) - Triwulan 1 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f0f2f5;color:#333;padding:20px}
+.container{max-width:1400px;margin:0 auto}
+h1{text-align:center;color:#1a3a5c;margin-bottom:5px;font-size:1.6em}
+.subtitle{text-align:center;color:#666;margin-bottom:25px;font-size:.9em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:25px}
+.card{background:#fff;border-radius:10px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card .num{font-size:1.7em;font-weight:700;margin-bottom:3px}
+.card .label{font-size:.75em;color:#666}
+.card.blue .num{color:#1a73e8}.card.red .num{color:#d93025}.card.orange .num{color:#e8710a}.card.green .num{color:#0d904f}.card.purple .num{color:#7b1fa2}.card.crimson .num{color:#b71c1c}.card.amber .num{color:#ff8f00}.card.lime .num{color:#558b2f}
+.section{background:#fff;border-radius:10px;padding:20px 25px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.section h2{color:#1a3a5c;font-size:1.15em;margin-bottom:15px;padding-bottom:8px;border-bottom:2px solid #e8eaed}
+table{width:100%;border-collapse:collapse;font-size:.78em}
+th{background:#1a3a5c;color:#fff;padding:9px 7px;text-align:left;position:sticky;top:0}
+td{padding:7px;border-bottom:1px solid #e8eaed;vertical-align:top}
+tr:hover{background:#f8f9fa}
+.row-high{background:#fff0f0 !important}.row-med{background:#fffde7 !important}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.75em;font-weight:600;white-space:nowrap}
+.badge-closed{background:#e8eaed;color:#555}.badge-resolved{background:#e6f4ea;color:#0d904f}.badge-onhold{background:#fef7e0;color:#e8710a}
+.badge-bri{background:#e3f2fd;color:#1565c0}.badge-prov{background:#fff3e0;color:#e65100}.badge-pihak3{background:#fce4ec;color:#c62828}
+.badge-high{background:#ffcdd2;color:#b71c1c}.badge-med{background:#fff9c4;color:#f57f17}.badge-low{background:#c8e6c9;color:#2e7d32}.badge-na{background:#e8eaed;color:#888}
+.bar-chart{margin:10px 0}.bar-row{display:flex;align-items:center;margin-bottom:6px}.bar-label{width:180px;font-size:.82em;text-align:right;padding-right:10px;flex-shrink:0}
+.bar{height:22px;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:.75em;color:#fff;font-weight:600;min-width:30px}
+.bar-blue{background:#1a73e8}.bar-red{background:#d93025}.bar-orange{background:#e8710a}.bar-green{background:#0d904f}.bar-purple{background:#7b1fa2}.bar-teal{background:#00897b}.bar-pink{background:#c2185b}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px;margin:15px 0}
+.kat-card{background:#f8f9fa;border-radius:8px;padding:15px;text-align:center}
+.kat-card .num{font-size:1.7em;font-weight:700}.kat-card .label{font-size:.78em;color:#666;margin-top:4px}
+.kat-bri .num{color:#1565c0}.kat-prov .num{color:#e65100}.kat-pihak3 .num{color:#c62828}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0;font-size:.82em}.legend-item{display:flex;align-items:center;gap:5px}
+@media(max-width:768px){.two-col,.three-col{grid-template-columns:1fr}.bar-label{width:140px}}
+.footer{text-align:center;color:#999;font-size:.75em;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📊 Rekap Insiden EXO (Lembar1) — Triwulan 1 2026</h1>
+<p class="subtitle">Periode Januari — Maret 2026 | Sumber: Buku1(Lembar1).csv | Generated: 8 April 2026</p>
+
+<div class="cards">
+<div class="card blue"><div class="num">175</div><div class="label">Total Tiket</div></div>
+<div class="card red"><div class="num">130</div><div class="label">Berdampak Layanan</div></div>
+<div class="card orange"><div class="num">45</div><div class="label">Tanpa Dampak</div></div>
+<div class="card crimson"><div class="num">39</div><div class="label">🔴 High Impact</div></div>
+<div class="card amber"><div class="num">63</div><div class="label">🟡 Medium Impact</div></div>
+<div class="card lime"><div class="num">28</div><div class="label">🟢 Low Impact</div></div>
+<div class="card green"><div class="num">172</div><div class="label">Closed/Resolved</div></div>
+<div class="card purple"><div class="num">3</div><div class="label">On Hold</div></div>
+</div>
+
+<div class="section">
+<h2>📅 Ringkasan Per Bulan</h2>
+<table>
+<tr><th>Bulan</th><th>Total</th><th>Impact</th><th>No Impact</th><th>🔴 High</th><th>🟡 Medium</th><th>🟢 Low</th><th>Internal BRI</th><th>Provider</th><th>Pihak Ketiga</th><th>Closed</th><th>Resolved</th><th>On Hold</th></tr><tr><td><strong>Januari</strong></td><td>80</td><td>61</td><td>19</td>
+<td>13</td><td>35</td><td>13</td>
+<td>7</td><td>20</td><td>34</td>
+<td>80</td><td>0</td><td>0</td></tr><tr><td><strong>Februari</strong></td><td>50</td><td>35</td><td>15</td>
+<td>16</td><td>14</td><td>5</td>
+<td>5</td><td>9</td><td>21</td>
+<td>13</td><td>35</td><td>2</td></tr><tr><td><strong>Maret</strong></td><td>45</td><td>34</td><td>11</td>
+<td>10</td><td>14</td><td>10</td>
+<td>1</td><td>7</td><td>26</td>
+<td>44</td><td>0</td><td>1</td></tr><tr style="font-weight:700;background:#f0f2f5"><td>TOTAL</td><td>175</td><td>130</td><td>45</td>
+<td>39</td><td>63</td><td>28</td>
+<td>13</td><td>36</td><td>81</td>
+<td>137</td><td>35</td><td>3</td></tr>
+</table>
+</div>
+
+<div class="two-col">
+<div class="section">
+<h2>🏷️ Kategori Root Cause (Impact = Yes)</h2>
+<div class="legend">
+<div class="legend-item"><span class="badge badge-bri">Issue Internal BRI</span> Tunnel, IPsec, BGP, congest</div>
+<div class="legend-item"><span class="badge badge-prov">Issue Provider</span> FO cut, perangkat, maintenance</div>
+<div class="legend-item"><span class="badge badge-pihak3">Issue Pihak Ketiga</span> Mitra/client H2H</div>
+</div>
+<div class="three-col">
+<div class="kat-card kat-bri"><div class="num">13</div><div class="label">Internal BRI</div></div>
+<div class="kat-card kat-prov"><div class="num">36</div><div class="label">Provider</div></div>
+<div class="kat-card kat-pihak3"><div class="num">81</div><div class="label">Pihak Ketiga</div></div>
+</div>
+</div>
+<div class="section">
+<h2>⚡ Impact Level (Impact = Yes)</h2>
+<div class="legend">
+<div class="legend-item"><span class="badge badge-high">High</span> Durasi &gt;12 jam / multi-link / backhaul main+backup</div>
+<div class="legend-item"><span class="badge badge-med">Medium</span> Durasi 1–12 jam</div>
+<div class="legend-item"><span class="badge badge-low">Low</span> Durasi &lt;1 jam</div>
+</div>
+<div class="bar-chart"><div class="bar-row"><div class="bar-label">MEDIUM</div><div class="bar bar-blue" style="width:100%">63</div></div>
+<div class="bar-row"><div class="bar-label">HIGH</div><div class="bar bar-red" style="width:61%">39</div></div>
+<div class="bar-row"><div class="bar-label">LOW</div><div class="bar bar-orange" style="width:44%">28</div></div>
+</div>
+</div>
+</div>
+
+<div class="two-col">
+<div class="section">
+<h2>🏢 Provider (Impact = Yes)</h2>
+<div class="bar-chart"><div class="bar-row"><div class="bar-label">TELKOM</div><div class="bar bar-blue" style="width:100%">36</div></div>
+<div class="bar-row"><div class="bar-label">SATKOM</div><div class="bar bar-red" style="width:61%">22</div></div>
+<div class="bar-row"><div class="bar-label">BRI</div><div class="bar bar-orange" style="width:41%">15</div></div>
+<div class="bar-row"><div class="bar-label">ICON</div><div class="bar bar-green" style="width:33%">12</div></div>
+<div class="bar-row"><div class="bar-label">LINTAS</div><div class="bar bar-purple" style="width:30%">11</div></div>
+<div class="bar-row"><div class="bar-label">BRI (IPsec)</div><div class="bar bar-teal" style="width:30%">11</div></div>
+<div class="bar-row"><div class="bar-label">FIBERSTAR</div><div class="bar bar-pink" style="width:19%">7</div></div>
+<div class="bar-row"><div class="bar-label">PERANGKAT</div><div class="bar bar-blue" style="width:15%">5</div></div>
+<div class="bar-row"><div class="bar-label">IFORTE</div><div class="bar bar-red" style="width:15%">3</div></div>
+<div class="bar-row"><div class="bar-label">TANGARA</div><div class="bar bar-orange" style="width:15%">2</div></div>
+<div class="bar-row"><div class="bar-label">LINKNET</div><div class="bar bar-green" style="width:15%">2</div></div>
+<div class="bar-row"><div class="bar-label">INDOSAT</div><div class="bar bar-purple" style="width:15%">1</div></div>
+<div class="bar-row"><div class="bar-label">VSAT</div><div class="bar bar-teal" style="width:15%">1</div></div>
+</div>
+</div>
+<div class="section">
+<h2>📊 Impact Level per Bulan</h2>
+<table>
+<tr><th>Bulan</th><th>🔴 High</th><th>🟡 Medium</th><th>🟢 Low</th><th>Total</th></tr><tr><td>Januari</td><td>13</td><td>35</td><td>13</td><td>61</td></tr><tr><td>Februari</td><td>16</td><td>14</td><td>5</td><td>35</td></tr><tr><td>Maret</td><td>10</td><td>14</td><td>10</td><td>34</td></tr></table>
+</div>
+</div>
+<div class="section">
+<h2>📋 Januari 2026 — Insiden Berdampak Layanan (61 tiket)</h2>
+<table><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26013049231</td><td>Link H2H EToll Kayu Agung - Palembang Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">30/01/26 07.05</td>
+<td style="white-space:nowrap">02/02/26 22.23</td>
+<td style="white-space:nowrap">87j 18m</td>
+<td>telkomsat</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>problem pada Adaptor ht2300 NOK</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>2</td><td style="white-space:nowrap">INC26012640480</td><td>Link BEBERAPA REMOTE H2H IPSEC Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">26/01/26 14.31</td>
+<td style="white-space:nowrap">26/01/26 14.36</td>
+<td style="white-space:nowrap">5m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Kendala Linknet
+- Power OFF impact PLN Activity</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>3</td><td style="white-space:nowrap">INC26012640079</td><td>H2H YGY PDAM BANTUL termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">26/01/26 12.11</td>
+<td style="white-space:nowrap">27/01/26 07.22</td>
+<td style="white-space:nowrap">19j 11m</td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>anomali pada router</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>4</td><td style="white-space:nowrap">INC26012638865</td><td>Termonitor Link H2H H2H E-TOLL NGAWI KERTOSONO</td>
+<td style="white-space:nowrap">26/01/26 02.59</td>
+<td style="white-space:nowrap">27/01/26 07.24</td>
+<td style="white-space:nowrap">28j 25m</td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>indikasi problem mikrotik di lokasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>5</td><td style="white-space:nowrap">INC26012538630</td><td>Link H2H IAIN SURAKARTA  Termonitor Down Pada Dashboard Monica</td>
+<td style="white-space:nowrap">25/01/26 09.31</td>
+<td style="white-space:nowrap">26/01/26 19.08</td>
+<td style="white-space:nowrap">33j 37m</td>
+<td>fiberstar</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Kendala kelistrikan dilokasi impact Power on PC server.</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>6</td><td style="white-space:nowrap">INC26012438562</td><td>Link H2H Unila termonitor offline via dashboard INMS</td>
+<td style="white-space:nowrap">24/01/26 23.47</td>
+<td style="white-space:nowrap">26/01/26 08.52</td>
+<td style="white-space:nowrap">33j 5m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Kendala pada PC server dilokasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>7</td><td style="white-space:nowrap">INC26012437970</td><td>Link H2H PTP Terminal TJ Priok WS termonitor down via Monica</td>
+<td style="white-space:nowrap">24/01/26 06.11</td>
+<td style="white-space:nowrap">26/01/26 09.31</td>
+<td style="white-space:nowrap">51j 20m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>problem pada power supply perangkat dilokasi off</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>8</td><td style="white-space:nowrap">INC26012337901</td><td>Link H2H IPsec PNM DC TBS termonitor Down via Monica</td>
+<td style="white-space:nowrap">23/01/26 22.31</td>
+<td style="white-space:nowrap">26/01/26 12.27</td>
+<td style="white-space:nowrap">61j 56m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>problem disisi server PNM</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>9</td><td style="white-space:nowrap">INC26012234303</td><td>Link Beberapa Remote H2H via IPSEC termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">22/01/26 10.51</td>
+<td style="white-space:nowrap">22/01/26 11.01</td>
+<td style="white-space:nowrap">10m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Problem intermitten kearah Global dan Domestik.
+Hasil pengecekan ada salah satu sirkit customer telkom terkena DDOS Att</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>10</td><td style="white-space:nowrap">INC26011524538</td><td>Link H2H KANTOR OPERATOR JORR - W1(PT. JLB) Jakarta Lingkar Barat termonitor off</td>
+<td style="white-space:nowrap">15/01/26 16.42</td>
+<td style="white-space:nowrap">16/01/26 15.04</td>
+<td style="white-space:nowrap">22j 22m</td>
+<td>icon</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>putus core disisi jointbox GGPJ1000</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>11</td><td style="white-space:nowrap">INC26010503202</td><td>Link H2H EToll Kayu Agung - Palembang termonitor down via dashboard INMS</td>
+<td style="white-space:nowrap">05/01/26 00.00</td>
+<td style="white-space:nowrap">05/01/26 15.16</td>
+<td style="white-space:nowrap">15j 16m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- BGP pada router down</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>12</td><td style="white-space:nowrap">INC26010302565</td><td>Link H2H IAIN SURAKARTA Termonitor Down Pada Dashboard Monica</td>
+<td style="white-space:nowrap">03/01/26 07.32</td>
+<td style="white-space:nowrap">05/01/26 12.47</td>
+<td style="white-space:nowrap">53j 15m</td>
+<td>fiberstar</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi gangguan pada ip 10.10.223.3 terblok Firewall di PC server BRI dilokasi IAIN Surakarta, info PIC setiap kali</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>13</td><td style="white-space:nowrap">INC26013049231</td><td>Link H2H EToll Kayu Agung - Palembang Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">30/01/26 07.05</td>
+<td style="white-space:nowrap">02/02/26 22.23</td>
+<td style="white-space:nowrap">87j 18m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>problem pada Adaptor ht2300 NOK</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>14</td><td style="white-space:nowrap">INC26012946530</td><td>Termonitor Link H2H Unila Down</td>
+<td style="white-space:nowrap">29/01/26 04.20</td>
+<td style="white-space:nowrap">29/01/26 08.52</td>
+<td style="white-space:nowrap">4j 32m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi gangguan dari sisi Unila</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>15</td><td style="white-space:nowrap">INC26012946517</td><td>Termonitor Link H2H E-Toll CIAWI (BOCIMI) Down</td>
+<td style="white-space:nowrap">29/01/26 02.05</td>
+<td style="white-space:nowrap">29/01/26 10.28</td>
+<td style="white-space:nowrap">8j 23m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi kabel dropcore dilokasi toll putus</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>16</td><td style="white-space:nowrap">INC26012743373</td><td>link H2H TRANSJAKARTA BRIZZI termonitor DOWN</td>
+<td style="white-space:nowrap">27/01/26 15.50</td>
+<td style="white-space:nowrap">27/01/26 17.53</td>
+<td style="white-space:nowrap">2j 3m</td>
+<td>iforte</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Link Down, impact FO Cut segment primary uplink SCPE</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>17</td><td style="white-space:nowrap">INC26012742513</td><td>Link  H2H E-TOLL NGAWI KERTOSONO termonitor down pada INMS</td>
+<td style="white-space:nowrap">27/01/26 11.15</td>
+<td style="white-space:nowrap">27/01/26 19.04</td>
+<td style="white-space:nowrap">7j 49m</td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Kendala mikrotik</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>18</td><td style="white-space:nowrap">INC26012638886</td><td>Termonitor  link H2H UNS Solo offline pada dashbord INMS</td>
+<td style="white-space:nowrap">26/01/26 06.21</td>
+<td style="white-space:nowrap">26/01/26 12.06</td>
+<td style="white-space:nowrap">5j 45m</td>
+<td>Telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi Optic Loss</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>19</td><td style="white-space:nowrap">INC26012538768</td><td>Termonitor Link H2H E-Toll Jakarta Tangerang Down</td>
+<td style="white-space:nowrap">25/01/26 15.10</td>
+<td style="white-space:nowrap">25/01/26 16.24</td>
+<td style="white-space:nowrap">1j 14m</td>
+<td>icon</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi kelistrikan dilokasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>20</td><td style="white-space:nowrap">INC26012538567</td><td>Link H2H Angkasa Pura 1 BRIVA termonitor Down via Monica</td>
+<td style="white-space:nowrap">25/01/26 00.26</td>
+<td style="white-space:nowrap">25/01/26 01.31</td>
+<td style="white-space:nowrap">1j 5m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Impact kegiatan disisi Angkasa Pura 1 BRIVA.
+
+Note :Tidak ada informasi kegiatan sebelumnya dari  Angkasa Pura 1 BRIVA.</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>21</td><td style="white-space:nowrap">INC26012438429</td><td>Link H2H Tol Gempol - Pandaan Termonitor Down</td>
+<td style="white-space:nowrap">24/01/26 14.23</td>
+<td style="white-space:nowrap">24/01/26 17.43</td>
+<td style="white-space:nowrap">3j 20m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Kabel distribusi putus</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>22</td><td style="white-space:nowrap">INC26012130903</td><td>Termonitor Link H2H Petrokimia Gresik Down</td>
+<td style="white-space:nowrap">21/01/26 01.36</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 0m</td>
+<td>perangkat</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>impact PM</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>23</td><td style="white-space:nowrap">INC26012130899</td><td>Termonitor Link H2H UIN MALANG Down</td>
+<td style="white-space:nowrap">21/01/26 01.24</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 12m</td>
+<td>perangkat</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi gangguan impact PM dari Telkom</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>24</td><td style="white-space:nowrap">INC26012130900</td><td>Termonitor Link H2H Unibraw Down</td>
+<td style="white-space:nowrap">21/01/26 01.24</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 12m</td>
+<td>perangkat</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>impact PM</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>25</td><td style="white-space:nowrap">INC26012130901</td><td>Termonitor Link H2H Taspen DRC Down</td>
+<td style="white-space:nowrap">21/01/26 01.24</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 12m</td>
+<td>perangkat</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>impact PM</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>26</td><td style="white-space:nowrap">INC26012130902</td><td>Termonitor Link H2H Universitas Trunojoyo Madura Down</td>
+<td style="white-space:nowrap">21/01/26 01.24</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 12m</td>
+<td>perangkat</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>impact PM</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>27</td><td style="white-space:nowrap">INC26012130897</td><td>Termonitor Link H2H UIN Maliki Malang Down</td>
+<td style="white-space:nowrap">21/01/26 01.18</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 18m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi gangguan impact PM dari Telkom</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>28</td><td style="white-space:nowrap">INC26012130898</td><td>Termonitor Link H2H MLG UNIV NEGERI MALANG Down</td>
+<td style="white-space:nowrap">21/01/26 01.18</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 18m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi gangguan impact PM dari Telkom</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>29</td><td style="white-space:nowrap">INC26012130895</td><td>Termonitor Link H2H PEGADAIAN BRIVA Down</td>
+<td style="white-space:nowrap">21/01/26 00.51</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 45m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi gangguan impact PM dari Telkom</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>30</td><td style="white-space:nowrap">INC26012130896</td><td>Termonitor Link H2H UNIV NEGERI MALANG Down</td>
+<td style="white-space:nowrap">21/01/26 00.51</td>
+<td style="white-space:nowrap">21/01/26 03.36</td>
+<td style="white-space:nowrap">2j 45m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi gangguan impact PM dari Telkom</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>31</td><td style="white-space:nowrap">INC26011825900</td><td>Link H2H Kantor Operator Ruas Tol Jagorawi Termonitor Offline pada dashboard mon</td>
+<td style="white-space:nowrap">18/01/26 10.52</td>
+<td style="white-space:nowrap">18/01/26 12.24</td>
+<td style="white-space:nowrap">1j 32m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>No ARP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>32</td><td style="white-space:nowrap">INC26011825843</td><td>link H2H *Kntr Operator Ruas Tol Ciujung d/h Tangerang Merak termonitor down pad</td>
+<td style="white-space:nowrap">18/01/26 06.28</td>
+<td style="white-space:nowrap">18/01/26 11.28</td>
+<td style="white-space:nowrap">5j 0m</td>
+<td>icon</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>link act padam
+- indikasi gangguan loss power disisi PoP GI Cikande akibat mcb problem</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>33</td><td style="white-space:nowrap">INC26011825825</td><td>Link H2H DALAMENTA BRIZZI termonitor DOWN</td>
+<td style="white-space:nowrap">18/01/26 03.56</td>
+<td style="white-space:nowrap">18/01/26 04.56</td>
+<td style="white-space:nowrap">1j 0m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi dalamenta</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>34</td><td style="white-space:nowrap">INC26011825820</td><td>link H2H AINO BRIZZI termonitor DOWN</td>
+<td style="white-space:nowrap">18/01/26 03.53</td>
+<td style="white-space:nowrap">18/01/26 05.46</td>
+<td style="white-space:nowrap">1j 53m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- iindikasi problem disisi AINO</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>35</td><td style="white-space:nowrap">INC26011725356</td><td>Link H2H UNIV MUHAMMADIYAH PURWOKERTO Termonitor Down</td>
+<td style="white-space:nowrap">17/01/26 04.00</td>
+<td style="white-space:nowrap">17/01/26 08.28</td>
+<td style="white-space:nowrap">4j 28m</td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Hasil pengecekan oleh Lv2 Ops termonitor ping offline</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>36</td><td style="white-space:nowrap">INC26011422195</td><td>Link H2H IPsec Equity Life Termonitor Down Pada Monica</td>
+<td style="white-space:nowrap">14/01/26 16.11</td>
+<td style="white-space:nowrap">14/01/26 17.41</td>
+<td style="white-space:nowrap">1j 30m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Problem koneksi internet Equity</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>37</td><td style="white-space:nowrap">INC26011317907</td><td>Termonitor Link H2H UNIV DIPONEGORO Down</td>
+<td style="white-space:nowrap">13/01/26 00.41</td>
+<td style="white-space:nowrap">13/01/26 08.11</td>
+<td style="white-space:nowrap">7j 30m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Info PIC lokasi Pak Joko Undip ada indikasi gangguan koneksi putus dari sisi telkom</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>38</td><td style="white-space:nowrap">INC26011215487</td><td>Link H2H DALAMENTA BRIZZI termonitor down</td>
+<td style="white-space:nowrap">12/01/26 07.28</td>
+<td style="white-space:nowrap">12/01/26 09.30</td>
+<td style="white-space:nowrap">2j 2m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Hasil pengecekan dari rekan Lintas ARP Incomplete</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>39</td><td style="white-space:nowrap">INC26011015087</td><td>Link H2H IPsec Equity Life  termonitor DOWN</td>
+<td style="white-space:nowrap">10/01/26 23.34</td>
+<td style="white-space:nowrap">11/01/26 07.31</td>
+<td style="white-space:nowrap">7j 57m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Kendala ISP Equity Life</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>40</td><td style="white-space:nowrap">INC26011014771</td><td>Termonitor Link H2H PIP Semarang BRIVA down pada dashboard monica</td>
+<td style="white-space:nowrap">10/01/26 03.25</td>
+<td style="white-space:nowrap">10/01/26 07.21</td>
+<td style="white-space:nowrap">3j 56m</td>
+<td></td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi kendala kelistrikan di Gedung Area PIP Semarang</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>41</td><td style="white-space:nowrap">INC26010709965</td><td>link  H2H ASURANSI PLN via ipsec termonitor offline</td>
+<td style="white-space:nowrap">07/01/26 18.17</td>
+<td style="white-space:nowrap">07/01/26 20.25</td>
+<td style="white-space:nowrap">2j 8m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- impact pengerjaan disisi PLN</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>42</td><td style="white-space:nowrap">INC26010707781</td><td>Link H2H TOL MAKASSAR (GERBANG TOL KALUKU BOSOWA) Termonitor Down</td>
+<td style="white-space:nowrap">07/01/26 05.10</td>
+<td style="white-space:nowrap">07/01/26 06.52</td>
+<td style="white-space:nowrap">1j 42m</td>
+<td>Tangara</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi kendala lokal</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>43</td><td style="white-space:nowrap">INC26010403199</td><td>Link Backup H2H Sprint DRC Tabanan termonitor Down</td>
+<td style="white-space:nowrap">04/01/26 23.02</td>
+<td style="white-space:nowrap">05/01/26 01.33</td>
+<td style="white-space:nowrap">2j 31m</td>
+<td>iforte</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>FO Cut pada provider Iforte</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>44</td><td style="white-space:nowrap">INC26010403099</td><td>link MNC Flash Mobile via ipsec termonitor Down</td>
+<td style="white-space:nowrap">04/01/26 16.16</td>
+<td style="white-space:nowrap">04/01/26 17.36</td>
+<td style="white-space:nowrap">1j 20m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Terkendala VM pada sisi MNC</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>45</td><td style="white-space:nowrap">INC26010302807</td><td>Link H2H KEMENDAGRI NEW WEB-PORTAL_H2H KEMENDAGRI WEB-PORTAL_termonitor down</td>
+<td style="white-space:nowrap">03/01/26 18.46</td>
+<td style="white-space:nowrap">04/01/26 01.26</td>
+<td style="white-space:nowrap">6j 40m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>kendala pada service web pihak Dukcapil</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>46</td><td style="white-space:nowrap">INC26010302533</td><td>Link H2H KALTIM KARIANGAU TERMINAL termonitor down via INMS</td>
+<td style="white-space:nowrap">03/01/26 02.11</td>
+<td style="white-space:nowrap">03/01/26 06.20</td>
+<td style="white-space:nowrap">4j 9m</td>
+<td>Tangara</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>summary modem tidak sesuai standarisasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>47</td><td style="white-space:nowrap">INC26010201842</td><td>Link H2H *Kntr Operator Ruas Tol Pejagan Pemalang termonitor Down pada INMS</td>
+<td style="white-space:nowrap">02/01/26 14.48</td>
+<td style="white-space:nowrap">03/01/26 00.04</td>
+<td style="white-space:nowrap">9j 16m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Kabel putus</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>48</td><td style="white-space:nowrap">INC26010100001</td><td>Termonitor Link H2H BPJS TK Rekon &amp; H2H BPJS TK Web Service Down</td>
+<td style="white-space:nowrap">01/01/26 00.02</td>
+<td style="white-space:nowrap">01/01/26 03.26</td>
+<td style="white-space:nowrap">3j 24m</td>
+<td>Indosat</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Ada Kegiatan akhir tahun pada BPJSTK</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>49</td><td style="white-space:nowrap">INC26012946536</td><td>Termonitor Link H2H DALAMENTA BRIZZI Down</td>
+<td style="white-space:nowrap">29/01/26 05.21</td>
+<td style="white-space:nowrap">29/01/26 05.41</td>
+<td style="white-space:nowrap">20m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi kendala Sisi Dalamenta</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>50</td><td style="white-space:nowrap">INC26012538594</td><td>Link H2H IPsec MNC Life &amp; H2H IPsec MNC Life DRC termonitor down via Monica</td>
+<td style="white-space:nowrap">25/01/26 05.43</td>
+<td style="white-space:nowrap">25/01/26 06.41</td>
+<td style="white-space:nowrap">58m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Investigasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>51</td><td style="white-space:nowrap">INC26012235381</td><td>link H2H DALAMENTA BRIZZI termonitor DOWN</td>
+<td style="white-space:nowrap">22/01/26 16.52</td>
+<td style="white-space:nowrap">22/01/26 17.48</td>
+<td style="white-space:nowrap">56m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi dalamenta ( anomali)</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>52</td><td style="white-space:nowrap">INC26012233949</td><td>Link H2H UIN Malang  Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">22/01/26 09.28</td>
+<td style="white-space:nowrap">22/01/26 10.16</td>
+<td style="white-space:nowrap">48m</td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Hasil pengecekan dari Telkom indikasi LAN tidak tercolok</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>53</td><td style="white-space:nowrap">INC26012233377</td><td>Link H2H DALAMENTA BRIZZI Termonitor Down Pada Monica</td>
+<td style="white-space:nowrap">22/01/26 07.12</td>
+<td style="white-space:nowrap">22/01/26 07.46</td>
+<td style="white-space:nowrap">34m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi Problem di sisi H2H DALAMENTA BRIZZI</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>54</td><td style="white-space:nowrap">INC26012030264</td><td>Termonitor Link H2H UNIV IPB BOGOR Down</td>
+<td style="white-space:nowrap">20/01/26 16.01</td>
+<td style="white-space:nowrap">20/01/26 16.21</td>
+<td style="white-space:nowrap">20m</td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Mismatch Routing</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>55</td><td style="white-space:nowrap">INC26011422121</td><td>Link H2H SHOPEE DC EDGE BSCF &amp; H2H SHOPEE DC EDGE (DC NOW) Termonitor Down Pada</td>
+<td style="white-space:nowrap">14/01/26 15.51</td>
+<td style="white-space:nowrap">14/01/26 16.22</td>
+<td style="white-space:nowrap">31m</td>
+<td>lintas</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem  pada pihak Shopee</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>56</td><td style="white-space:nowrap">INC26011115104</td><td>link JASAMARGA TOLLROAD via IPsec  termonitor Down</td>
+<td style="white-space:nowrap">11/01/26 03.46</td>
+<td style="white-space:nowrap">11/01/26 04.06</td>
+<td style="white-space:nowrap">20m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi jasamarga (anomalia0</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>57</td><td style="white-space:nowrap">INC26010912782</td><td>Link H2H IPsec SPRINT BRIVA EPAY DRC Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">09/01/26 08.45</td>
+<td style="white-space:nowrap">09/01/26 08.52</td>
+<td style="white-space:nowrap">7m</td>
+<td></td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi anomali jarkom di sisi SPRINT BRIVA EPAY DRC</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>58</td><td style="white-space:nowrap">INC26010605646</td><td>Link H2H IPsec JASAMARGA TOLLROAD Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">06/01/26 08.30</td>
+<td style="white-space:nowrap">06/01/26 08.45</td>
+<td style="white-space:nowrap">15m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Indikasi gangguan jarkom di sisi Jasamarga</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>59</td><td style="white-space:nowrap">INC26010403091</td><td>link H2H JASAMARGA TOLLROAD termonitor DOWN</td>
+<td style="white-space:nowrap">04/01/26 15.57</td>
+<td style="white-space:nowrap">04/01/26 16.20</td>
+<td style="white-space:nowrap">23m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi internet jasamarga</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>60</td><td style="white-space:nowrap">INC26010100339</td><td>Link H2H Etol Kelapa gading - Pulo gebang Termonitor Down</td>
+<td style="white-space:nowrap">01/01/26 22.27</td>
+<td style="white-space:nowrap">01/01/26 23.04</td>
+<td style="white-space:nowrap">37m</td>
+<td>telkomsat</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Hasil pengecekan BGP tidak aktif</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>61</td><td style="white-space:nowrap">INC26010100235</td><td>Link H2H IPsec JASAMARGA TOLLROAD Termonitor Down</td>
+<td style="white-space:nowrap">01/01/26 15.45</td>
+<td style="white-space:nowrap">01/01/26 15.56</td>
+<td style="white-space:nowrap">11m</td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem di sisi H2H IPsec JASAMARGA TOLLROAD</td>
+<td><span class="badge badge-closed">Closed</span></td></tr></table>
+</div>
+<div class="section">
+<h2>📋 Februari 2026 — Insiden Berdampak Layanan (35 tiket)</h2>
+<table><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26022899132</td><td>Link  H2H IPsec IMIP Termonitor Down</td>
+<td style="white-space:nowrap">28/02/26 21.18</td>
+<td style="white-space:nowrap"></td>
+<td style="white-space:nowrap">-</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Gangguan disisi pihak Kemenkeu</td>
+<td><span class="badge badge-onhold">On Hold</span></td></tr><tr class="row-high"><td>2</td><td style="white-space:nowrap">INC26022695718</td><td>Link H2H IPsec MNC Life DRC termonitor Down</td>
+<td style="white-space:nowrap">26/02/26 20.55</td>
+<td style="white-space:nowrap">27/02/26 14.26</td>
+<td style="white-space:nowrap">17j 31m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi problem di sisi MNC Life DRC</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>3</td><td style="white-space:nowrap">INC26022695460</td><td>Link H2H IPsec SOFTPOS BAYARIND termonitor Down</td>
+<td style="white-space:nowrap">26/02/26 16.46</td>
+<td style="white-space:nowrap">27/02/26 09.51</td>
+<td style="white-space:nowrap">17j 5m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi kendala di sisi VPN IPsec lokal</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>4</td><td style="white-space:nowrap">INC26022694333</td><td>Link BEBERAPA REMOTE H2H VIA IPSEC Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">26/02/26 10.46</td>
+<td style="white-space:nowrap">26/02/26 11.41</td>
+<td style="white-space:nowrap">55m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- Indikasi impact tunnel down</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>5</td><td style="white-space:nowrap">INC26022593415</td><td>link H2H KANTOR OPERATOR JORR - W1(PT. JLB) Jakarta Lingkar Barat Termonitor Dow</td>
+<td style="white-space:nowrap">25/02/26 23.24</td>
+<td style="white-space:nowrap">26/02/26 21.44</td>
+<td style="white-space:nowrap">22j 20m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>indikasi adanya gangguan FO CUT dijarak 1.4 KM dari Lastmile</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>6</td><td style="white-space:nowrap">INC26022185200</td><td>Link H2H IAIN SURAKARTA Termonitor Down Pada Dashboard Monica</td>
+<td style="white-space:nowrap">21/02/26 01.20</td>
+<td style="white-space:nowrap">22/02/26 12.21</td>
+<td style="white-space:nowrap">35j 1m</td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>indikasi kabel LAN pada port LAN dilokasi tidak tercolok</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>7</td><td style="white-space:nowrap">INC26021477473</td><td>Link H2H UNIV NEGERI MALANG Termonitor Down</td>
+<td style="white-space:nowrap">14/02/26 13.37</td>
+<td style="white-space:nowrap">15/02/26 15.47</td>
+<td style="white-space:nowrap">26j 10m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi univ Negri Malang</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>8</td><td style="white-space:nowrap">INC26021377101</td><td>Link H2H E-Toll GERBANG TOL LUBUK PAKAM Termonitor Down</td>
+<td style="white-space:nowrap">13/02/26 23.47</td>
+<td style="white-space:nowrap">15/02/26 23.15</td>
+<td style="white-space:nowrap">47j 28m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Modem mati total</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>9</td><td style="white-space:nowrap">INC26021376973</td><td>Link H2H STATLEMENT BRIZZI PELINDO 2_VIA BACKUP LINTAS</td>
+<td style="white-space:nowrap">13/02/26 18.48</td>
+<td style="white-space:nowrap">14/02/26 14.40</td>
+<td style="white-space:nowrap">19j 52m</td>
+<td>LINTAS</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>[By vicho.giraldi@lintasarta.co.id-2/14/2026 6:53:06 AM] link up
+[By tri.arianto@lintasarta.co.id-2/14/2026 4:44:47 PM]</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>10</td><td style="white-space:nowrap">INC26021375076</td><td>BH H2H TELKOM MAIN BCAKUP Via Site ODC dan BH UKER TELKOM MAIN BACKUP Via Site P</td>
+<td style="white-space:nowrap">13/02/26 02.07</td>
+<td style="white-space:nowrap">13/02/26 02.17</td>
+<td style="white-space:nowrap">10m</td>
+<td>TELKOM</td>
+<td>BACKHAUL MAIN&amp;amp;BACKUP H2H ODC</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Trafik congest kearah kebayoran</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>11</td><td style="white-space:nowrap">INC26021272635</td><td>Link H2H MTI EDC Termonitor Down</td>
+<td style="white-space:nowrap">12/02/26 00.39</td>
+<td style="white-space:nowrap">13/02/26 19.37</td>
+<td style="white-space:nowrap">42j 58m</td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Hasil pengecekan indikasi awal adanya asimetris antara backhaul main-backup Fiberstar</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>12</td><td style="white-space:nowrap">INC26020965772</td><td>Link H2H IAIN SURAKARTA termonitor DOWN pada dashboard Monica</td>
+<td style="white-space:nowrap">09/02/26 06.02</td>
+<td style="white-space:nowrap">10/02/26 13.26</td>
+<td style="white-space:nowrap">31j 24m</td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi pemadaman listrik di lokasi IAIN Surakarta</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>13</td><td style="white-space:nowrap">INC26020865715</td><td>Link H2H E-Toll Jakarta Tangerang termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">08/02/26 21.35</td>
+<td style="white-space:nowrap">11/02/26 10.08</td>
+<td style="white-space:nowrap">60j 33m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>08/02
+- hasil pengecekan dari sisi icon NO ARP
+
+11/02
+Berdasarkan pengecekan awal, adanya gangguan putus kabel FO dititi</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>14</td><td style="white-space:nowrap">INC26020865573</td><td>Termonitor Link H2H Unila Down</td>
+<td style="white-space:nowrap">08/02/26 13.10</td>
+<td style="white-space:nowrap">22/02/26 00.09</td>
+<td style="white-space:nowrap">322j 59m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Kendala Utama:
+Server mengalami hang dan tidak dapat menyala (tidak bisa UP). Ditemukan adanya bad sector pada media pen</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>15</td><td style="white-space:nowrap">INC26020765366</td><td>Termonitor Link H2H IPsec ASWATA down</td>
+<td style="white-space:nowrap">07/02/26 17.11</td>
+<td style="white-space:nowrap">08/02/26 13.36</td>
+<td style="white-space:nowrap">20j 25m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Terjadi kendala pada server ASWATA</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-high"><td>16</td><td style="white-space:nowrap">INC26022899132</td><td>Link  H2H IPsec IMIP Termonitor Down</td>
+<td style="white-space:nowrap">28/02/26 21.18</td>
+<td style="white-space:nowrap">31/03/26 23.59</td>
+<td style="white-space:nowrap">746j 41m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- Investigasi</td>
+<td><span class="badge badge-onhold">On Hold</span></td></tr><tr class="row-med"><td>17</td><td style="white-space:nowrap">INC26022797755</td><td>Link H2H Ruas Tol Stabat Termonitor Down</td>
+<td style="white-space:nowrap">27/02/26 19.09</td>
+<td style="white-space:nowrap">27/02/26 21.44</td>
+<td style="white-space:nowrap">2j 35m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi kendala di sisi H2H Ruas Tol Stabat</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>18</td><td style="white-space:nowrap">INC26022592414</td><td>Link H2H YGY PDAM BANTUL Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">25/02/26 13.35</td>
+<td style="white-space:nowrap">25/02/26 15.26</td>
+<td style="white-space:nowrap">1j 51m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- anomali pada perangkat router
+- koneksi ke router tidak tembus</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>19</td><td style="white-space:nowrap">INC26022185214</td><td>Link H2H IPsec MNC Flash Mobile, H2H IPsec MNC Life, H2H IPsec MNC Life DRC term</td>
+<td style="white-space:nowrap">21/02/26 03.10</td>
+<td style="white-space:nowrap">21/02/26 05.43</td>
+<td style="white-space:nowrap">2j 33m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Link H2H IPsec MNC Flash Mobile, H2H IPsec MNC Life, H2H IPsec MNC Life DRC termonitor offline pada dashboard monica.
+In</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>20</td><td style="white-space:nowrap">INC26021982145</td><td>Link H2H KEMENKEU DRC (MPN), H2H KEMENKEU MPN DRC BSCF, H2H KEMENKEU DRC (SPAN),</td>
+<td style="white-space:nowrap">19/02/26 13.13</td>
+<td style="white-space:nowrap">19/02/26 18.35</td>
+<td style="white-space:nowrap">5j 22m</td>
+<td>TELKOM</td>
+<td>H2H KEMENKEU DRC (MPN)</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Gangguan disisi pihak Kemenkeu</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>21</td><td style="white-space:nowrap">INC26021577768</td><td>link H2H IPsec PNM DC TBS termonitor down</td>
+<td style="white-space:nowrap">15/02/26 11.45</td>
+<td style="white-space:nowrap">15/02/26 15.26</td>
+<td style="white-space:nowrap">3j 41m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem di sisi PNM</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>22</td><td style="white-space:nowrap">INC26021477241</td><td>Link H2H ASABRI Web Services termonitor down</td>
+<td style="white-space:nowrap">14/02/26 09.48</td>
+<td style="white-space:nowrap">14/02/26 12.27</td>
+<td style="white-space:nowrap">2j 39m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- impact kegiatan disisi asabri. Migrasi dan penggantian perangkat firewall mitra bayar PT ASABRI (Persero)</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>23</td><td style="white-space:nowrap">INC26021272629</td><td>Link H2H KSEI CBEST ODC Termonitor Down</td>
+<td style="white-space:nowrap">12/02/26 00.21</td>
+<td style="white-space:nowrap">12/02/26 01.50</td>
+<td style="white-space:nowrap">1j 29m</td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Info Fiberstar Indikasi impact maintenance jalur</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>24</td><td style="white-space:nowrap">INC26020765251</td><td>Link H2H TRANSJAKARTA BRIZZI termonitor DOWN</td>
+<td style="white-space:nowrap">07/02/26 14.50</td>
+<td style="white-space:nowrap">07/02/26 21.36</td>
+<td style="white-space:nowrap">6j 46m</td>
+<td>IFORTE</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi transjakarta</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr class="row-med"><td>25</td><td style="white-space:nowrap">INC26020664985</td><td>Link H2H IPsec DANAREKSA PROD &amp; H2H IPsec DANAREKSA APIGTW termonitor DOWN</td>
+<td style="white-space:nowrap">06/02/26 22.22</td>
+<td style="white-space:nowrap">07/02/26 00.22</td>
+<td style="white-space:nowrap">2j 0m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Termonitor link H2H IPsec DANAREKSA PROD down pada dashboard Monica
+Hasil pengecekan  oleh engineer, IP publik Danareksa</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>26</td><td style="white-space:nowrap">INC26020663925</td><td>Link H2H E-Toll CIAWI (BOCIMI) Termonitor Offline pada dashboard Nominal:</td>
+<td style="white-space:nowrap">06/02/26 11.50</td>
+<td style="white-space:nowrap">06/02/26 13.04</td>
+<td style="white-space:nowrap">1j 14m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Hasil pengecekan provider terdapat indikasi Loss di sisi toll</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>27</td><td style="white-space:nowrap">INC26020459637</td><td>Link H2H BUS SUROBOYO termonitor DOWN pada dashboard monica,</td>
+<td style="white-space:nowrap">04/02/26 12.31</td>
+<td style="white-space:nowrap">04/02/26 13.46</td>
+<td style="white-space:nowrap">1j 15m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Hasil pengecekan oleh tim Icon terdapat interface layer 3 down
+dan layanan terganggu impact dari adanya gangguan jalur s</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>28</td><td style="white-space:nowrap">INC26020459282</td><td>Link H2H E-Toll Kunciran Serpong Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">04/02/26 10.44</td>
+<td style="white-space:nowrap">04/02/26 12.40</td>
+<td style="white-space:nowrap">1j 56m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem kelistrikan di lokasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>29</td><td style="white-space:nowrap">INC26020153306</td><td>link provider LINTAS H2H Asabri Pusat termonitor DOWN</td>
+<td style="white-space:nowrap">01/02/26 18.39</td>
+<td style="white-space:nowrap">02/02/26 00.01</td>
+<td style="white-space:nowrap">5j 22m</td>
+<td>LINTAS</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>FO CUT cause impact project galian spam.</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>30</td><td style="white-space:nowrap">INC26020153218</td><td>Link H2H SPP UNIV ESA UNGGUL Termonitor Down</td>
+<td style="white-space:nowrap">01/02/26 12.49</td>
+<td style="white-space:nowrap">01/02/26 14.52</td>
+<td style="white-space:nowrap">2j 3m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem di sisi H2H SPP UNIV ESA UNGGUL</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>31</td><td style="white-space:nowrap">INC26021982938</td><td>Link H2H IPsec MNC Flash Mobile, H2H IPsec MNC Life, H2H IPsec MNC Life DRC term</td>
+<td style="white-space:nowrap">19/02/26 20.06</td>
+<td style="white-space:nowrap">19/02/26 20.56</td>
+<td style="white-space:nowrap">50m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Info dari TIM Helpdesk Flash: Terkait switch data center di jam tersebut mengalami restart.</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>32</td><td style="white-space:nowrap">INC26021172617</td><td>Link H2H FINNET Rekon Termonitor Down</td>
+<td style="white-space:nowrap">11/02/26 23.12</td>
+<td style="white-space:nowrap">11/02/26 23.46</td>
+<td style="white-space:nowrap">34m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Impact maintenance dari sisi Finnet</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>33</td><td style="white-space:nowrap">INC26020765202</td><td>Termonitor Link H2H IPsec IMIP down</td>
+<td style="white-space:nowrap">07/02/26 12.58</td>
+<td style="white-space:nowrap">07/02/26 13.21</td>
+<td style="white-space:nowrap">23m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- gangguan disalah satu upstream disisi IMIP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>34</td><td style="white-space:nowrap">INC26020561897</td><td>Link H2H E-Toll Kunciran Serpong Termonitor Down</td>
+<td style="white-space:nowrap">05/02/26 12.01</td>
+<td style="white-space:nowrap">05/02/26 12.44</td>
+<td style="white-space:nowrap">43m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Termonitor link H2H  E-Toll Kunciran Serpong Down
+Namun  kembali online dan pengecekan Summary  Link VSAT tidak sesuai s</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>35</td><td style="white-space:nowrap">INC26020560715</td><td>Termonitor Link H2H Etoll Lima Puluh ( Indrapura - Kisaran ) Down</td>
+<td style="white-space:nowrap">05/02/26 05.00</td>
+<td style="white-space:nowrap">05/02/26 05.30</td>
+<td style="white-space:nowrap">30m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- Anomali BGP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr></table>
+</div>
+<div class="section">
+<h2>📋 Maret 2026 — Insiden Berdampak Layanan (34 tiket)</h2>
+<table><tr><th>No</th><th>Tiket</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high"><td>1</td><td style="white-space:nowrap">INC26030199218</td><td>Link H2H PDAM PALEMBANG termonitor offline via Nominal</td>
+<td style="white-space:nowrap">01/03/26 03.11</td>
+<td style="white-space:nowrap">03/03/26 13.19</td>
+<td style="white-space:nowrap">58j 8m</td>
+<td>VSAT</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- LOW SQF</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>2</td><td style="white-space:nowrap">INC26030201668</td><td>Termonitor Link H2H E-TOL LUBUK PAKAM Down</td>
+<td style="white-space:nowrap">02/03/26 23.59</td>
+<td style="white-space:nowrap">04/03/26 15.04</td>
+<td style="white-space:nowrap">39j 5m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Error pada mikrotik</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>3</td><td style="white-space:nowrap">INC26030403975</td><td>Termonitor Link H2H E-Toll Mandra Bali Down</td>
+<td style="white-space:nowrap">04/03/26 05.33</td>
+<td style="white-space:nowrap">04/03/26 18.56</td>
+<td style="white-space:nowrap">13j 23m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Impact gamas FO cut
+
+Termonitor normal kembali</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>4</td><td style="white-space:nowrap">INC26031624192</td><td>Link H2H IAIN SURAKARTA termonitor DOWN</td>
+<td style="white-space:nowrap">16/03/26 23.46</td>
+<td style="white-space:nowrap">17/03/26 14.36</td>
+<td style="white-space:nowrap">14j 50m</td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Terdapat bug pada windows yang mengakibatkan RASS block ke ICMP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>5</td><td style="white-space:nowrap">INC26031826589</td><td>Termonitor Link H2H TWP AD Down</td>
+<td style="white-space:nowrap">18/03/26 09.54</td>
+<td style="white-space:nowrap">30/03/26 12.12</td>
+<td style="white-space:nowrap">290j 18m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Termonitor Link H2H TWP AD Down
+Hasil pengecekan PIT lokasi dan tim provider terdapat kendala kerusakan pada konektor ou</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>6</td><td style="white-space:nowrap">INC26031926970</td><td>Link H2H SECURE Parking Brizzi termonitor Down</td>
+<td style="white-space:nowrap">19/03/26 01.19</td>
+<td style="white-space:nowrap">23/03/26 15.51</td>
+<td style="white-space:nowrap">110j 32m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Perangkat modem off/mati, penyebab nya terdapat kerusakan pada adaptor modem</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>7</td><td style="white-space:nowrap">INC26032632818</td><td>Link H2H E-Toll Belmera termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">26/03/26 18.18</td>
+<td style="white-space:nowrap">27/03/26 15.08</td>
+<td style="white-space:nowrap">20j 50m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>UPS dilokasi rusak
+
+Udah online rekan, problem kelistrikan
+RP/0/RSP0/CPU0:PE2-D1-MDC-VPN#ping v Mpls_BRI 10.55.250.6  c</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>8</td><td style="white-space:nowrap">INC26033037707</td><td>H2H DALAMENTA BRIZZI termonitor DWN pada dashboard monica</td>
+<td style="white-space:nowrap">30/03/26 14.57</td>
+<td style="white-space:nowrap">31/03/26 23.59</td>
+<td style="white-space:nowrap">33j 2m</td>
+<td>LINTAS</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td></td>
+<td><span class="badge badge-onhold">On Hold</span></td></tr><tr class="row-high"><td>9</td><td style="white-space:nowrap">INC26033037771</td><td>H2H Politeknik Bandung  termonitor DOWN pada dashboard Nominal</td>
+<td style="white-space:nowrap">30/03/26 15.20</td>
+<td style="white-space:nowrap">01/04/26 15.32</td>
+<td style="white-space:nowrap">48j 12m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Modem mati total
+- Router mikrotik rusak
+
+
+[By Adbillah Fajar-3/31/2026 9:11:03 AM] Plan team dengan Kelvin
+[By Adbill</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-high"><td>10</td><td style="white-space:nowrap">INC26033139806</td><td>H2H Pemkot Batam Termonitor Down Pada INMS</td>
+<td style="white-space:nowrap">31/03/26 13.00</td>
+<td style="white-space:nowrap">01/04/26 04.32</td>
+<td style="white-space:nowrap">15j 32m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-high">High</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi problem di sisi H2H Pemkot Batam</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>11</td><td style="white-space:nowrap">INC26030406052</td><td>Link H2H ASABRI Web Services termonitor Down</td>
+<td style="white-space:nowrap">04/03/26 23.21</td>
+<td style="white-space:nowrap">05/03/26 09.31</td>
+<td style="white-space:nowrap">10j 10m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Problem ISP
+- Jalur metro Main down</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>12</td><td style="white-space:nowrap">INC26030910911</td><td>Link H2H CFETS TRADE Termonitor down pada dashboard monica</td>
+<td style="white-space:nowrap">09/03/26 00.42</td>
+<td style="white-space:nowrap">09/03/26 04.56</td>
+<td style="white-space:nowrap">4j 14m</td>
+<td>LINKNET</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Fo Cut di jarak 8.7 km dari sisi BDF, tepatnya di jalan Ampera raya ( -6.2755 106.8208 )</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>13</td><td style="white-space:nowrap">INC26030912191</td><td>koneksi H2H GCP DCI LINKNET A termonitor OFFLINE pada dashboard monica</td>
+<td style="white-space:nowrap">09/03/26 14.11</td>
+<td style="white-space:nowrap">09/03/26 21.46</td>
+<td style="white-space:nowrap">7j 35m</td>
+<td>LINKNET</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>-Interconeksi salah satu backbound linknet</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>14</td><td style="white-space:nowrap">INC26031013000</td><td>Termonitor Link H2H PIP Semarang BRIVA Down</td>
+<td style="white-space:nowrap">10/03/26 02.01</td>
+<td style="white-space:nowrap">10/03/26 12.01</td>
+<td style="white-space:nowrap">10j 0m</td>
+<td>LINTASARTA</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Hasil pengecekan tim PIP Semarang di lapangan ada jalur FO yang terputus karena digigit tikus</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>15</td><td style="white-space:nowrap">INC26031522029</td><td>Termonitor Link H2H Pemkot Batam Down</td>
+<td style="white-space:nowrap">15/03/26 13.10</td>
+<td style="white-space:nowrap">15/03/26 16.56</td>
+<td style="white-space:nowrap">3j 46m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>-  indikasi problem kelistrikan disisi PEMKOT</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>16</td><td style="white-space:nowrap">INC26031622756</td><td>Link H2H IPsec PKSS Termonitor Down</td>
+<td style="white-space:nowrap">16/03/26 10.06</td>
+<td style="white-space:nowrap">16/03/26 13.37</td>
+<td style="white-space:nowrap">3j 31m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Terdapat kabel FO yang terputus terkena penebangan pohon yg dilakukan oleh pemda
+- posisi titik putus kurang lebih 200</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>17</td><td style="white-space:nowrap">INC26032528533</td><td>Termonitor link H2H UNIV ESA UNGGUL termonitor DOWN pada dashboard monica</td>
+<td style="white-space:nowrap">25/03/26 05.09</td>
+<td style="white-space:nowrap">25/03/26 09.41</td>
+<td style="white-space:nowrap">4j 32m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Gangguan Masal FO CUT</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>18</td><td style="white-space:nowrap">INC26032632832</td><td>Link H2H E-Toll BSD (Pondok Aren) termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">26/03/26 18.24</td>
+<td style="white-space:nowrap">26/03/26 21.01</td>
+<td style="white-space:nowrap">2j 37m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Terdapat perubahan ip lan pada H2H E-Toll BSD (Pondok Aren) yang sebelumnya .15 menjadi .10 disisi Tol</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>19</td><td style="white-space:nowrap">INC26032632939</td><td>Link H2H BUS SUROBOYO Termonitor DOWN pada Dashboard Monica</td>
+<td style="white-space:nowrap">26/03/26 21.48</td>
+<td style="white-space:nowrap">27/03/26 01.43</td>
+<td style="white-space:nowrap">3j 55m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Gangguan modul rectifier di sisi PoP  Bintaro</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>20</td><td style="white-space:nowrap">INC26032735089</td><td>Link H2H E-Toll Belmera termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">27/03/26 20.09</td>
+<td style="white-space:nowrap">28/03/26 05.04</td>
+<td style="white-space:nowrap">8j 55m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Mikrotik dan modem MPLS mengalami mati total karena tidak mendapatkan suplai listrik
+- Peyebabnya UPS padam/rusak</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>21</td><td style="white-space:nowrap">INC26032835914</td><td>H2H Ruas Tol Stabat Termonitor Down pada INMS</td>
+<td style="white-space:nowrap">28/03/26 21.49</td>
+<td style="white-space:nowrap">29/03/26 07.52</td>
+<td style="white-space:nowrap">10j 3m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi anomali pada modem Hughes HT2300</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>22</td><td style="white-space:nowrap">INC26033036292</td><td>Link H2H IPsec Arindo termonitor DOWN</td>
+<td style="white-space:nowrap">30/03/26 02.20</td>
+<td style="white-space:nowrap">30/03/26 06.26</td>
+<td style="white-space:nowrap">4j 6m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>indikasi problem disisi pihak ARINDO</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>23</td><td style="white-space:nowrap">INC26033138541</td><td>H2H Ruas Tol Stabat Termonitor Down pada INMS</td>
+<td style="white-space:nowrap">31/03/26 00.15</td>
+<td style="white-space:nowrap">31/03/26 05.48</td>
+<td style="white-space:nowrap">5j 33m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>info dari PET IT Kanwil Medan Harapan Lubis +62 812-6066-7682 dilokasi dilokasi terjadi gangguan karena kendala cuaca hu</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr class="row-med"><td>24</td><td style="white-space:nowrap">INC26033138559</td><td>H2H *Kntr Operator Ruas Tol Jkt Cikampek Termonitor Down Pada INMS</td>
+<td style="white-space:nowrap">31/03/26 02.04</td>
+<td style="white-space:nowrap">31/03/26 09.32</td>
+<td style="white-space:nowrap">7j 28m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-med">Medium</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Info dari tim Icon indikasi adanya gangguan disisi POP APJ Bekasi Kota akibat MCB trip</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>25</td><td style="white-space:nowrap">INC26030201626</td><td>Link H2H SECURE Parking Brizzi termonitor Down</td>
+<td style="white-space:nowrap">02/03/26 21.21</td>
+<td style="white-space:nowrap">02/03/26 21.57</td>
+<td style="white-space:nowrap">36m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi SECURE PARKING</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>26</td><td style="white-space:nowrap">INC26030201667</td><td>Termonitor Link H2H *Tol Pasuruan - Probolinggo Down</td>
+<td style="white-space:nowrap">02/03/26 23.59</td>
+<td style="white-space:nowrap">03/03/26 00.56</td>
+<td style="white-space:nowrap">57m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Hasil pengecekan  No ARP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>27</td><td style="white-space:nowrap">INC26031219391</td><td>Link H2H IPsec JASAMARGA TOLLROAD Termonitor Down</td>
+<td style="white-space:nowrap">12/03/26 22.17</td>
+<td style="white-space:nowrap">12/03/26 23.07</td>
+<td style="white-space:nowrap">50m</td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Indikasi kendala di third party (JASAMARGA TOLLROAD)</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>28</td><td style="white-space:nowrap">INC26031320444</td><td>Koneksi H2H E-TOLL NGAWI KERTOSONO termonitor OFFLINE pada dashboard monica</td>
+<td style="white-space:nowrap">13/03/26 13.33</td>
+<td style="white-space:nowrap">13/03/26 14.04</td>
+<td style="white-space:nowrap">31m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Hasil pengecekan dari lv2 ops termonitor link offline</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>29</td><td style="white-space:nowrap">INC26031522144</td><td>Termonitor Link H2H SVT Down</td>
+<td style="white-space:nowrap">15/03/26 22.58</td>
+<td style="white-space:nowrap">15/03/26 23.35</td>
+<td style="white-space:nowrap">37m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi link intermitten</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>30</td><td style="white-space:nowrap">INC26032228002</td><td>Link H2H Pemkot Batam termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">22/03/26 20.13</td>
+<td style="white-space:nowrap">22/03/26 20.28</td>
+<td style="white-space:nowrap">15m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- anomali pada BGP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>31</td><td style="white-space:nowrap">INC26032328051</td><td>Link H2H E-Toll Gempol Waru termonitor DOWN via Nominal</td>
+<td style="white-space:nowrap">23/03/26 03.30</td>
+<td style="white-space:nowrap">23/03/26 04.08</td>
+<td style="white-space:nowrap">38m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi kelistrikan di lokasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>32</td><td style="white-space:nowrap">INC26032328083</td><td>Link H2H UNIV IPB BOGOR Termonitor Down</td>
+<td style="white-space:nowrap">23/03/26 09.06</td>
+<td style="white-space:nowrap">23/03/26 09.16</td>
+<td style="white-space:nowrap">10m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem pada H2H UNIV IPB BOGOR</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>33</td><td style="white-space:nowrap">INC26032733027</td><td>H2H Ruas Tol Stabat Termonitor Down</td>
+<td style="white-space:nowrap">27/03/26 07.30</td>
+<td style="white-space:nowrap">27/03/26 07.56</td>
+<td style="white-space:nowrap">26m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem di sisi H2H Ruas Tol Stabat
+- Status modem critical</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>34</td><td style="white-space:nowrap">INC26032835893</td><td>link H2H Ruas Tol Stabat via Ipsec termonitor offline pada dashboard nominal</td>
+<td style="white-space:nowrap">28/03/26 19.39</td>
+<td style="white-space:nowrap">28/03/26 20.08</td>
+<td style="white-space:nowrap">29m</td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-low">Low</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi problem di sisi H2H Ruas Tol Stabat</td>
+<td><span class="badge badge-closed">Closed</span></td></tr></table>
+</div>
+<div class="section">
+<h2>📄 Insiden Tanpa Dampak Layanan — 45 Tiket</h2>
+<table><tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Impact Level</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr><td>1</td><td style="white-space:nowrap">INC26012949133</td><td>Januari</td><td>BH UKER &amp; H2H FIBERSTAR Backup via site BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">29/01/26 20.33</td>
+<td style="white-space:nowrap">29/01/26 20.34</td>
+<td style="white-space:nowrap">1m</td>
+<td>fiberstar</td>
+<td>BH backup / H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>-Indikasi link down impact FO Cut di jarak 735 meter dari POP FS</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>2</td><td style="white-space:nowrap">INC26012640378</td><td>Januari</td><td>Link H2H GCP DCI LINKNET A Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">26/01/26 14.05</td>
+<td style="white-space:nowrap">26/01/26 14.21</td>
+<td style="white-space:nowrap">16m</td>
+<td>BRI</td>
+<td>BH</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Power OFF impact PLN Activity</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>3</td><td style="white-space:nowrap">INC26012438383</td><td>Januari</td><td>Termonitor Backhaul Cellular XL Down</td>
+<td style="white-space:nowrap">24/01/26 13.44</td>
+<td style="white-space:nowrap">24/01/26 13.07</td>
+<td style="white-space:nowrap">0m</td>
+<td>XL</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>BGP sempat tereset,dari pengecekan Eos XL
+info yang di dapat,No Issue dan tidak ada down,</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>4</td><td style="white-space:nowrap">INC26012336753</td><td>Januari</td><td>BH H2H LINTAS MAIN via site ODC termonitor DOWN</td>
+<td style="white-space:nowrap">23/01/26 11.35</td>
+<td style="white-space:nowrap">23/01/26 11.36</td>
+<td style="white-space:nowrap">1m</td>
+<td>lintas</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Indikasi link sempet down akibat impact TT-001175-2026 POP BGRAMR RESET dan perangkat Lintas tereset sehingga link flapp</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>5</td><td style="white-space:nowrap">INC26012233291</td><td>Januari</td><td>Termonitor Backhaul Cellular Telkomsel via BSCF &amp; PSCF Down</td>
+<td style="white-space:nowrap">22/01/26 00.09</td>
+<td style="white-space:nowrap">22/01/26 00.11</td>
+<td style="white-space:nowrap">2m</td>
+<td>Telkomsel</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Info rekan Telkomsel: terdapat activity maintenance EBR.BRN.1 dan terdapat flap</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>6</td><td style="white-space:nowrap">INC26012133143</td><td>Januari</td><td>Termonitor Modul Power Supply Slot 1 pada PSC-P3-AS2 Down</td>
+<td style="white-space:nowrap">21/01/26 18.40</td>
+<td style="white-space:nowrap">21/01/26 22.36</td>
+<td style="white-space:nowrap">3j 56m</td>
+<td>perangkat</td>
+<td>device</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Termonitor alarm pada perangkat PSC-P3-AS2 Status Devices RGN via monica.
+Keterangan  : Node status is Warning, Hardware</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>7</td><td style="white-space:nowrap">INC26012132146</td><td>Januari</td><td>Link BH UKER LINTAS Backup via BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">21/01/26 12.15</td>
+<td style="white-space:nowrap">21/01/26 16.09</td>
+<td style="white-space:nowrap">3j 54m</td>
+<td>icon</td>
+<td>BH Main / H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- adanya gangguan putus kabel FO di jarak 6.3 km dari PoP ODC Tabanan ke arah lastmile</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>8</td><td style="white-space:nowrap">INC26012131777</td><td>Januari</td><td>Link BH  UKER &amp; H2H ICON Backup via BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">21/01/26 10.25</td>
+<td style="white-space:nowrap">21/01/26 16.09</td>
+<td style="white-space:nowrap">5j 44m</td>
+<td>icon</td>
+<td>BH backup / H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- adanya gangguan putus kabel FO di jarak 6.3 km dari PoP ODC Tabanan ke arah lastmile</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>9</td><td style="white-space:nowrap">INC26011422068</td><td>Januari</td><td>Termonitor Backhaul Cellular XL Down</td>
+<td style="white-space:nowrap">14/01/26 15.32</td>
+<td style="white-space:nowrap">14/01/26 15.44</td>
+<td style="white-space:nowrap">12m</td>
+<td>XL</td>
+<td>BH / GCP B</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Radio IDU hang</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>10</td><td style="white-space:nowrap">INC26011318131</td><td>Januari</td><td>BH CELLULAR XL BACKUP via site BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">13/01/26 08.05</td>
+<td style="white-space:nowrap">13/01/26 08.15</td>
+<td style="white-space:nowrap">10m</td>
+<td>XL</td>
+<td>BH</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Fiber Failure at section Kediri Tabanan</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>11</td><td style="white-space:nowrap">INC26011318095</td><td>Januari</td><td>BH MPLS UKER MAIN &amp; BACKUP PATRAKOM via site PSCF termonitor DOWN</td>
+<td style="white-space:nowrap">13/01/26 08.00</td>
+<td style="white-space:nowrap">13/01/26 08.10</td>
+<td style="white-space:nowrap">10m</td>
+<td>Partrakom</td>
+<td>BH main/ BH backup</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- investigasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>12</td><td style="white-space:nowrap">INC26011318089</td><td>Januari</td><td>BH UKER, H2H &amp; CELLULAR TELKOM MAIN &amp; BACKUP via site PSCF &amp; ODC termonitor DOWN</td>
+<td style="white-space:nowrap">13/01/26 07.55</td>
+<td style="white-space:nowrap">13/01/26 08.05</td>
+<td style="white-space:nowrap">10m</td>
+<td>telkom</td>
+<td>BH main/ BH backup / H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- investigasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>13</td><td style="white-space:nowrap">INC26011317921</td><td>Januari</td><td>Termonitor Backhaul Backup ICON via pscf Down</td>
+<td style="white-space:nowrap">13/01/26 01.24</td>
+<td style="white-space:nowrap">13/01/26 14.26</td>
+<td style="white-space:nowrap">13j 2m</td>
+<td>icon</td>
+<td>BH backup</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- FO Cut di POP  rg75
+ Tx : -09.8 dBm
+ Rx : los
+Otdr : 825 meter</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>14</td><td style="white-space:nowrap">INC26010914577</td><td>Januari</td><td>link BH Telkomsel celluler backup via Bscf termonitor flapping</td>
+<td style="white-space:nowrap">09/01/26 18.11</td>
+<td style="white-space:nowrap">09/01/26 18.13</td>
+<td style="white-space:nowrap">2m</td>
+<td>telkomsel</td>
+<td>backhaul backup</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Info yang di dapat dari tim telkomsel
+Saat troble shoot tiket problem INC26010812356 (:RJ45 di patchpanel dirack AI 28 l</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>15</td><td style="white-space:nowrap">INC26010812368</td><td>Januari</td><td>link BH H2H LINTAS Main via ODC termonitor flapping</td>
+<td style="white-space:nowrap">08/01/26 19.36</td>
+<td style="white-space:nowrap">08/01/26 19.37</td>
+<td style="white-space:nowrap">1m</td>
+<td>lintas</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- link ter impact TT-000335-2026 CLOSED POP BGRAMR Reset</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>16</td><td style="white-space:nowrap">INC26010812356</td><td>Januari</td><td>link BH Telkomsel celluler backup via Bscf termonitor flapping</td>
+<td style="white-space:nowrap">08/01/26 19.23</td>
+<td style="white-space:nowrap">08/01/26 19.24</td>
+<td style="white-space:nowrap">1m</td>
+<td>Telkomsel</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Info yang di dapat dari tim telkomsel
+RFO :RJ45 di patchpanel dirack AI 28 lt 8 longgar.</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>17</td><td style="white-space:nowrap">INC26010710079</td><td>Januari</td><td>link BH Telkomsel celluler backup via Bscf termonitor flapping</td>
+<td style="white-space:nowrap">07/01/26 21.42</td>
+<td style="white-space:nowrap">07/01/26 21.43</td>
+<td style="white-space:nowrap">1m</td>
+<td>Telkomsel</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- bad UTP connector</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>18</td><td style="white-space:nowrap">INC26010709145</td><td>Januari</td><td>Termonitor Link Backhaul Backup Uker ICON via PSCF Flapping</td>
+<td style="white-space:nowrap">07/01/26 13.07</td>
+<td style="white-space:nowrap">07/01/26 13.08</td>
+<td style="white-space:nowrap">1m</td>
+<td>icon</td>
+<td>BH backup</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>no issue disisi icon</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>19</td><td style="white-space:nowrap">INC26010505049</td><td>Januari</td><td>Termonitor Link Backhaul H2H Fiberstar Main via ODC Down</td>
+<td style="white-space:nowrap">05/01/26 17.14</td>
+<td style="white-space:nowrap">06/01/26 00.14</td>
+<td style="white-space:nowrap">7j 0m</td>
+<td>fiberstar</td>
+<td>BH Main</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Multiple cut</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>20</td><td style="white-space:nowrap">INC26022387872</td><td>Februari</td><td>Link BH UKER  &amp; BH H2H  FIBERSTAR Backup via PSCF  termonitor Down</td>
+<td style="white-space:nowrap">23/02/26 16.09</td>
+<td style="white-space:nowrap">23/02/26 16.16</td>
+<td style="white-space:nowrap">7m</td>
+<td>FIBERSTAR</td>
+<td>BH UKER BACKUP PSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Terdapat incident  FO cut ,Location : di Jalan Saco.</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>21</td><td style="white-space:nowrap">INC26022387654</td><td>Februari</td><td>Termonitor link  BH Fiberstar BU UKO PSC-CO-EM2.bri.co.id_172.31.33.6  down</td>
+<td style="white-space:nowrap">23/02/26 14.52</td>
+<td style="white-space:nowrap">23/02/26 15.55</td>
+<td style="white-space:nowrap">1j 3m</td>
+<td>FIBERSTAR</td>
+<td>Backhaul</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Root Cause : FO cut
+Location : di Jalan Saco
+Impact : Fallen Tree</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>22</td><td style="white-space:nowrap">INC26022286158</td><td>Februari</td><td>Termonitor Backhaul Cellular XL Down</td>
+<td style="white-space:nowrap">22/02/26 15.26</td>
+<td style="white-space:nowrap">22/02/26 15.35</td>
+<td style="white-space:nowrap">9m</td>
+<td>XL</td>
+<td>BACKHAUL MAIN CELLULLAR BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Fiber cut section TukadMungga - Amertasari</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>23</td><td style="white-space:nowrap">INC26022185248</td><td>Februari</td><td>BH UKER &amp; H2H ICON BACKUP via site PSCF termonitor DOWN</td>
+<td style="white-space:nowrap">21/02/26 07.49</td>
+<td style="white-space:nowrap">21/02/26 15.39</td>
+<td style="white-space:nowrap">7j 50m</td>
+<td>ICON</td>
+<td>BACKHAUL BACKUP UKER PSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Terjadi gangguan akibat kabel terputus pada jarak sekitar 370 meter dari PoP Mini GH RG75, ke arah jalur lastmile</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>24</td><td style="white-space:nowrap">INC26021678235</td><td>Februari</td><td>Link BH UKER &amp; H2H FIBERSTAR Backup via BSCF termonitor flapping</td>
+<td style="white-space:nowrap">16/02/26 14.18</td>
+<td style="white-space:nowrap">16/02/26 14.19</td>
+<td style="white-space:nowrap">1m</td>
+<td>FIBERSTAR</td>
+<td>BACKHAUL BACKUP UKER BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi  FIBERSTAR</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>25</td><td style="white-space:nowrap">INC26021577727</td><td>Februari</td><td>BH XL Cellular Backup via BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">15/02/26 09.36</td>
+<td style="white-space:nowrap">15/02/26 12.58</td>
+<td style="white-space:nowrap">3j 22m</td>
+<td>XL</td>
+<td>BACKHAUL BACKUP CELLULAR BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>-  Power problem at site Kediri Tabanan</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>26</td><td style="white-space:nowrap">INC26021477106</td><td>Februari</td><td>BH H2H LINTAS MAIN via site ODC termonitor DOWN</td>
+<td style="white-space:nowrap">14/02/26 00.31</td>
+<td style="white-space:nowrap">14/02/26 00.32</td>
+<td style="white-space:nowrap">1m</td>
+<td>LINTAS</td>
+<td>BACKHAUL MAIN H2H ODC</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>14/02
+05:48 WIB : Service network problem (anomaly)</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>27</td><td style="white-space:nowrap">INC26021377036</td><td>Februari</td><td>Link H2H GCP CYBER XL B  Down</td>
+<td style="white-space:nowrap">13/02/26 19.39</td>
+<td style="white-space:nowrap">13/02/26 19.53</td>
+<td style="white-space:nowrap">14m</td>
+<td>XL</td>
+<td>BACKHAUL</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>link H2H GCP CYBER XL B 169.254.249.137  down pada dashboard monica
+Informasi Tim XL :  terdapat  issue di sisi crt &lt;&gt; r</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>28</td><td style="white-space:nowrap">INC26021377043</td><td>Februari</td><td>Link Backhaul Cellular XL Backup Via BSCF Termonitor Down</td>
+<td style="white-space:nowrap">13/02/26 19.31</td>
+<td style="white-space:nowrap">13/02/26 20.40</td>
+<td style="white-space:nowrap">1j 9m</td>
+<td>XL</td>
+<td>BACKHAUL BACKUP CELLULAR BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>link H2H_BACKHAUL BACKUP CELLULAR BSCF_BACKHAUL XL CELLULAR BACKUP VIA BSCF_172.31.122.6  established pada dashboard mon</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>29</td><td style="white-space:nowrap">INC26021375955</td><td>Februari</td><td>Link backhaul cellular XL backup via bscf termonitor down</td>
+<td style="white-space:nowrap">13/02/26 11.30</td>
+<td style="white-space:nowrap">13/02/26 11.51</td>
+<td style="white-space:nowrap">21m</td>
+<td>XL</td>
+<td>BACKHAUL BACKUP CELLULAR BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Power Problem at Kediri Tabanan</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>30</td><td style="white-space:nowrap">INC26021170287</td><td>Februari</td><td>Link BH UKER CELLULER TSEL Backup Via PSCF &amp; BSCF termonitor fllaping</td>
+<td style="white-space:nowrap">11/02/26 03.00</td>
+<td style="white-space:nowrap">11/02/26 03.01</td>
+<td style="white-space:nowrap">1m</td>
+<td>TSEL</td>
+<td>BACKHAUL</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- impact kegiatan  upgrade Routing Engine EBR.TBS.1</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>31</td><td style="white-space:nowrap">INC26021070262</td><td>Februari</td><td>link BH UKER CELLULAR XL Backup via BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">10/02/26 22.27</td>
+<td style="white-space:nowrap">10/02/26 22.42</td>
+<td style="white-space:nowrap">15m</td>
+<td>XL</td>
+<td>BACKHAUL</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>-Fiber Failure at section SR-DPRGO-01</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>32</td><td style="white-space:nowrap">INC26021069187</td><td>Februari</td><td>Link BH UKER dan H2H Fiberstar Main Via BSCF termonitor offline pada dashboard m</td>
+<td style="white-space:nowrap">10/02/26 12.21</td>
+<td style="white-space:nowrap">10/02/26 17.37</td>
+<td style="white-space:nowrap">5j 16m</td>
+<td>FIBERSTAR</td>
+<td>BACKHAUL</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Termonitor Link BH UKER  (BSC-CO-EM1.bri.co.id ) dan H2H Fiberstar Main Via BSCF  (BSC-P3-CR3)   offline pada dashboard</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>33</td><td style="white-space:nowrap">INC26021069161</td><td>Februari</td><td>Link H2H GCP DCI LINKNET A Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">10/02/26 12.20</td>
+<td style="white-space:nowrap">10/02/26 21.51</td>
+<td style="white-space:nowrap">9j 31m</td>
+<td>LINKNET</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Team Fiberstar  menemukan kabel fo putus di jalan pulau batam di koordinat -8.535938,115.116873 impact penebangan pohon</td>
+<td><span class="badge badge-resolved">Resolved</span></td></tr><tr><td>34</td><td style="white-space:nowrap">INC26020358194</td><td>Februari</td><td>Link BH UKER ICON BACKUP via site BSCF termonitor DOWN</td>
+<td style="white-space:nowrap">03/02/26 20.26</td>
+<td style="white-space:nowrap">03/02/26 20.29</td>
+<td style="white-space:nowrap">3m</td>
+<td>ICON</td>
+<td>BACKHAUL BACKUP UKER BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>link backhaul backup icon via bscf 172.31.26.6 Adanya gangguan bad performance segment kapal</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>35</td><td style="white-space:nowrap">INC26030405270</td><td>Maret</td><td>BH CELLULAR MAIN &amp; BACKUP VIA BSCF Termonitor Down pada Dashboard Monitoring Mon</td>
+<td style="white-space:nowrap">04/03/26 13.28</td>
+<td style="white-space:nowrap">04/03/26 13.32</td>
+<td style="white-space:nowrap">4m</td>
+<td>XL</td>
+<td>BACKHAUL MAIN BSCF, BACKHAUL XL MAIN CELLULAR BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Fiber Failure at section SR-DPRGO-01</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>36</td><td style="white-space:nowrap">INC26030506221</td><td>Maret</td><td>Termonitor Link H2H Etoll Medan Binjai Down</td>
+<td style="white-space:nowrap">05/03/26 07.53</td>
+<td style="white-space:nowrap">08/03/26 21.24</td>
+<td style="white-space:nowrap">85j 31m</td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Indikator lampu pada modem Hughes mati total
+- Indikasi awal problem pada adaptor modem hughes ht2300 rusak
+- Dilakuka</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>37</td><td style="white-space:nowrap">INC26030506732</td><td>Maret</td><td>Termonitor Link H2H Kntr Operator Ruas Tol Jagorawi</td>
+<td style="white-space:nowrap">05/03/26 09.40</td>
+<td style="white-space:nowrap">05/03/26 10.52</td>
+<td style="white-space:nowrap">1j 12m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Hasil pengecekan No ARP</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>38</td><td style="white-space:nowrap">INC26030710453</td><td>Maret</td><td>Koneksi H2H DALAMENTA BRIZZI termonitor DOWN pada dashboard monica</td>
+<td style="white-space:nowrap">07/03/26 14.09</td>
+<td style="white-space:nowrap">07/03/26 15.26</td>
+<td style="white-space:nowrap">1j 17m</td>
+<td>LINTAS</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Link terjadi intermitten
+- Penyebab akibat cuaca buruk dilokasi</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>39</td><td style="white-space:nowrap">INC26030810783</td><td>Maret</td><td>Termonitor Link H2H Kntr Operator Ruas Tol Jkt Cikampek Down</td>
+<td style="white-space:nowrap">08/03/26 15.45</td>
+<td style="white-space:nowrap">09/03/26 23.55</td>
+<td style="white-space:nowrap">32j 10m</td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Gangguan Putus Core di jarak 213 meter dari sisi Joint box BKSJ 20219</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>40</td><td style="white-space:nowrap">INC26030910912</td><td>Maret</td><td>H2H OVO BRIVA LINKNET Termonitor down pada dashboard monica</td>
+<td style="white-space:nowrap">09/03/26 00.43</td>
+<td style="white-space:nowrap">09/03/26 04.56</td>
+<td style="white-space:nowrap">4j 13m</td>
+<td>LINKNET</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Fo Cut di jarak 8.7 km dari sisi BDF, tepatnya di jalan Ampera raya ( -6.2755 106.8208 )</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>41</td><td style="white-space:nowrap">INC26030911635</td><td>Maret</td><td>Link Cellular XL Main via BSCF BGP BSC-CO-EC5 termonitor DOWN</td>
+<td style="white-space:nowrap">09/03/26 09.56</td>
+<td style="white-space:nowrap">09/03/26 16.58</td>
+<td style="white-space:nowrap">7j 2m</td>
+<td>XL</td>
+<td>BACKHAUL MAIN CELLULER BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Fiber Cut at Antosari-KediriTabanan, PantaiSoka-DenpasarOffice, BRIBSCF-KediriTabanan</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>42</td><td style="white-space:nowrap">INC26031117303</td><td>Maret</td><td>BH H2H ISAT BACKUP ODC terpantau down</td>
+<td style="white-space:nowrap">11/03/26 21.37</td>
+<td style="white-space:nowrap">11/03/26 21.38</td>
+<td style="white-space:nowrap">1m</td>
+<td>INDOSAT</td>
+<td>BACKHAUL BACKUP H2H ODC</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Service was flaping due to path reset at segment NARASOMA to KPPTI</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>43</td><td style="white-space:nowrap">INC26031218713</td><td>Maret</td><td>BH CELLULLAR XL MAIN BSCF Termonitor Flapping</td>
+<td style="white-space:nowrap">12/03/26 15.02</td>
+<td style="white-space:nowrap">12/03/26 15.03</td>
+<td style="white-space:nowrap">1m</td>
+<td>XL</td>
+<td>BACKHAUL MAIN XL BSCF</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>-MBH LSP Problem at site Tabanan</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>44</td><td style="white-space:nowrap">INC26031421708</td><td>Maret</td><td>Termonitor LInk H2H E-Toll Jakarta Tangerang Down</td>
+<td style="white-space:nowrap">14/03/26 14.08</td>
+<td style="white-space:nowrap">14/03/26 16.16</td>
+<td style="white-space:nowrap">2j 8m</td>
+<td>FO CUT</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- fo cut di port  kearah lastmile</td>
+<td><span class="badge badge-closed">Closed</span></td></tr><tr><td>45</td><td style="white-space:nowrap">INC26032935935</td><td>Maret</td><td>Link H2H GCP CYBER XL A &amp; H2H GCP CYBER XL B termonitor DOWN</td>
+<td style="white-space:nowrap">29/03/26 03.46</td>
+<td style="white-space:nowrap">29/03/26 05.05</td>
+<td style="white-space:nowrap">1j 19m</td>
+<td>XL</td>
+<td>H2H</td>
+<td><span class="badge badge-na">-</span></td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- impact FO CUT BintaroOffice-Cyber3, Cyber3-Centenial &amp; Cibitung-Cyber3
+- penyebab downtime impact Fiber Cut at Cyber3-</td>
+<td><span class="badge badge-closed">Closed</span></td></tr></table>
+</div>
+
+<div class="section">
+<h2>⚠️ Insiden On Hold (3 tiket)</h2>
+<table>
+<tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Impact Level</th><th>Provider</th><th>Kategori</th><th>Root Cause</th></tr><tr>
+<td>1</td><td style="white-space:nowrap">INC26022899132</td><td>Februari</td>
+<td>Link  H2H IPsec IMIP Termonitor Down</td><td style="white-space:nowrap">28/02/26 21.18</td>
+<td><span class="badge badge-high">High</span></td><td>BRI</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td><td>Gangguan disisi pihak Kemenkeu</td></tr><tr>
+<td>2</td><td style="white-space:nowrap">INC26022899132</td><td>Februari</td>
+<td>Link  H2H IPsec IMIP Termonitor Down</td><td style="white-space:nowrap">28/02/26 21.18</td>
+<td><span class="badge badge-high">High</span></td><td>BRI</td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td><td>- Investigasi</td></tr><tr>
+<td>3</td><td style="white-space:nowrap">INC26033037707</td><td>Maret</td>
+<td>H2H DALAMENTA BRIZZI termonitor DWN pada dashboard monica</td><td style="white-space:nowrap">30/03/26 14.57</td>
+<td><span class="badge badge-high">High</span></td><td>LINTAS</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td><td></td></tr></table>
+</div>
+
+
+<div class="section">
+<h2>🔴 Seluruh Insiden High Impact — 39 Tiket</h2>
+<p style="font-size:.82em;color:#666;margin-bottom:12px">Kriteria: Durasi &gt;12 jam / multi-link / backhaul main+backup. Diurutkan dari durasi terlama.</p>
+<table>
+<tr><th>No</th><th>Tiket</th><th>Bulan</th><th>Nama Insiden</th><th>Detected</th><th>Recovered</th><th>Durasi</th><th>Provider</th><th>Jenis Jarkom</th><th>Kategori Root Cause</th><th>Root Cause</th><th>Status</th></tr><tr class="row-high">
+<td>1</td>
+<td style="white-space:nowrap">INC26022899132</td>
+<td>Februari</td>
+<td>Link  H2H IPsec IMIP Termonitor Down</td>
+<td style="white-space:nowrap">28/02/26 21.18</td>
+<td style="white-space:nowrap">31/03/26 23.59</td>
+<td style="white-space:nowrap"><strong>746j 41m</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- Investigasi</td>
+<td><span class="badge badge-onhold">On Hold</span></td>
+</tr><tr class="row-high">
+<td>2</td>
+<td style="white-space:nowrap">INC26020865573</td>
+<td>Februari</td>
+<td>Termonitor Link H2H Unila Down</td>
+<td style="white-space:nowrap">08/02/26 13.10</td>
+<td style="white-space:nowrap">22/02/26 00.09</td>
+<td style="white-space:nowrap"><strong>322j 59m</strong></td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Kendala Utama:
+Server mengalami hang dan tidak dapat menyala (tidak bisa UP). Ditemukan adanya bad sector pada media pen</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>3</td>
+<td style="white-space:nowrap">INC26031826589</td>
+<td>Maret</td>
+<td>Termonitor Link H2H TWP AD Down</td>
+<td style="white-space:nowrap">18/03/26 09.54</td>
+<td style="white-space:nowrap">30/03/26 12.12</td>
+<td style="white-space:nowrap"><strong>290j 18m</strong></td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Termonitor Link H2H TWP AD Down
+Hasil pengecekan PIT lokasi dan tim provider terdapat kendala kerusakan pada konektor ou</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>4</td>
+<td style="white-space:nowrap">INC26031926970</td>
+<td>Maret</td>
+<td>Link H2H SECURE Parking Brizzi termonitor Down</td>
+<td style="white-space:nowrap">19/03/26 01.19</td>
+<td style="white-space:nowrap">23/03/26 15.51</td>
+<td style="white-space:nowrap"><strong>110j 32m</strong></td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Perangkat modem off/mati, penyebab nya terdapat kerusakan pada adaptor modem</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>5</td>
+<td style="white-space:nowrap">INC26013049231</td>
+<td>Januari</td>
+<td>Link H2H EToll Kayu Agung - Palembang Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">30/01/26 07.05</td>
+<td style="white-space:nowrap">02/02/26 22.23</td>
+<td style="white-space:nowrap"><strong>87j 18m</strong></td>
+<td>telkomsat</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>problem pada Adaptor ht2300 NOK</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>6</td>
+<td style="white-space:nowrap">INC26013049231</td>
+<td>Januari</td>
+<td>Link H2H EToll Kayu Agung - Palembang Termonitor Offline pada dashboard Nominal</td>
+<td style="white-space:nowrap">30/01/26 07.05</td>
+<td style="white-space:nowrap">02/02/26 22.23</td>
+<td style="white-space:nowrap"><strong>87j 18m</strong></td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>problem pada Adaptor ht2300 NOK</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>7</td>
+<td style="white-space:nowrap">INC26012337901</td>
+<td>Januari</td>
+<td>Link H2H IPsec PNM DC TBS termonitor Down via Monica</td>
+<td style="white-space:nowrap">23/01/26 22.31</td>
+<td style="white-space:nowrap">26/01/26 12.27</td>
+<td style="white-space:nowrap"><strong>61j 56m</strong></td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>problem disisi server PNM</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>8</td>
+<td style="white-space:nowrap">INC26020865715</td>
+<td>Februari</td>
+<td>Link H2H E-Toll Jakarta Tangerang termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">08/02/26 21.35</td>
+<td style="white-space:nowrap">11/02/26 10.08</td>
+<td style="white-space:nowrap"><strong>60j 33m</strong></td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>08/02
+- hasil pengecekan dari sisi icon NO ARP
+
+11/02
+Berdasarkan pengecekan awal, adanya gangguan putus kabel FO dititi</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>9</td>
+<td style="white-space:nowrap">INC26030199218</td>
+<td>Maret</td>
+<td>Link H2H PDAM PALEMBANG termonitor offline via Nominal</td>
+<td style="white-space:nowrap">01/03/26 03.11</td>
+<td style="white-space:nowrap">03/03/26 13.19</td>
+<td style="white-space:nowrap"><strong>58j 8m</strong></td>
+<td>VSAT</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- LOW SQF</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>10</td>
+<td style="white-space:nowrap">INC26010302565</td>
+<td>Januari</td>
+<td>Link H2H IAIN SURAKARTA Termonitor Down Pada Dashboard Monica</td>
+<td style="white-space:nowrap">03/01/26 07.32</td>
+<td style="white-space:nowrap">05/01/26 12.47</td>
+<td style="white-space:nowrap"><strong>53j 15m</strong></td>
+<td>fiberstar</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi gangguan pada ip 10.10.223.3 terblok Firewall di PC server BRI dilokasi IAIN Surakarta, info PIC setiap kali</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>11</td>
+<td style="white-space:nowrap">INC26012437970</td>
+<td>Januari</td>
+<td>Link H2H PTP Terminal TJ Priok WS termonitor down via Monica</td>
+<td style="white-space:nowrap">24/01/26 06.11</td>
+<td style="white-space:nowrap">26/01/26 09.31</td>
+<td style="white-space:nowrap"><strong>51j 20m</strong></td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>problem pada power supply perangkat dilokasi off</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>12</td>
+<td style="white-space:nowrap">INC26033037771</td>
+<td>Maret</td>
+<td>H2H Politeknik Bandung  termonitor DOWN pada dashboard Nominal</td>
+<td style="white-space:nowrap">30/03/26 15.20</td>
+<td style="white-space:nowrap">01/04/26 15.32</td>
+<td style="white-space:nowrap"><strong>48j 12m</strong></td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Modem mati total
+- Router mikrotik rusak
+
+
+[By Adbillah Fajar-3/31/2026 9:11:03 AM] Plan team dengan Kelvin
+[By Adbill</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>13</td>
+<td style="white-space:nowrap">INC26021377101</td>
+<td>Februari</td>
+<td>Link H2H E-Toll GERBANG TOL LUBUK PAKAM Termonitor Down</td>
+<td style="white-space:nowrap">13/02/26 23.47</td>
+<td style="white-space:nowrap">15/02/26 23.15</td>
+<td style="white-space:nowrap"><strong>47j 28m</strong></td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>- Modem mati total</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>14</td>
+<td style="white-space:nowrap">INC26021272635</td>
+<td>Februari</td>
+<td>Link H2H MTI EDC Termonitor Down</td>
+<td style="white-space:nowrap">12/02/26 00.39</td>
+<td style="white-space:nowrap">13/02/26 19.37</td>
+<td style="white-space:nowrap"><strong>42j 58m</strong></td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Hasil pengecekan indikasi awal adanya asimetris antara backhaul main-backup Fiberstar</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>15</td>
+<td style="white-space:nowrap">INC26030201668</td>
+<td>Maret</td>
+<td>Termonitor Link H2H E-TOL LUBUK PAKAM Down</td>
+<td style="white-space:nowrap">02/03/26 23.59</td>
+<td style="white-space:nowrap">04/03/26 15.04</td>
+<td style="white-space:nowrap"><strong>39j 5m</strong></td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Error pada mikrotik</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>16</td>
+<td style="white-space:nowrap">INC26022185200</td>
+<td>Februari</td>
+<td>Link H2H IAIN SURAKARTA Termonitor Down Pada Dashboard Monica</td>
+<td style="white-space:nowrap">21/02/26 01.20</td>
+<td style="white-space:nowrap">22/02/26 12.21</td>
+<td style="white-space:nowrap"><strong>35j 1m</strong></td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>indikasi kabel LAN pada port LAN dilokasi tidak tercolok</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>17</td>
+<td style="white-space:nowrap">INC26012538630</td>
+<td>Januari</td>
+<td>Link H2H IAIN SURAKARTA  Termonitor Down Pada Dashboard Monica</td>
+<td style="white-space:nowrap">25/01/26 09.31</td>
+<td style="white-space:nowrap">26/01/26 19.08</td>
+<td style="white-space:nowrap"><strong>33j 37m</strong></td>
+<td>fiberstar</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Kendala kelistrikan dilokasi impact Power on PC server.</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>18</td>
+<td style="white-space:nowrap">INC26012438562</td>
+<td>Januari</td>
+<td>Link H2H Unila termonitor offline via dashboard INMS</td>
+<td style="white-space:nowrap">24/01/26 23.47</td>
+<td style="white-space:nowrap">26/01/26 08.52</td>
+<td style="white-space:nowrap"><strong>33j 5m</strong></td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Kendala pada PC server dilokasi</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>19</td>
+<td style="white-space:nowrap">INC26033037707</td>
+<td>Maret</td>
+<td>H2H DALAMENTA BRIZZI termonitor DWN pada dashboard monica</td>
+<td style="white-space:nowrap">30/03/26 14.57</td>
+<td style="white-space:nowrap">31/03/26 23.59</td>
+<td style="white-space:nowrap"><strong>33j 2m</strong></td>
+<td>LINTAS</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td></td>
+<td><span class="badge badge-onhold">On Hold</span></td>
+</tr><tr class="row-high">
+<td>20</td>
+<td style="white-space:nowrap">INC26020965772</td>
+<td>Februari</td>
+<td>Link H2H IAIN SURAKARTA termonitor DOWN pada dashboard Monica</td>
+<td style="white-space:nowrap">09/02/26 06.02</td>
+<td style="white-space:nowrap">10/02/26 13.26</td>
+<td style="white-space:nowrap"><strong>31j 24m</strong></td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Indikasi pemadaman listrik di lokasi IAIN Surakarta</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>21</td>
+<td style="white-space:nowrap">INC26012638865</td>
+<td>Januari</td>
+<td>Termonitor Link H2H H2H E-TOLL NGAWI KERTOSONO</td>
+<td style="white-space:nowrap">26/01/26 02.59</td>
+<td style="white-space:nowrap">27/01/26 07.24</td>
+<td style="white-space:nowrap"><strong>28j 25m</strong></td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>indikasi problem mikrotik di lokasi</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>22</td>
+<td style="white-space:nowrap">INC26021477473</td>
+<td>Februari</td>
+<td>Link H2H UNIV NEGERI MALANG Termonitor Down</td>
+<td style="white-space:nowrap">14/02/26 13.37</td>
+<td style="white-space:nowrap">15/02/26 15.47</td>
+<td style="white-space:nowrap"><strong>26j 10m</strong></td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- indikasi problem disisi univ Negri Malang</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>23</td>
+<td style="white-space:nowrap">INC26011524538</td>
+<td>Januari</td>
+<td>Link H2H KANTOR OPERATOR JORR - W1(PT. JLB) Jakarta Lingkar Barat termonitor off</td>
+<td style="white-space:nowrap">15/01/26 16.42</td>
+<td style="white-space:nowrap">16/01/26 15.04</td>
+<td style="white-space:nowrap"><strong>22j 22m</strong></td>
+<td>icon</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>putus core disisi jointbox GGPJ1000</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>24</td>
+<td style="white-space:nowrap">INC26022593415</td>
+<td>Februari</td>
+<td>link H2H KANTOR OPERATOR JORR - W1(PT. JLB) Jakarta Lingkar Barat Termonitor Dow</td>
+<td style="white-space:nowrap">25/02/26 23.24</td>
+<td style="white-space:nowrap">26/02/26 21.44</td>
+<td style="white-space:nowrap"><strong>22j 20m</strong></td>
+<td>ICON</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>indikasi adanya gangguan FO CUT dijarak 1.4 KM dari Lastmile</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>25</td>
+<td style="white-space:nowrap">INC26032632818</td>
+<td>Maret</td>
+<td>Link H2H E-Toll Belmera termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">26/03/26 18.18</td>
+<td style="white-space:nowrap">27/03/26 15.08</td>
+<td style="white-space:nowrap"><strong>20j 50m</strong></td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>UPS dilokasi rusak
+
+Udah online rekan, problem kelistrikan
+RP/0/RSP0/CPU0:PE2-D1-MDC-VPN#ping v Mpls_BRI 10.55.250.6  c</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>26</td>
+<td style="white-space:nowrap">INC26020765366</td>
+<td>Februari</td>
+<td>Termonitor Link H2H IPsec ASWATA down</td>
+<td style="white-space:nowrap">07/02/26 17.11</td>
+<td style="white-space:nowrap">08/02/26 13.36</td>
+<td style="white-space:nowrap"><strong>20j 25m</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Terjadi kendala pada server ASWATA</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>27</td>
+<td style="white-space:nowrap">INC26021376973</td>
+<td>Februari</td>
+<td>Link H2H STATLEMENT BRIZZI PELINDO 2_VIA BACKUP LINTAS</td>
+<td style="white-space:nowrap">13/02/26 18.48</td>
+<td style="white-space:nowrap">14/02/26 14.40</td>
+<td style="white-space:nowrap"><strong>19j 52m</strong></td>
+<td>LINTAS</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>[By vicho.giraldi@lintasarta.co.id-2/14/2026 6:53:06 AM] link up
+[By tri.arianto@lintasarta.co.id-2/14/2026 4:44:47 PM]</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>28</td>
+<td style="white-space:nowrap">INC26012640079</td>
+<td>Januari</td>
+<td>H2H YGY PDAM BANTUL termonitor DOWN pada INMS</td>
+<td style="white-space:nowrap">26/01/26 12.11</td>
+<td style="white-space:nowrap">27/01/26 07.22</td>
+<td style="white-space:nowrap"><strong>19j 11m</strong></td>
+<td>satkom</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>anomali pada router</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>29</td>
+<td style="white-space:nowrap">INC26022695718</td>
+<td>Februari</td>
+<td>Link H2H IPsec MNC Life DRC termonitor Down</td>
+<td style="white-space:nowrap">26/02/26 20.55</td>
+<td style="white-space:nowrap">27/02/26 14.26</td>
+<td style="white-space:nowrap"><strong>17j 31m</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi problem di sisi MNC Life DRC</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>30</td>
+<td style="white-space:nowrap">INC26022695460</td>
+<td>Februari</td>
+<td>Link H2H IPsec SOFTPOS BAYARIND termonitor Down</td>
+<td style="white-space:nowrap">26/02/26 16.46</td>
+<td style="white-space:nowrap">27/02/26 09.51</td>
+<td style="white-space:nowrap"><strong>17j 5m</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi kendala di sisi VPN IPsec lokal</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>31</td>
+<td style="white-space:nowrap">INC26033139806</td>
+<td>Maret</td>
+<td>H2H Pemkot Batam Termonitor Down Pada INMS</td>
+<td style="white-space:nowrap">31/03/26 13.00</td>
+<td style="white-space:nowrap">01/04/26 04.32</td>
+<td style="white-space:nowrap"><strong>15j 32m</strong></td>
+<td>SATKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Indikasi problem di sisi H2H Pemkot Batam</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>32</td>
+<td style="white-space:nowrap">INC26010503202</td>
+<td>Januari</td>
+<td>Link H2H EToll Kayu Agung - Palembang termonitor down via dashboard INMS</td>
+<td style="white-space:nowrap">05/01/26 00.00</td>
+<td style="white-space:nowrap">05/01/26 15.16</td>
+<td style="white-space:nowrap"><strong>15j 16m</strong></td>
+<td>telkom</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- BGP pada router down</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>33</td>
+<td style="white-space:nowrap">INC26031624192</td>
+<td>Maret</td>
+<td>Link H2H IAIN SURAKARTA termonitor DOWN</td>
+<td style="white-space:nowrap">16/03/26 23.46</td>
+<td style="white-space:nowrap">17/03/26 14.36</td>
+<td style="white-space:nowrap"><strong>14j 50m</strong></td>
+<td>FIBERSTAR</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>- Terdapat bug pada windows yang mengakibatkan RASS block ke ICMP</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>34</td>
+<td style="white-space:nowrap">INC26030403975</td>
+<td>Maret</td>
+<td>Termonitor Link H2H E-Toll Mandra Bali Down</td>
+<td style="white-space:nowrap">04/03/26 05.33</td>
+<td style="white-space:nowrap">04/03/26 18.56</td>
+<td style="white-space:nowrap"><strong>13j 23m</strong></td>
+<td>TELKOM</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Impact gamas FO cut
+
+Termonitor normal kembali</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>35</td>
+<td style="white-space:nowrap">INC26022694333</td>
+<td>Februari</td>
+<td>Link BEBERAPA REMOTE H2H VIA IPSEC Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">26/02/26 10.46</td>
+<td style="white-space:nowrap">26/02/26 11.41</td>
+<td style="white-space:nowrap"><strong>55m</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>- Indikasi impact tunnel down</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>36</td>
+<td style="white-space:nowrap">INC26012234303</td>
+<td>Januari</td>
+<td>Link Beberapa Remote H2H via IPSEC termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">22/01/26 10.51</td>
+<td style="white-space:nowrap">22/01/26 11.01</td>
+<td style="white-space:nowrap"><strong>10m</strong></td>
+<td>IP Sec</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Problem intermitten kearah Global dan Domestik.
+Hasil pengecekan ada salah satu sirkit customer telkom terkena DDOS Att</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>37</td>
+<td style="white-space:nowrap">INC26021375076</td>
+<td>Februari</td>
+<td>BH H2H TELKOM MAIN BCAKUP Via Site ODC dan BH UKER TELKOM MAIN BACKUP Via Site P</td>
+<td style="white-space:nowrap">13/02/26 02.07</td>
+<td style="white-space:nowrap">13/02/26 02.17</td>
+<td style="white-space:nowrap"><strong>10m</strong></td>
+<td>TELKOM</td>
+<td>BACKHAUL MAIN&amp;amp;BACKUP H2H ODC</td>
+<td><span class="badge badge-bri">Issue Internal BRI</span></td>
+<td>Trafik congest kearah kebayoran</td>
+<td><span class="badge badge-resolved">Resolved</span></td>
+</tr><tr class="row-high">
+<td>38</td>
+<td style="white-space:nowrap">INC26012640480</td>
+<td>Januari</td>
+<td>Link BEBERAPA REMOTE H2H IPSEC Termonitor Offline pada dashboard monica</td>
+<td style="white-space:nowrap">26/01/26 14.31</td>
+<td style="white-space:nowrap">26/01/26 14.36</td>
+<td style="white-space:nowrap"><strong>5m</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-prov">Issue Provider</span></td>
+<td>Kendala Linknet
+- Power OFF impact PLN Activity</td>
+<td><span class="badge badge-closed">Closed</span></td>
+</tr><tr class="row-high">
+<td>39</td>
+<td style="white-space:nowrap">INC26022899132</td>
+<td>Februari</td>
+<td>Link  H2H IPsec IMIP Termonitor Down</td>
+<td style="white-space:nowrap">28/02/26 21.18</td>
+<td style="white-space:nowrap"></td>
+<td style="white-space:nowrap"><strong>-</strong></td>
+<td>BRI</td>
+<td>H2H</td>
+<td><span class="badge badge-pihak3">Issue Pihak Ketiga</span></td>
+<td>Gangguan disisi pihak Kemenkeu</td>
+<td><span class="badge badge-onhold">On Hold</span></td>
+</tr></table>
+</div>
+
+<div class="footer">
+Dokumen di-generate otomatis dari Buku1(Lembar1).csv — Rekap Insiden EXO Triwulan 1 2026<br>
+Total: 175 tiket | Impact: 130 (High: 39, Medium: 63, Low: 28) | No Impact: 45 | On Hold: 3<br>
+<br>Kriteria Impact Level: <strong>High</strong> = durasi &gt;12 jam / multi-link / backhaul main+backup &nbsp;|&nbsp; <strong>Medium</strong> = durasi 1–12 jam &nbsp;|&nbsp; <strong>Low</strong> = durasi &lt;1 jam
+</div>
+</div>
+</body>
+</html>
